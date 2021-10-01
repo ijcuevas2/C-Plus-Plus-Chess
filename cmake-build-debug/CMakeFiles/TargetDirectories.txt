@@ -1,0 +1,4 @@
+/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess.dir
+/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess_autogen.dir
