@@ -116,13 +116,13 @@
 		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/enums/Player.h">
 			<Option target="Chess"/>
 		</Unit>
-		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/headers/Board.h">
-			<Option target="Chess"/>
-		</Unit>
-		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/headers/ChessPiece.h">
+		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/headers/BoardSpace.h">
 			<Option target="Chess"/>
 		</Unit>
 		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/headers/ChessPieces/Bishop.h">
+			<Option target="Chess"/>
+		</Unit>
+		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/headers/ChessPieces/ChessPiece.h">
 			<Option target="Chess"/>
 		</Unit>
 		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/headers/ChessPieces/King.h">
@@ -140,19 +140,19 @@
 		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/headers/ChessPieces/Queen.h">
 			<Option target="Chess"/>
 		</Unit>
+		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/headers/ChessPieces/Resources.h">
+			<Option target="Chess"/>
+		</Unit>
 		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/headers/ChessPieces/Rook.h">
 			<Option target="Chess"/>
 		</Unit>
-		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/headers/views/chessview.cpp">
+		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/headers/Game.h">
 			<Option target="Chess"/>
 		</Unit>
-		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/headers/views/chessview.h">
+		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/headers/Point.h">
 			<Option target="Chess"/>
 		</Unit>
-		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/headers/views/chessview.ui">
-			<Option target="Chess"/>
-		</Unit>
-		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/src/Board.cpp">
+		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/src/BoardSpace.cpp">
 			<Option target="Chess"/>
 		</Unit>
 		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/src/ChessPiece.cpp">
@@ -177,6 +177,18 @@
 			<Option target="Chess"/>
 		</Unit>
 		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/src/ChessPieces/Rook.cpp">
+			<Option target="Chess"/>
+		</Unit>
+		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/src/Game.cpp">
+			<Option target="Chess"/>
+		</Unit>
+		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/views/ChessView.cpp">
+			<Option target="Chess"/>
+		</Unit>
+		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/views/ChessView.h">
+			<Option target="Chess"/>
+		</Unit>
+		<Unit filename="/home/ismael/CLionProjects/Chess/ChessBoard/views/ChessView.ui">
 			<Option target="Chess"/>
 		</Unit>
 		<Unit filename="/home/ismael/CLionProjects/Chess/cmake-build-debug/Chess_autogen/mocs_compilation.cpp">

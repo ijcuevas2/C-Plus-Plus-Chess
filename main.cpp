@@ -1,16 +1,29 @@
 #include <QApplication>
 #include <QPushButton>
-#include "ChessBoard/headers/Board.h"
+#include <QGraphicsScene>
+#include <QGraphicsRectItem>
+#include <QGraphicsView>
+#include "ChessBoard/headers/Game.h"
+#include "ChessBoard/views/ChessView.h"
+
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
-    QPushButton button("Hello world!", nullptr);
-    button.resize(200, 100);
-    button.show();
 
-    Board* board = new Board();
-    board->initializeBoard();
-    board->printBoard();
+//    Game* board = new Game();
+//    board->printBoard();
+//    delete board;
 
-    return QApplication::exec();
+    // create a scene
+//    QGraphicsScene* scene = new QGraphicsScene();
+
+//    QGraphicsRectItem* rect = new QGraphicsRectItem();
+//    rect->setRect(0, 0, 100, 100);
+
+    // add the item to the scene
+    // scene->addItem(rect);
+
+    ChessView* chessView = new ChessView();
+    chessView->show();
+    return a.exec();
 }

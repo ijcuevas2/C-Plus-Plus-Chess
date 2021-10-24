@@ -48,10 +48,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/164/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/169/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/164/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/169/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/ismael/CLionProjects/Chess/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/164/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/169/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -78,7 +78,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/164/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/169/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -142,53 +142,29 @@ Chess_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess_autogen.dir/build.make CMakeFiles/Chess_autogen.dir/build
 .PHONY : Chess_autogen/fast
 
-ChessBoard/headers/views/chessview.o: ChessBoard/headers/views/chessview.cpp.o
-.PHONY : ChessBoard/headers/views/chessview.o
+ChessBoard/src/BoardSpace.o: ChessBoard/src/BoardSpace.cpp.o
+.PHONY : ChessBoard/src/BoardSpace.o
 
 # target to build an object file
-ChessBoard/headers/views/chessview.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.o
-.PHONY : ChessBoard/headers/views/chessview.cpp.o
+ChessBoard/src/BoardSpace.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.o
+.PHONY : ChessBoard/src/BoardSpace.cpp.o
 
-ChessBoard/headers/views/chessview.i: ChessBoard/headers/views/chessview.cpp.i
-.PHONY : ChessBoard/headers/views/chessview.i
-
-# target to preprocess a source file
-ChessBoard/headers/views/chessview.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.i
-.PHONY : ChessBoard/headers/views/chessview.cpp.i
-
-ChessBoard/headers/views/chessview.s: ChessBoard/headers/views/chessview.cpp.s
-.PHONY : ChessBoard/headers/views/chessview.s
-
-# target to generate assembly for a file
-ChessBoard/headers/views/chessview.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.s
-.PHONY : ChessBoard/headers/views/chessview.cpp.s
-
-ChessBoard/src/Board.o: ChessBoard/src/Board.cpp.o
-.PHONY : ChessBoard/src/Board.o
-
-# target to build an object file
-ChessBoard/src/Board.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.o
-.PHONY : ChessBoard/src/Board.cpp.o
-
-ChessBoard/src/Board.i: ChessBoard/src/Board.cpp.i
-.PHONY : ChessBoard/src/Board.i
+ChessBoard/src/BoardSpace.i: ChessBoard/src/BoardSpace.cpp.i
+.PHONY : ChessBoard/src/BoardSpace.i
 
 # target to preprocess a source file
-ChessBoard/src/Board.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.i
-.PHONY : ChessBoard/src/Board.cpp.i
+ChessBoard/src/BoardSpace.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.i
+.PHONY : ChessBoard/src/BoardSpace.cpp.i
 
-ChessBoard/src/Board.s: ChessBoard/src/Board.cpp.s
-.PHONY : ChessBoard/src/Board.s
+ChessBoard/src/BoardSpace.s: ChessBoard/src/BoardSpace.cpp.s
+.PHONY : ChessBoard/src/BoardSpace.s
 
 # target to generate assembly for a file
-ChessBoard/src/Board.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.s
-.PHONY : ChessBoard/src/Board.cpp.s
+ChessBoard/src/BoardSpace.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.s
+.PHONY : ChessBoard/src/BoardSpace.cpp.s
 
 ChessBoard/src/ChessPiece.o: ChessBoard/src/ChessPiece.cpp.o
 .PHONY : ChessBoard/src/ChessPiece.o
@@ -382,6 +358,54 @@ ChessBoard/src/ChessPieces/Rook.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Rook.cpp.s
 .PHONY : ChessBoard/src/ChessPieces/Rook.cpp.s
 
+ChessBoard/src/Game.o: ChessBoard/src/Game.cpp.o
+.PHONY : ChessBoard/src/Game.o
+
+# target to build an object file
+ChessBoard/src/Game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.o
+.PHONY : ChessBoard/src/Game.cpp.o
+
+ChessBoard/src/Game.i: ChessBoard/src/Game.cpp.i
+.PHONY : ChessBoard/src/Game.i
+
+# target to preprocess a source file
+ChessBoard/src/Game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.i
+.PHONY : ChessBoard/src/Game.cpp.i
+
+ChessBoard/src/Game.s: ChessBoard/src/Game.cpp.s
+.PHONY : ChessBoard/src/Game.s
+
+# target to generate assembly for a file
+ChessBoard/src/Game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.s
+.PHONY : ChessBoard/src/Game.cpp.s
+
+ChessBoard/views/ChessView.o: ChessBoard/views/ChessView.cpp.o
+.PHONY : ChessBoard/views/ChessView.o
+
+# target to build an object file
+ChessBoard/views/ChessView.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.o
+.PHONY : ChessBoard/views/ChessView.cpp.o
+
+ChessBoard/views/ChessView.i: ChessBoard/views/ChessView.cpp.i
+.PHONY : ChessBoard/views/ChessView.i
+
+# target to preprocess a source file
+ChessBoard/views/ChessView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.i
+.PHONY : ChessBoard/views/ChessView.cpp.i
+
+ChessBoard/views/ChessView.s: ChessBoard/views/ChessView.cpp.s
+.PHONY : ChessBoard/views/ChessView.s
+
+# target to generate assembly for a file
+ChessBoard/views/ChessView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.s
+.PHONY : ChessBoard/views/ChessView.cpp.s
+
 Chess_autogen/mocs_compilation.o: Chess_autogen/mocs_compilation.cpp.o
 .PHONY : Chess_autogen/mocs_compilation.o
 
@@ -440,12 +464,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Chess_autogen"
 	@echo "... Chess"
-	@echo "... ChessBoard/headers/views/chessview.o"
-	@echo "... ChessBoard/headers/views/chessview.i"
-	@echo "... ChessBoard/headers/views/chessview.s"
-	@echo "... ChessBoard/src/Board.o"
-	@echo "... ChessBoard/src/Board.i"
-	@echo "... ChessBoard/src/Board.s"
+	@echo "... ChessBoard/src/BoardSpace.o"
+	@echo "... ChessBoard/src/BoardSpace.i"
+	@echo "... ChessBoard/src/BoardSpace.s"
 	@echo "... ChessBoard/src/ChessPiece.o"
 	@echo "... ChessBoard/src/ChessPiece.i"
 	@echo "... ChessBoard/src/ChessPiece.s"
@@ -470,6 +491,12 @@ help:
 	@echo "... ChessBoard/src/ChessPieces/Rook.o"
 	@echo "... ChessBoard/src/ChessPieces/Rook.i"
 	@echo "... ChessBoard/src/ChessPieces/Rook.s"
+	@echo "... ChessBoard/src/Game.o"
+	@echo "... ChessBoard/src/Game.i"
+	@echo "... ChessBoard/src/Game.s"
+	@echo "... ChessBoard/views/ChessView.o"
+	@echo "... ChessBoard/views/ChessView.i"
+	@echo "... ChessBoard/views/ChessView.s"
 	@echo "... Chess_autogen/mocs_compilation.o"
 	@echo "... Chess_autogen/mocs_compilation.i"
 	@echo "... Chess_autogen/mocs_compilation.s"

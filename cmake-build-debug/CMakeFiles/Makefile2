@@ -45,10 +45,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/164/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/169/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/164/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/169/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -82,12 +82,12 @@ clean: CMakeFiles/Chess_autogen.dir/clean
 CMakeFiles/Chess.dir/all: CMakeFiles/Chess_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess.dir/build.make CMakeFiles/Chess.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target Chess"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14 "Built target Chess"
 .PHONY : CMakeFiles/Chess.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Chess.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles 15
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Chess.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Chess.dir/rule
@@ -108,7 +108,7 @@ CMakeFiles/Chess.dir/clean:
 CMakeFiles/Chess_autogen.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess_autogen.dir/build.make CMakeFiles/Chess_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chess_autogen.dir/build.make CMakeFiles/Chess_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles --progress-num=14 "Built target Chess_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles --progress-num=15 "Built target Chess_autogen"
 .PHONY : CMakeFiles/Chess_autogen.dir/all
 
 # Build rule for subdir invocation for target.

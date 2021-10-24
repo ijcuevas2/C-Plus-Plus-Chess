@@ -3,37 +3,37 @@
 	"CMAKE_BINARY_DIR" : "/home/ismael/CLionProjects/Chess/cmake-build-debug",
 	"CMAKE_CURRENT_BINARY_DIR" : "/home/ismael/CLionProjects/Chess/cmake-build-debug",
 	"CMAKE_CURRENT_SOURCE_DIR" : "/home/ismael/CLionProjects/Chess",
-	"CMAKE_EXECUTABLE" : "/snap/clion/164/bin/cmake/linux/bin/cmake",
+	"CMAKE_EXECUTABLE" : "/snap/clion/169/bin/cmake/linux/bin/cmake",
 	"CMAKE_LIST_FILES" : 
 	[
 		"/home/ismael/CLionProjects/Chess/CMakeLists.txt",
 		"/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/3.20.2/CMakeSystem.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/CMakeSystemSpecificInitialize.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeSystemSpecificInitialize.cmake",
 		"/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/3.20.2/CMakeCCompiler.cmake",
 		"/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/3.20.2/CMakeCXXCompiler.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/CMakeSystemSpecificInformation.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/CMakeGenericSystem.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/CMakeInitializeConfigs.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/Platform/Linux.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/Platform/UnixPaths.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/CMakeFindCodeBlocks.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/ProcessorCount.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCInformation.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/CMakeLanguageInformation.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/Compiler/GNU-C.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/Compiler/GNU.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/Platform/Linux-GNU-C.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/Platform/Linux-GNU.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCommonLanguageInclude.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCXXInformation.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/CMakeLanguageInformation.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/Compiler/GNU-CXX.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/Compiler/GNU.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/Platform/Linux-GNU-CXX.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/Platform/Linux-GNU.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCommonLanguageInclude.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeSystemSpecificInformation.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeGenericSystem.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeInitializeConfigs.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/Platform/Linux.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/Platform/UnixPaths.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeFindCodeBlocks.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/ProcessorCount.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCInformation.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeLanguageInformation.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/Compiler/GNU-C.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/Compiler/GNU.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/Platform/Linux-GNU-C.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/Platform/Linux-GNU.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCommonLanguageInclude.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCXXInformation.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeLanguageInformation.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/Compiler/GNU-CXX.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/Compiler/GNU.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/Platform/Linux-GNU-CXX.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/Platform/Linux-GNU.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCommonLanguageInclude.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake",
@@ -42,7 +42,7 @@
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/CMakeParseArguments.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeParseArguments.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QComposePlatformInputContextPlugin.cmake",
@@ -74,7 +74,7 @@
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/CMakeParseArguments.cmake"
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeParseArguments.cmake"
 	],
 	"CMAKE_SOURCE_DIR" : "/home/ismael/CLionProjects/Chess",
 	"DEP_FILE" : "",
@@ -94,21 +94,21 @@
 			null
 		],
 		[
-			"/home/ismael/CLionProjects/Chess/ChessBoard/headers/Board.h",
+			"/home/ismael/CLionProjects/Chess/ChessBoard/headers/BoardSpace.h",
 			"MU",
-			"BNZWYCRSJ2/moc_Board.cpp",
-			null
-		],
-		[
-			"/home/ismael/CLionProjects/Chess/ChessBoard/headers/ChessPiece.h",
-			"MU",
-			"BNZWYCRSJ2/moc_ChessPiece.cpp",
+			"BNZWYCRSJ2/moc_BoardSpace.cpp",
 			null
 		],
 		[
 			"/home/ismael/CLionProjects/Chess/ChessBoard/headers/ChessPieces/Bishop.h",
 			"MU",
 			"X5OPZUHEQB/moc_Bishop.cpp",
+			null
+		],
+		[
+			"/home/ismael/CLionProjects/Chess/ChessBoard/headers/ChessPieces/ChessPiece.h",
+			"MU",
+			"X5OPZUHEQB/moc_ChessPiece.cpp",
 			null
 		],
 		[
@@ -142,15 +142,33 @@
 			null
 		],
 		[
+			"/home/ismael/CLionProjects/Chess/ChessBoard/headers/ChessPieces/Resources.h",
+			"MU",
+			"X5OPZUHEQB/moc_Resources.cpp",
+			null
+		],
+		[
 			"/home/ismael/CLionProjects/Chess/ChessBoard/headers/ChessPieces/Rook.h",
 			"MU",
 			"X5OPZUHEQB/moc_Rook.cpp",
 			null
 		],
 		[
-			"/home/ismael/CLionProjects/Chess/ChessBoard/headers/views/chessview.h",
+			"/home/ismael/CLionProjects/Chess/ChessBoard/headers/Game.h",
 			"MU",
-			"VWDUDGTXLD/moc_chessview.cpp",
+			"BNZWYCRSJ2/moc_Game.cpp",
+			null
+		],
+		[
+			"/home/ismael/CLionProjects/Chess/ChessBoard/headers/Point.h",
+			"MU",
+			"BNZWYCRSJ2/moc_Point.cpp",
+			null
+		],
+		[
+			"/home/ismael/CLionProjects/Chess/ChessBoard/views/ChessView.h",
+			"MU",
+			"2QUHU2AEDW/moc_ChessView.cpp",
 			null
 		]
 	],
@@ -189,7 +207,7 @@
 		"-dM",
 		"-E",
 		"-c",
-		"/snap/clion/164/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCXXCompilerABI.cpp"
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCXXCompilerABI.cpp"
 	],
 	"MOC_PREDEFS_FILE" : "/home/ismael/CLionProjects/Chess/cmake-build-debug/Chess_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
@@ -205,12 +223,7 @@
 	"SOURCES" : 
 	[
 		[
-			"/home/ismael/CLionProjects/Chess/ChessBoard/headers/views/chessview.cpp",
-			"MU",
-			null
-		],
-		[
-			"/home/ismael/CLionProjects/Chess/ChessBoard/src/Board.cpp",
+			"/home/ismael/CLionProjects/Chess/ChessBoard/src/BoardSpace.cpp",
 			"MU",
 			null
 		],
@@ -251,6 +264,16 @@
 		],
 		[
 			"/home/ismael/CLionProjects/Chess/ChessBoard/src/ChessPieces/Rook.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/ismael/CLionProjects/Chess/ChessBoard/src/Game.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/ismael/CLionProjects/Chess/ChessBoard/views/ChessView.cpp",
 			"MU",
 			null
 		],

@@ -44,10 +44,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/164/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/169/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/164/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/169/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,7 +68,7 @@ include CMakeFiles/Chess_autogen.dir/progress.make
 
 CMakeFiles/Chess_autogen:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target Chess"
-	/snap/clion/164/bin/cmake/linux/bin/cmake -E cmake_autogen /home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess_autogen.dir/AutogenInfo.json Debug
+	/snap/clion/169/bin/cmake/linux/bin/cmake -E cmake_autogen /home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess_autogen.dir/AutogenInfo.json Debug
 
 Chess_autogen: CMakeFiles/Chess_autogen
 Chess_autogen: CMakeFiles/Chess_autogen.dir/build.make

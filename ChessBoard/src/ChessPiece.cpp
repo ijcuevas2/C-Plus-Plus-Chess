@@ -2,7 +2,7 @@
 // Created by ismael on 9/29/21.
 //
 
-#include "../headers/ChessPiece.h"
+#include "../headers/ChessPieces/ChessPiece.h"
 #include <cmath>
 
 bool ChessPiece::samePiece(int source_x, int source_y, int dest_x, int dest_y){
@@ -17,8 +17,8 @@ int ChessPiece::absolutePieceDisplacement(int source, int dest) {
     return std::abs(pieceDisplacement(source, dest));
 }
 
-PlayerID ChessPiece::getAffiliation() {
-    return this->affiliation;
+PieceType ChessPiece::getPieceType() {
+    return this->pieceType;
 }
 
 

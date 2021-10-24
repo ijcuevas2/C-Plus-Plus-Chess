@@ -8,8 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ismael/CLionProjects/Chess/ChessBoard/headers/views/chessview.cpp" "/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.o"
-  "/home/ismael/CLionProjects/Chess/ChessBoard/src/Board.cpp" "/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.o"
+  "/home/ismael/CLionProjects/Chess/ChessBoard/src/BoardSpace.cpp" "/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.o"
   "/home/ismael/CLionProjects/Chess/ChessBoard/src/ChessPiece.cpp" "/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess.dir/ChessBoard/src/ChessPiece.cpp.o"
   "/home/ismael/CLionProjects/Chess/ChessBoard/src/ChessPieces/Bishop.cpp" "/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Bishop.cpp.o"
   "/home/ismael/CLionProjects/Chess/ChessBoard/src/ChessPieces/King.cpp" "/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/King.cpp.o"
@@ -18,6 +17,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ismael/CLionProjects/Chess/ChessBoard/src/ChessPieces/Pawn.cpp" "/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Pawn.cpp.o"
   "/home/ismael/CLionProjects/Chess/ChessBoard/src/ChessPieces/Queen.cpp" "/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Queen.cpp.o"
   "/home/ismael/CLionProjects/Chess/ChessBoard/src/ChessPieces/Rook.cpp" "/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Rook.cpp.o"
+  "/home/ismael/CLionProjects/Chess/ChessBoard/src/Game.cpp" "/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.o"
+  "/home/ismael/CLionProjects/Chess/ChessBoard/views/ChessView.cpp" "/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.o"
   "/home/ismael/CLionProjects/Chess/cmake-build-debug/Chess_autogen/mocs_compilation.cpp" "/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess.dir/Chess_autogen/mocs_compilation.cpp.o"
   "/home/ismael/CLionProjects/Chess/main.cpp" "/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles/Chess.dir/main.cpp.o"
   )

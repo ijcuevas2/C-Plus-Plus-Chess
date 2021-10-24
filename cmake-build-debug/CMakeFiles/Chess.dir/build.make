@@ -44,10 +44,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/164/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/169/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/164/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/169/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -118,18 +118,18 @@ CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Rook.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Rook.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ismael/CLionProjects/Chess/ChessBoard/src/ChessPieces/Rook.cpp -o CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Rook.cpp.s
 
-CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.o: CMakeFiles/Chess.dir/flags.make
-CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.o: ../ChessBoard/src/Board.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.o -c /home/ismael/CLionProjects/Chess/ChessBoard/src/Board.cpp
+CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.o: CMakeFiles/Chess.dir/flags.make
+CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.o: ../ChessBoard/src/Game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.o -c /home/ismael/CLionProjects/Chess/ChessBoard/src/Game.cpp
 
-CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ismael/CLionProjects/Chess/ChessBoard/src/Board.cpp > CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.i
+CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ismael/CLionProjects/Chess/ChessBoard/src/Game.cpp > CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.i
 
-CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ismael/CLionProjects/Chess/ChessBoard/src/Board.cpp -o CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.s
+CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ismael/CLionProjects/Chess/ChessBoard/src/Game.cpp -o CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.s
 
 CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Knight.cpp.o: CMakeFiles/Chess.dir/flags.make
 CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Knight.cpp.o: ../ChessBoard/src/ChessPieces/Knight.cpp
@@ -209,18 +209,31 @@ CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/NullPiece.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/NullPiece.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ismael/CLionProjects/Chess/ChessBoard/src/ChessPieces/NullPiece.cpp -o CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/NullPiece.cpp.s
 
-CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.o: CMakeFiles/Chess.dir/flags.make
-CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.o: ../ChessBoard/headers/views/chessview.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.o -c /home/ismael/CLionProjects/Chess/ChessBoard/headers/views/chessview.cpp
+CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.o: CMakeFiles/Chess.dir/flags.make
+CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.o: ../ChessBoard/views/ChessView.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.o -c /home/ismael/CLionProjects/Chess/ChessBoard/views/ChessView.cpp
 
-CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ismael/CLionProjects/Chess/ChessBoard/headers/views/chessview.cpp > CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.i
+CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ismael/CLionProjects/Chess/ChessBoard/views/ChessView.cpp > CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.i
 
-CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ismael/CLionProjects/Chess/ChessBoard/headers/views/chessview.cpp -o CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.s
+CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ismael/CLionProjects/Chess/ChessBoard/views/ChessView.cpp -o CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.s
+
+CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.o: CMakeFiles/Chess.dir/flags.make
+CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.o: ../ChessBoard/src/BoardSpace.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.o -c /home/ismael/CLionProjects/Chess/ChessBoard/src/BoardSpace.cpp
+
+CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ismael/CLionProjects/Chess/ChessBoard/src/BoardSpace.cpp > CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.i
+
+CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ismael/CLionProjects/Chess/ChessBoard/src/BoardSpace.cpp -o CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.s
 
 # Object files for target Chess
 Chess_OBJECTS = \
@@ -228,14 +241,15 @@ Chess_OBJECTS = \
 "CMakeFiles/Chess.dir/main.cpp.o" \
 "CMakeFiles/Chess.dir/ChessBoard/src/ChessPiece.cpp.o" \
 "CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Rook.cpp.o" \
-"CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.o" \
+"CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.o" \
 "CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Knight.cpp.o" \
 "CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Bishop.cpp.o" \
 "CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Queen.cpp.o" \
 "CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/King.cpp.o" \
 "CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Pawn.cpp.o" \
 "CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/NullPiece.cpp.o" \
-"CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.o"
+"CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.o" \
+"CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.o"
 
 # External object files for target Chess
 Chess_EXTERNAL_OBJECTS =
@@ -244,20 +258,21 @@ Chess: CMakeFiles/Chess.dir/Chess_autogen/mocs_compilation.cpp.o
 Chess: CMakeFiles/Chess.dir/main.cpp.o
 Chess: CMakeFiles/Chess.dir/ChessBoard/src/ChessPiece.cpp.o
 Chess: CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Rook.cpp.o
-Chess: CMakeFiles/Chess.dir/ChessBoard/src/Board.cpp.o
+Chess: CMakeFiles/Chess.dir/ChessBoard/src/Game.cpp.o
 Chess: CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Knight.cpp.o
 Chess: CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Bishop.cpp.o
 Chess: CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Queen.cpp.o
 Chess: CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/King.cpp.o
 Chess: CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/Pawn.cpp.o
 Chess: CMakeFiles/Chess.dir/ChessBoard/src/ChessPieces/NullPiece.cpp.o
-Chess: CMakeFiles/Chess.dir/ChessBoard/headers/views/chessview.cpp.o
+Chess: CMakeFiles/Chess.dir/ChessBoard/views/ChessView.cpp.o
+Chess: CMakeFiles/Chess.dir/ChessBoard/src/BoardSpace.cpp.o
 Chess: CMakeFiles/Chess.dir/build.make
 Chess: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8
 Chess: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
 Chess: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
 Chess: CMakeFiles/Chess.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable Chess"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ismael/CLionProjects/Chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable Chess"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Chess.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
