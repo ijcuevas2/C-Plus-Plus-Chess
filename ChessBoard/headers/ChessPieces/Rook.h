@@ -12,7 +12,7 @@ private:
      bool movement(int source_x, int source_y, int dest_x, int dest_y);
 public:
     Rook(PlayerID playerId, QGraphicsItem *parent = nullptr)
-        : ChessPiece(playerId, PieceType::ROOK, parent) {
+        : ChessPiece(playerId, PieceType::ROOK) {
     }
 };
 

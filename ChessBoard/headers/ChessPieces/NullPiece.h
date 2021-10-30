@@ -12,7 +12,7 @@ private:
     bool movement(int source_x, int source_y, int dest_x, int dest_y);
 public:
     NullPiece()
-            : ChessPiece(PlayerID::NONE, PieceType::NULL_PIECE, nullptr) { }
+            : ChessPiece(PlayerID::NONE, PieceType::NULL_PIECE) { }
 };
 
 

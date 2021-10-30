@@ -13,20 +13,22 @@
 class BoardSpace: public QObject, public QGraphicsRectItem {
     Q_OBJECT
 private:
-    Point point;
     ChessPiece* chessPiece;
 public:
-    BoardSpace(ChessPiece* chessPiece, Point p1, QGraphicsItem *parent = nullptr) : QGraphicsRectItem(parent), chessPiece(chessPiece), point(p1) {
-        const int pointX = point.getX();
-        const int pointY = point.getY();
-        setRect(pointX * Resources::SQUARE_SIZE, pointY * Resources::SQUARE_SIZE, Resources::SQUARE_SIZE, Resources::SQUARE_SIZE);
-        const bool filledBackground = ((pointX + pointY) % 2) == 1;
-        chessPiece->setParentItem(this);
+    BoardSpace(ChessPiece *chessPiece, int xIndex, int yIndex)
+            : QGraphicsRectItem(), chessPiece(chessPiece) {
+        const int pointX = xIndex * Resources::SQUARE_SIZE;
+        const int pointY = yIndex * Resources::SQUARE_SIZE;
+        setRect(0, 0, Resources::SQUARE_SIZE, Resources::SQUARE_SIZE);
+        setPos(pointX, pointY);
+        this->chessPiece->setParentItem(this);
+        const bool filledBackground = ((xIndex + yIndex) % 2) == 1;
         if (filledBackground) {
-            QBrush brush(Qt::black);
+            QBrush brush(Qt::gray);
             setBrush(brush);
         }
     }
+
     virtual ~BoardSpace() {
         delete chessPiece;
     }

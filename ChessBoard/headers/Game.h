@@ -41,10 +41,9 @@ public:
         this->board.clear();
     }
 
-    void setChessPieceBoardIndex(ChessPiece* chessPiece, int posX, int posY) {
-        Point chessPoint(posX, posY);
-        BoardSpace* boardSpace = new BoardSpace(chessPiece, chessPoint);
-        this->board[posY][posX] = boardSpace;
+    void setChessPieceBoardIndex(ChessPiece* chessPiece, int xIndex, int yIndex) {
+        BoardSpace* boardSpace = new BoardSpace(chessPiece, xIndex, yIndex);
+        this->board[yIndex][xIndex] = boardSpace;
     }
 
     std::vector<std::vector<BoardSpace*>> getBoard() {

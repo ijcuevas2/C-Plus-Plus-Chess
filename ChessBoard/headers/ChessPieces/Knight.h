@@ -11,7 +11,7 @@ private:
     bool movement(int source_x, int source_y, int dest_x, int dest_y);
 public:
     Knight(PlayerID playerId, QGraphicsItem *parent = nullptr)
-        : ChessPiece(playerId, PieceType::KNIGHT, parent) {
+        : ChessPiece(playerId, PieceType::KNIGHT) {
     }
 };
 

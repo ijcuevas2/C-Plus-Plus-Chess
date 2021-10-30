@@ -18,7 +18,7 @@ class ChessPiece: public QObject, public QGraphicsPixmapItem {
 private:
     virtual bool movement(int source_x, int source_y, int dest_x, int dest_y) = 0;
 public:
-    ChessPiece(PlayerID playerId, PieceType pieceType, QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(parent) {
+    ChessPiece(PlayerID playerId, PieceType pieceType) : QObject(), QGraphicsPixmapItem() {
         this->playerId = playerId;
         this->pieceType = pieceType;
         this->setChessPieceImagePath();
