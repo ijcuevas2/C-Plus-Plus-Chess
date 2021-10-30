@@ -1,0 +1,16 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource>
+        <file>images/DarkChessPieces/bishop.png</file>
+        <file>images/DarkChessPieces/king.png</file>
+        <file>images/DarkChessPieces/knight.png</file>
+        <file>images/DarkChessPieces/pawn.png</file>
+        <file>images/DarkChessPieces/queen.png</file>
+        <file>images/DarkChessPieces/rook.png</file>
+        <file>images/LightChessPieces/bishop.png</file>
+        <file>images/LightChessPieces/king.png</file>
+        <file>images/LightChessPieces/knight.png</file>
+        <file>images/LightChessPieces/pawn.png</file>
+        <file>images/LightChessPieces/queen.png</file>
+        <file>images/LightChessPieces/rook.png</file>
+    </qresource>
+</RCC>
