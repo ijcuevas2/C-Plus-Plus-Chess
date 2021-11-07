@@ -15,8 +15,6 @@
 
 class ChessPiece: public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
-private:
-    virtual bool movement(int source_x, int source_y, int dest_x, int dest_y) = 0;
 public:
     ChessPiece(PlayerID playerId, PieceType pieceType) : QObject(), QGraphicsPixmapItem() {
         this->playerId = playerId;
@@ -36,12 +34,11 @@ public:
         setPixmap(QPixmap(filePath));
     }
 
-    bool samePiece(int source_x, int source_y, int dest_x, int dest_y);
-    bool reachedDestination(int source_x, int source_y, int dest_x, int dest_y);
-    int pieceDisplacement(int source, int dest);
-    int absolutePieceDisplacement(int source, int dest);
+    int pieceMovement(int source, int dest);
+    int absoluteMovement(int source, int dest);
     PlayerID getPlayerId();
-    virtual PieceType getPieceType();
+    PieceType getPieceType();
+    virtual bool canMove(int sourceX, int sourceY, int destX, int destY) = 0;
 protected:
     PieceType pieceType;
     PlayerID playerId;

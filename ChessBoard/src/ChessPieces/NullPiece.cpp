@@ -3,6 +3,6 @@
 //
 
 #include "../../headers/ChessPieces/NullPiece.h"
-bool NullPiece::movement(int source_x, int source_y, int dest_x, int dest_y) {
+bool NullPiece::canMove(int source_x, int source_y, int dest_x, int dest_y) {
     return false;
 }

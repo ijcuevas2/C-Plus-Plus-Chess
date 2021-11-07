@@ -11,6 +11,7 @@
 #include <memory>
 #include "./BoardSpace.h"
 #include "./Point.h"
+#include <QGraphicsItemGroup>
 
 class Game {
 private:
@@ -48,24 +49,6 @@ public:
 
     std::vector<std::vector<BoardSpace*>> getBoard() {
         return this->board;
-    }
-
-    void printBoard() {
-        std::map<PieceType, std::string> imageResourceMap = {{PieceType::ROOK, "rook"},
-                                                             {PieceType::KNIGHT, "knight"},
-                                                             {PieceType::BISHOP, "bishop"},
-                                                             {PieceType::QUEEN, "queen"},
-                                                             {PieceType::KING, "king"},
-                                                             {PieceType::PAWN, "pawn"},
-                                                             {PieceType::NULL_PIECE, ""}};
-        for (int y = 0; y < this->boardSize; ++y) {
-            for (int x = 0; x < this->boardSize; ++x) {
-                ChessPiece* chessPiece = this->board[x][y]->getChessPiece();
-                PieceType pieceType = chessPiece->getPieceType();
-                std::string pieceTypeStr = imageResourceMap[pieceType];
-                std::cout << pieceTypeStr << std::endl;
-            }
-        }
     }
 
     void initializeBoard();

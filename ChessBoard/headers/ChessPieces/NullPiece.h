@@ -7,12 +7,11 @@
 
 #include "ChessPiece.h"
 
-class NullPiece : public ChessPiece {
-private:
-    bool movement(int source_x, int source_y, int dest_x, int dest_y);
+class NullPiece : public virtual ChessPiece {
 public:
     NullPiece()
             : ChessPiece(PlayerID::NONE, PieceType::NULL_PIECE) { }
+    bool canMove(int sourceX, int sourceY, int destX, int destY);
 };
 
 

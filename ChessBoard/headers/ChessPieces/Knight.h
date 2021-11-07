@@ -6,13 +6,13 @@
 #define CHESS_KNIGHT_H
 #include "ChessPiece.h"
 
-class Knight: public ChessPiece {
-private:
-    bool movement(int source_x, int source_y, int dest_x, int dest_y);
+class Knight: public virtual ChessPiece {
 public:
     Knight(PlayerID playerId, QGraphicsItem *parent = nullptr)
         : ChessPiece(playerId, PieceType::KNIGHT) {
     }
+
+    bool canMove(int sourceX, int sourceY, int destX, int destY);
 };
 
 

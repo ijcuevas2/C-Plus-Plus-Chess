@@ -6,13 +6,13 @@
 #define CHESS_QUEEN_H
 #include "ChessPiece.h"
 
-class Queen: public ChessPiece {
-private:
-    bool movement(int source_x, int source_y, int dest_x, int dest_y);
+class Queen: public virtual ChessPiece {
 public:
     Queen(PlayerID playerId, QGraphicsItem *parent = nullptr)
             : ChessPiece(playerId, PieceType::QUEEN) {
     }
+
+    bool canMove(int sourceX, int sourceY, int destX, int destY);
 };
 
 

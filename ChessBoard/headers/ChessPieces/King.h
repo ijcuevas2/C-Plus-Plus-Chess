@@ -7,13 +7,13 @@
 
 #include "ChessPiece.h"
 
-class King : public ChessPiece {
-private:
-    bool movement(int source_x, int source_y, int dest_x, int dest_y);
+class King : public virtual ChessPiece {
 public:
     King(PlayerID playerId, QGraphicsItem *parent = nullptr)
             : ChessPiece(playerId, PieceType::KING) {
     }
+
+    bool canMove(int sourceX, int sourceY, int destX, int destY);
 };
 
 
