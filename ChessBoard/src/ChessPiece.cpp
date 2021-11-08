@@ -16,10 +16,3 @@ int ChessPiece::absoluteMovement(int source, int dest) {
 PieceType ChessPiece::getPieceType() {
     return this->pieceType;
 }
-
-void ChessPiece::mousePressEvent(QGraphicsSceneMouseEvent* event) {
-    std::cout << "Chess Piece Mouse Press" << std::endl;
-    QGraphicsItem::mousePressEvent(event);
-//    this->update(this->boundingRect());
-    this->setPos(0, 0);
-}

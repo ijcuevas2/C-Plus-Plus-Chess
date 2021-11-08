@@ -43,7 +43,6 @@ public:
         return imagePath;
     }
 
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
     int pieceMovement(int source, int dest);
     int absoluteMovement(int source, int dest);
     PlayerID getPlayerId();
