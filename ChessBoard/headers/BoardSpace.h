@@ -14,6 +14,7 @@ class BoardSpace: public QObject, public QGraphicsRectItem {
     Q_OBJECT
 private:
     ChessPiece* chessPiece;
+    bool darkBackground;
     int xIndex;
     int yIndex;
 public:
@@ -28,17 +29,24 @@ public:
         setPos(pointX, pointY);
         this->chessPiece->setParentItem(this);
         // TODO: ADD ASSERTS
-        const bool filledBackground = ((xIndex + yIndex) % 2) == 1;
-        if (filledBackground) {
+        this->darkBackground = ((xIndex + yIndex) % 2) == 1;
+        if (this->darkBackground) {
             QBrush brush(Qt::gray);
             setBrush(brush);
         }
     }
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    void setSelectedBackground();
+    void setUnselectedBackground();
 
     virtual ~BoardSpace() {
         delete chessPiece;
+    }
+
+   void setChessPiece(ChessPiece* chessPiece) {
+        this->chessPiece = chessPiece;
+        this->chessPiece->setParentItem(this);
     }
 
     ChessPiece* getChessPiece() {

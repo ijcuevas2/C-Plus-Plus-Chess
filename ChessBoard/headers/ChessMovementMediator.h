@@ -11,9 +11,10 @@
 class ChessMovementMediator {
 private:
     inline static std::vector<BoardSpace*> boardSpaceList;
+    static void setBoardSpaceBackground(BoardSpace* boardSpace);
 public:
-    void static addChessPiece(BoardSpace* boardSpace);
-    void static movePieces();
+    static void addBoardSpace(BoardSpace* boardSpace);
+    static void movePieces();
 };
 
 

@@ -34,6 +34,16 @@ public:
         setPixmap(QPixmap(filePath));
     }
 
+    std::string getChessPieceImagePath() {
+        if (pieceType == PieceType::NULL_PIECE) {
+            return "NULL_PIECE";
+        }
+
+        std::string imagePath = Resources::getImagePath(playerId, pieceType);
+        return imagePath;
+    }
+
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
     int pieceMovement(int source, int dest);
     int absoluteMovement(int source, int dest);
     PlayerID getPlayerId();

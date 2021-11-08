@@ -3,14 +3,36 @@
 //
 
 #include "../headers/ChessMovementMediator.h"
+#include <QGraphicsView>
+void ChessMovementMediator::addBoardSpace(BoardSpace* boardSpace) {
+    if (boardSpaceList.empty() && boardSpace->getChessPiece()->getPieceType() == PieceType::NULL_PIECE) {
+        return;
+    }
 
-void ChessMovementMediator::addChessPiece(BoardSpace* boardSpace) {
-    if (boardSpaceList.size() > -1 && boardSpaceList.size() < 2) {
+    if (boardSpaceList.size() < 2) {
+        std::cout << "Pushing Back" << boardSpace->getChessPiece()->getChessPieceImagePath() << std::endl;
         boardSpaceList.push_back(boardSpace);
     }
 
+    size_t boardSpaceSize = boardSpaceList.size();
+    BoardSpace* firstBoardSpace = boardSpaceSize > 0 ? boardSpaceList[0] : NULL;
+
     if (boardSpaceList.size() == 2 && boardSpaceList[0] != NULL && boardSpaceList[1] != NULL) {
         ChessMovementMediator::movePieces();
+    }
+
+    ChessMovementMediator::setBoardSpaceBackground(firstBoardSpace);
+}
+
+void ChessMovementMediator::setBoardSpaceBackground(BoardSpace* boardSpace) {
+    if (boardSpace == NULL) {
+        return;
+    }
+
+    if(boardSpaceList.size() == 0) {
+        boardSpace->setUnselectedBackground();
+    } else {
+        boardSpace->setSelectedBackground();
     }
 }
 
@@ -26,7 +48,15 @@ void ChessMovementMediator::movePieces() {
         destY = secondBoardSpace->getYIndex();
     }
 
-    firstBoardSpace->canMove(destX, destY);
+    const bool firstPieceCanMove = firstBoardSpace->canMove(destX, destY);
+
+    if (firstPieceCanMove) {
+        ChessPiece* firstChessPiece = firstBoardSpace->getChessPiece();
+        ChessPiece* secondChessPiece = secondBoardSpace->getChessPiece();
+        firstBoardSpace->setChessPiece(secondChessPiece);
+        secondBoardSpace->setChessPiece(firstChessPiece);
+        boardSpaceList.clear();
+    }
 }
 
 const bool canMove(BoardSpace* firstBoardSpace, BoardSpace* secondBoardSpace) {
@@ -37,7 +67,5 @@ const bool canMove(BoardSpace* firstBoardSpace, BoardSpace* secondBoardSpace) {
     const int destX = secondBoardSpace->getXIndex();
     const int destY = secondBoardSpace->getXIndex();
 
-    firstBoardSpace->canMove(destX, destY);
-
-    return false;
+    return firstBoardSpace->canMove(destX, destY);
 }
