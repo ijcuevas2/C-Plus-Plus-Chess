@@ -3,6 +3,6 @@
 //
 
 #include "../../headers/ChessPieces/Rook.h"
-bool Rook::movement(int source_x, int source_y, int dest_x, int dest_y) {
+bool Rook::canMove(int sourceX, int sourceY, int destX, int destY) {
     return true;
 }

@@ -3,6 +3,6 @@
 //
 
 #include "../../headers/ChessPieces/Pawn.h"
-bool Pawn::movement(int source_x, int source_y, int dest_x, int dest_y) {
+bool Pawn::canMove(int sourceX, int sourceY, int destX, int destY) {
     return true;
 }
