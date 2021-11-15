@@ -9,16 +9,7 @@
 #include "../headers/ChessPieces/Queen.h"
 #include "../headers/ChessPieces/King.h"
 #include "../headers/ChessPieces/Pawn.h"
-#include "../enums/Player.h"
 #include "../headers/ChessPieces/NullPiece.h"
-
-void Game::incrementTurn() {
-    turn++;
-}
-
-int Game::getTurn() {
-    return turn;
-}
 
 void Game::initializeRooks() {
     setChessPieceBoardIndex(new Rook(PlayerID::PLAYER_DARK), firstIndex, firstIndex);

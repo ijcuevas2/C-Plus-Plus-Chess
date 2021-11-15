@@ -3,8 +3,13 @@
 //
 
 #include "../../headers/ChessPieces/Bishop.h"
-bool Bishop::canMove(int source_x, int source_y, int dest_x, int dest_y) {
-    const int absMovementX = absoluteMovement(source_x, dest_x);
-    const int absMovementY = absoluteMovement(source_y, dest_y);
-    return absMovementX == absMovementY;
+bool Bishop::canMove(int sourceX, int sourceY, int destX, int destY) {
+    bool baseCanMove = ChessPiece::canMove(sourceX, sourceY, destX, destY);
+    if (not baseCanMove) {
+        return false;
+    }
+
+    const int xAbsDistance = absoluteDistance(sourceX, destX);
+    const int yAbsDistance = absoluteDistance(sourceY, destY);
+    return xAbsDistance == yAbsDistance;
 }

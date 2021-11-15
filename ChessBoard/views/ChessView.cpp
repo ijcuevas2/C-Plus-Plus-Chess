@@ -7,6 +7,7 @@
 #include "ChessView.h"
 #include "ui_ChessView.h"
 #include "../headers/Game.h"
+#include "../headers/ChessMovementMediator.h"
 #include <QFile>
 
 ChessView::ChessView(QWidget *parent) :
@@ -17,6 +18,7 @@ ChessView::ChessView(QWidget *parent) :
 
 void ChessView::setupScene() {
     Game* game = new Game();
+    // TODO: Add NULL checks
     QGraphicsView* graphicsView = findChild<QGraphicsView*>("graphicsView");
     std::vector<std::vector<BoardSpace*>> board = game->getBoard();
     QGraphicsScene* scene = new QGraphicsScene(0, 0, 600, 600);
@@ -29,7 +31,15 @@ void ChessView::setupScene() {
     }
 
     graphicsView->setScene(scene);
+
+    QLabel* qLabel = findChild<QLabel*>("turnLabel");
+    if (qLabel not_eq NULL) {
+        ChessMovementMediator::setLabelPtr(qLabel);
+        qLabel->setText("Current Turn (Light Turn): 1");
+    }
 }
+
+
 
 ChessView::~ChessView() {
     delete ui;

@@ -6,6 +6,7 @@
 #define CHESS_PAWN_H
 
 #include "ChessPiece.h"
+#include "../ChessMovementMediator.h"
 
 class Pawn : public ChessPiece {
 public:
@@ -14,6 +15,10 @@ public:
     }
 
     bool canMove(int sourceX, int sourceY, int destX, int destY);
+    bool canMoveFirstTurn(int sourceX, int sourceY, int destX, int destY);
+    bool isCorrectDirection(int sourceX, int sourceY, int destX, int destY);
+    bool canDiagonalCapture(int sourceX, int sourceY, int destX, int destY);
+    bool canMoveSingleSpace(int sourceX, int sourceY, int destX, int destY);
 };
 
 

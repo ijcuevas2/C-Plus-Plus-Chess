@@ -3,6 +3,15 @@
 //
 
 #include "../../headers/ChessPieces/King.h"
-bool King::canMove(int source_x, int source_y, int dest_x, int dest_y) {
-    return true;
+bool King::canMove(int sourceX, int sourceY, int destX, int destY) {
+    bool baseCanMove = ChessPiece::canMove(sourceX, sourceY, destX, destY);
+    if (not baseCanMove) {
+        return false;
+    }
+
+    int xAbsDistance = absoluteDistance(sourceX, destX);
+    int yAbsDistance = absoluteDistance(sourceY, destY);
+    int maxDistance = std::max(xAbsDistance, yAbsDistance);
+    bool canMove = maxDistance == 1;
+    return canMove;
 }

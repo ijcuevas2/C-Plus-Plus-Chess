@@ -34,6 +34,7 @@ public:
         setPixmap(QPixmap(filePath));
     }
 
+    // TODO: REMOVE THIS CODE
     std::string getChessPieceImagePath() {
         if (pieceType == PieceType::NULL_PIECE) {
             return "NULL_PIECE";
@@ -44,10 +45,10 @@ public:
     }
 
     int pieceMovement(int source, int dest);
-    int absoluteMovement(int source, int dest);
+    int absoluteDistance(int source, int dest);
     PlayerID getPlayerId();
     PieceType getPieceType();
-    virtual bool canMove(int sourceX, int sourceY, int destX, int destY) = 0;
+    virtual bool canMove(int sourceX, int sourceY, int destX, int destY);
 protected:
     PieceType pieceType;
     PlayerID playerId;

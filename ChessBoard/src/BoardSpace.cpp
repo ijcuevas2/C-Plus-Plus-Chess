@@ -9,9 +9,9 @@
 
 
 void BoardSpace::mousePressEvent(QGraphicsSceneMouseEvent *event) {
-    std::cout << "BoardSpace mousePressEvent" << std::endl;
+//    std::cout << "BoardSpace mousePressEvent" << std::endl;
     ChessMovementMediator::addBoardSpace(this);
-    std::cout << "Chess Piece Type:" << this->chessPiece->getChessPieceImagePath() << std::endl;
+//    std::cout << "Chess Piece Type:" << this->chessPiece->getChessPieceImagePath() << std::endl;
 //    this->update(QRectF(0, 0, 500, 500));
 }
 
