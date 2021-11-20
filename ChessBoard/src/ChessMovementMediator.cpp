@@ -98,7 +98,7 @@ void ChessMovementMediator::incrementTurn() {
     // TODO: Check for overflow
     currentTurn++;
 
-    if (qLabelPtr not_eq NULL) {
+    if (turnLabelPtr != NULL) {
         std::string title = "Current Turn ";
 
         if (currentTurn % 2 == 0) {
@@ -111,7 +111,7 @@ void ChessMovementMediator::incrementTurn() {
         title += std::to_string(currentTurn);
 
         QString qTitle = QString::fromStdString(title);
-        qLabelPtr->setText(qTitle);
+        turnLabelPtr->setText(qTitle);
     }
 }
 
@@ -141,9 +141,21 @@ const bool ChessMovementMediator::canMove(BoardSpace* firstBoardSpace, BoardSpac
 }
 
 void ChessMovementMediator::setLabelPtr(QLabel* qLabel) {
-    qLabelPtr = qLabel;
+    turnLabelPtr = qLabel;
 }
 
-bool ChessMovementMediator::isFirstTurn() {
-    return currentTurn == 1;
+void ChessMovementMediator::setGamePtr(Game* game) {
+    gamePtr = game;
+}
+
+bool ChessMovementMediator::isBoardIndexOccupied(int xIndex, int yIndex) {
+    if (gamePtr != NULL) {
+        ChessPiece* chessPiecePtr = gamePtr->getChessPieceBoardIndex(xIndex, yIndex);
+        if (chessPiecePtr != NULL) {
+            PieceType pieceType = chessPiecePtr->getPieceType();
+            return pieceType != PieceType::NULL_PIECE;
+        }
+    }
+
+    return false;
 }

@@ -53,8 +53,7 @@ void Game::initializePawns() {
     }
 }
 
-void Game::initializeNullPieces() {
-    for (int y = firstIndex + 2; y < Game::boardSize - 2; ++y) {
+void Game::initializeNullPieces() { for (int y = firstIndex + 2; y < Game::boardSize - 2; ++y) {
         for (int x = firstIndex; x < Game::boardSize; ++x) {
             setChessPieceBoardIndex(new NullPiece(), x, y);
         }

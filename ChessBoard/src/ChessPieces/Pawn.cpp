@@ -10,27 +10,35 @@ bool Pawn::canMove(int sourceX, int sourceY, int destX, int destY) {
         return false;
     }
 
-    bool isCorrectDirectionBool = isCorrectDirection(sourceX, sourceY, destX, destY);
-    if (not isCorrectDirectionBool) {
+    bool isCorrectDirectionValue = isCorrectDirection(sourceY, destY);
+    if (not isCorrectDirectionValue) {
         return false;
     }
 
-    bool isFirstTurnBool = ChessMovementMediator::isFirstTurn();
 
     // TODO: IMPLEMENT EN PASSANT
-    if (isFirstTurnBool) {
+    if (firstMove) {
         bool canMove = canMoveFirstTurn(sourceX, sourceY, destX, destY);
+
+        if (canMove) {
+            setUsedFirstMove();
+        }
+
         return canMove;
     } else {
-    }
+        bool canDiagonalCaptureValue = canDiagonalCapture(sourceX, sourceY, destX, destY);
+        bool canMoveSingleSpaceValue = canMoveSingleSpace(sourceX, sourceY, destX, destY);
 
-    return true;
+        return canDiagonalCaptureValue or canMoveSingleSpaceValue;
+    }
 }
 
 bool Pawn::canDiagonalCapture(int sourceX, int sourceY, int destX, int destY) {
     int xAbsDistance = absoluteDistance(sourceX, destX);
     int yAbsDistance = absoluteDistance(sourceY, destY);
     if (xAbsDistance == 1 and xAbsDistance == yAbsDistance) {
+        bool isIndexOccupiedValue = ChessMovementMediator::isBoardIndexOccupied(destX, destY);
+        return isIndexOccupiedValue;
     }
 
     return false;
@@ -41,7 +49,9 @@ bool Pawn::canMoveSingleSpace(int sourceX, int sourceY, int destX, int destY) {
     int xAbsDistance = absoluteDistance(sourceX, destX);
     int yAbsDistance = absoluteDistance(sourceY, destY);
 
-    bool canMove = xAbsDistance == 0 && yAbsDistance < 2;
+    bool isTargetOccupiedValue = ChessMovementMediator::isBoardIndexOccupied(destX, destY);
+
+    bool canMove = xAbsDistance == 0 and yAbsDistance < 2 and not isTargetOccupiedValue;
     return canMove;
 }
 
@@ -53,7 +63,11 @@ bool Pawn::canMoveFirstTurn(int sourceX, int sourceY, int destX, int destY) {
     return canMove;
 }
 
-bool Pawn::isCorrectDirection(int sourceX, int sourceY, int destX, int destY) {
+void Pawn::setUsedFirstMove() {
+    firstMove = false;
+}
+
+bool Pawn::isCorrectDirection(int sourceY, int destY) {
     int yDistance = destY - sourceY;
     if (playerId == PlayerID::PLAYER_LIGHT) {
         return yDistance > 0;

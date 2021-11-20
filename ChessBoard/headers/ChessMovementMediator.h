@@ -8,13 +8,16 @@
 #include <vector>
 #include "BoardSpace.h"
 #include "./ChessPieces/NullPiece.h"
+#include "Game.h"
 #include <QLabel>
 
+// TODO: Check if name could be changed
 class ChessMovementMediator {
 private:
     inline static int currentTurn = 1;
     inline static std::vector<BoardSpace*> boardSpaceList;
-    inline static QLabel* qLabelPtr;
+    inline static QLabel* turnLabelPtr;
+    inline static Game* gamePtr;
     static void setBoardSpaceBackground(BoardSpace* boardSpace);
     static void incrementTurn();
 
@@ -26,8 +29,8 @@ private:
 public:
     static void addBoardSpace(BoardSpace* boardSpace);
     static void setLabelPtr(QLabel* qLabel);
-
-    static bool isFirstTurn();
+    static void setGamePtr(Game* gamePtr);
+    static bool isBoardIndexOccupied(int xIndex, int yIndex);
 };
 
 

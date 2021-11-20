@@ -24,6 +24,6 @@ bool Queen::canMoveHorizontal(int sourceX, int sourceY, int destX, int destY) {
     int xAbsDiff = absoluteDistance(sourceX, destX);
     int yAbsDiff = absoluteDistance(sourceY, destY);
 
-    bool canMove = (xAbsDiff not_eq 0 and yAbsDiff == 0) or (xAbsDiff == 0 and yAbsDiff not_eq 0);
+    bool canMove = (xAbsDiff != 0 and yAbsDiff == 0) or (xAbsDiff == 0 and yAbsDiff != 0);
     return canMove;
 }

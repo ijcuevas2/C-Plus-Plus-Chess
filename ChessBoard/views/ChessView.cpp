@@ -33,9 +33,13 @@ void ChessView::setupScene() {
     graphicsView->setScene(scene);
 
     QLabel* qLabel = findChild<QLabel*>("turnLabel");
-    if (qLabel not_eq NULL) {
+    if (qLabel != NULL) {
         ChessMovementMediator::setLabelPtr(qLabel);
         qLabel->setText("Current Turn (Light Turn): 1");
+    }
+
+    if (game != NULL) {
+        ChessMovementMediator::setGamePtr(game);
     }
 }
 

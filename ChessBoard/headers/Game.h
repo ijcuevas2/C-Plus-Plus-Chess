@@ -42,6 +42,18 @@ public:
         this->board.clear();
     }
 
+    ChessPiece* getChessPieceBoardIndex(int xIndex, int yIndex) {
+        if (xIndex < 0 or xIndex > 7 or yIndex < 0 or yIndex > 7) {
+            return NULL;
+        }
+
+        if ((not board.empty()) and (not board[yIndex].empty())  and board[yIndex][xIndex] != NULL) {
+            return this->board[yIndex][xIndex]->getChessPiece();
+        }
+
+        return NULL;
+    }
+
     void setChessPieceBoardIndex(ChessPiece* chessPiece, int xIndex, int yIndex) {
         BoardSpace* boardSpace = new BoardSpace(chessPiece, xIndex, yIndex);
         this->board[yIndex][xIndex] = boardSpace;
@@ -59,8 +71,6 @@ public:
     void initializeKings();
     void initializePawns();
     void initializeNullPieces();
-    void incrementTurn();
-    int getTurn();
 };
 
 

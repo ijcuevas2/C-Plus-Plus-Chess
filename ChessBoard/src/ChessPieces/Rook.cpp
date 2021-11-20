@@ -13,6 +13,6 @@ bool Rook::canMove(int sourceX, int sourceY, int destX, int destY) {
     int yAbsDiff = absoluteDistance(sourceY, destY);
 
     // TODO: IMPLEMENT CASTLING
-    bool canMove = (xAbsDiff not_eq 0 and yAbsDiff == 0) or (xAbsDiff == 0 and yAbsDiff not_eq 0);
+    bool canMove = (xAbsDiff != 0 and yAbsDiff == 0) or (xAbsDiff == 0 and yAbsDiff != 0);
     return canMove;
 }
