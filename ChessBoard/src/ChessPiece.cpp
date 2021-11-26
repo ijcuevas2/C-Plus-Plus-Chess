@@ -22,19 +22,19 @@ PlayerID ChessPiece::getPlayerId() {
 }
 
 bool ChessPiece::canMove(int sourceX, int sourceY, int destX, int destY) {
-    if (sourceX < 0 or sourceX > 7) {
+    if (sourceX < 0 || sourceX > 7) {
         return false;
     }
 
-    if (sourceY < 0 or sourceY > 7) {
+    if (sourceY < 0 || sourceY > 7) {
         return false;
     }
 
-    if (destX < 0 or destX > 7) {
+    if (destX < 0 || destX > 7) {
         return false;
     }
 
-    if (destY < 0 or destY > 7) {
+    if (destY < 0 || destY > 7) {
         return false;
     }
 

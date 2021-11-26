@@ -5,7 +5,7 @@
 #include "../../headers/ChessPieces/Bishop.h"
 bool Bishop::canMove(int sourceX, int sourceY, int destX, int destY) {
     bool baseCanMove = ChessPiece::canMove(sourceX, sourceY, destX, destY);
-    if (not baseCanMove) {
+    if (!baseCanMove) {
         return false;
     }
 

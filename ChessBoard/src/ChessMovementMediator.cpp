@@ -3,13 +3,14 @@
 //
 
 #include "../headers/ChessMovementMediator.h"
+#include "../headers/ChessPieces/Pawn.h"
 #include <QGraphicsView>
 
 
 void ChessMovementMediator::addBoardSpace(BoardSpace* boardSpace) {
     if (boardSpaceList.empty()
-        and boardSpace != NULL
-        and boardSpace->getChessPiece()->getPieceType() == PieceType::NULL_PIECE) {
+        && boardSpace != NULL
+        && boardSpace->getChessPiece()->getPieceType() == PieceType::NULL_PIECE) {
         return;
     }
 
@@ -29,7 +30,7 @@ void ChessMovementMediator::addBoardSpace(BoardSpace* boardSpace) {
     size_t boardSpaceSize = boardSpaceList.size();
     BoardSpace* firstBoardSpace = boardSpaceSize > 0 ? boardSpaceList[0] : NULL;
 
-    if (boardSpaceList.size() == 2 and boardSpaceList[0] != NULL and boardSpaceList[1] != NULL) {
+    if (boardSpaceList.size() == 2 && boardSpaceList[0] != NULL && boardSpaceList[1] != NULL) {
         ChessMovementMediator::tryMovingChessPiece();
     }
 
@@ -66,7 +67,7 @@ void ChessMovementMediator::tryMovingChessPiece() {
         // TODO: Check if increment turn can be moved
         moveChessPiece();
     } else {
-        clearBoardSpace();
+        clearBoardSpaceList();
     }
 }
 
@@ -74,23 +75,31 @@ void ChessMovementMediator::moveChessPiece() {
     BoardSpace* firstBoardSpace = boardSpaceList[0];
     BoardSpace* secondBoardSpace = boardSpaceList[1];
 
-    ChessPiece* sourceChessPiece = firstBoardSpace->getChessPiece();
+    ChessPiece* firstChessPiece = firstBoardSpace->getChessPiece();
     ChessPiece* secondChessPiece = secondBoardSpace->getChessPiece();
 
-    if (sourceChessPiece->getPieceType() == PieceType::NULL_PIECE) {
+    if (firstChessPiece->getPieceType() == PieceType::NULL_PIECE) {
         return;
     }
 
     delete secondChessPiece;
-    secondChessPiece = new NullPiece();
+    NullPiece* nullPiece = new NullPiece();
 
-    firstBoardSpace->setChessPiece(secondChessPiece);
-    secondBoardSpace->setChessPiece(sourceChessPiece);
-    clearBoardSpace();
+    firstBoardSpace->setChessPiece(nullPiece);
+    secondBoardSpace->setChessPiece(firstChessPiece);
+
+    if (secondChessPiece->getPieceType() == PieceType::NULL_PIECE && firstChessPiece->getPieceType() == PieceType::PAWN) {
+        int targetPieceX = secondBoardSpace->getXIndex();
+        int targetPieceY = firstBoardSpace->getYIndex();
+        NullPiece* targetPieceNullPiece = new NullPiece();
+        setChessPieceAtIndex(targetPieceNullPiece, targetPieceX, targetPieceY);
+    }
+
+    clearBoardSpaceList();
     incrementTurn();
 }
 
-void ChessMovementMediator::clearBoardSpace() {
+void ChessMovementMediator::clearBoardSpaceList() {
     boardSpaceList.clear();
 }
 
@@ -148,9 +157,9 @@ void ChessMovementMediator::setGamePtr(Game* game) {
     gamePtr = game;
 }
 
-bool ChessMovementMediator::isBoardIndexOccupied(int xIndex, int yIndex) {
+bool ChessMovementMediator::isBoardIndexOccupied(int targetX, int targetY) {
     if (gamePtr != NULL) {
-        ChessPiece* chessPiecePtr = gamePtr->getChessPieceBoardIndex(xIndex, yIndex);
+        ChessPiece* chessPiecePtr = gamePtr->getChessPieceBoardIndex(targetX, targetY);
         if (chessPiecePtr != NULL) {
             PieceType pieceType = chessPiecePtr->getPieceType();
             return pieceType != PieceType::NULL_PIECE;
@@ -158,4 +167,34 @@ bool ChessMovementMediator::isBoardIndexOccupied(int xIndex, int yIndex) {
     }
 
     return false;
+}
+
+int ChessMovementMediator::getMovedTwoSpacesTurn(int targetX, int targetY) {
+    ChessPiece* chessPiece = getChessPieceAtIndex(targetX, targetY);
+    if (chessPiece != NULL && chessPiece->getPieceType() == PieceType::PAWN) {
+        Pawn* pawn = static_cast<Pawn*>(chessPiece);
+        int turn = pawn->getMovedTwoSpacesTurn();
+        return turn;
+    }
+
+    return -1;
+}
+
+ChessPiece* ChessMovementMediator::getChessPieceAtIndex(int targetX, int targetY) {
+    if (gamePtr != NULL) {
+        ChessPiece* chessPiecePtr = gamePtr->getChessPieceBoardIndex(targetX, targetY);
+        return chessPiecePtr;
+    }
+
+    return NULL;
+}
+
+void ChessMovementMediator::setChessPieceAtIndex(ChessPiece* chessPiece, int targetX, int targetY) {
+    if (gamePtr != NULL) {
+        gamePtr->setChessPieceBoardIndex(chessPiece, targetX, targetY);
+    }
+}
+
+int ChessMovementMediator::getCurrentTurn() {
+    return currentTurn;
 }

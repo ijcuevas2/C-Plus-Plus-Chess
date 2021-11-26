@@ -5,13 +5,13 @@
 #include "../../headers/ChessPieces/Queen.h"
 bool Queen::canMove(int sourceX, int sourceY, int destX, int destY) {
     bool baseCanMove = ChessPiece::canMove(sourceX, sourceY, destX, destY);
-    if (not baseCanMove) {
+    if (!baseCanMove) {
         return false;
     }
 
     bool isHorizontalMovable = canMoveHorizontal(sourceX, sourceX, destX, destY);
     bool isDiagonalMovable = canMoveDiagonal(sourceX, sourceX, destX, destY);
-    return isHorizontalMovable or isDiagonalMovable;
+    return isHorizontalMovable || isDiagonalMovable;
 }
 
 bool Queen::canMoveDiagonal(int sourceX, int sourceY, int destX, int destY) {
@@ -24,6 +24,6 @@ bool Queen::canMoveHorizontal(int sourceX, int sourceY, int destX, int destY) {
     int xAbsDiff = absoluteDistance(sourceX, destX);
     int yAbsDiff = absoluteDistance(sourceY, destY);
 
-    bool canMove = (xAbsDiff != 0 and yAbsDiff == 0) or (xAbsDiff == 0 and yAbsDiff != 0);
+    bool canMove = (xAbsDiff != 0 && yAbsDiff == 0) or (xAbsDiff == 0 && yAbsDiff != 0);
     return canMove;
 }

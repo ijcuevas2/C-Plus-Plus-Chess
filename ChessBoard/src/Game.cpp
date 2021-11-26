@@ -60,6 +60,32 @@ void Game::initializeNullPieces() { for (int y = firstIndex + 2; y < Game::board
     }
 }
 
+ChessPiece* Game::getChessPieceBoardIndex(int xIndex, int yIndex) {
+    if (xIndex < 0 || xIndex > 7 || yIndex < 0 || yIndex > 7) {
+        return NULL;
+    }
+
+    if ((!board.empty()) && (!board[yIndex].empty()) && board[yIndex][xIndex] != NULL) {
+        return this->board[yIndex][xIndex]->getChessPiece();
+    }
+
+    return NULL;
+}
+
+std::vector<std::vector<BoardSpace*>> Game::getBoard() {
+    return this->board;
+}
+
+void Game::setChessPieceBoardIndex(ChessPiece* chessPiece, int xIndex, int yIndex) {
+    BoardSpace* currentBoardSpace = this->board[yIndex][xIndex];
+    if (currentBoardSpace != NULL) {
+        delete currentBoardSpace;
+    }
+
+    BoardSpace* boardSpace = new BoardSpace(chessPiece, xIndex, yIndex);
+    this->board[yIndex][xIndex] = boardSpace;
+}
+
 void Game::initializeBoard() {
     this->initializeRooks();
     this->initializeKnights();
