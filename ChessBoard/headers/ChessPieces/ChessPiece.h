@@ -8,6 +8,7 @@
 #include "../../enums/PieceType.h"
 #include "../../enums/Player.h"
 #include "Resources.h"
+#include "Coordinates.h"
 #include <QGraphicsPixmapItem>
 #include <QGraphicsItem>
 #include <QObject>
@@ -48,7 +49,7 @@ public:
     int absoluteDistance(int source, int dest);
     PlayerID getPlayerId();
     PieceType getPieceType();
-    virtual bool canMove(int sourceX, int sourceY, int destX, int destY);
+    virtual bool canMove(int sourceX, int sourceY, int destX, int destY) = 0;
 protected:
     PieceType pieceType;
     PlayerID playerId;

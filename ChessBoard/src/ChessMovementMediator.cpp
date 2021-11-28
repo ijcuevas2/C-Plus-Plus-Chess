@@ -61,9 +61,9 @@ void ChessMovementMediator::tryMovingChessPiece() {
         destY = secondBoardSpace->getYIndex();
     }
 
-    const bool firstPieceCanMove = firstBoardSpace->canMove(destX, destY);
+    const bool selectedPieceCanMove = firstBoardSpace->canMove(destX, destY);
 
-    if (firstPieceCanMove) {
+    if (selectedPieceCanMove) {
         // TODO: Check if increment turn can be moved
         moveChessPiece();
     } else {

@@ -15,3 +15,7 @@ bool King::canMove(int sourceX, int sourceY, int destX, int destY) {
     bool canMove = maxDistance == 1;
     return canMove;
 }
+
+void King::afterPieceMoved() {
+    this->hasMoved = true;
+}

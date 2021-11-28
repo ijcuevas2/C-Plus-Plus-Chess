@@ -16,3 +16,7 @@ bool Rook::canMove(int sourceX, int sourceY, int destX, int destY) {
     bool canMove = (xAbsDiff != 0 && yAbsDiff == 0) || (xAbsDiff == 0 && yAbsDiff != 0);
     return canMove;
 }
+
+void Rook::afterPieceMoved() {
+    this->hasMoved = true;
+}

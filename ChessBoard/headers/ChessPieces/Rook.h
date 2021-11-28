@@ -8,12 +8,15 @@
 #include "ChessPiece.h"
 
 class Rook : public virtual ChessPiece {
+private:
+    bool hasMoved;
 public:
     Rook(PlayerID playerId, QGraphicsItem *parent = nullptr)
         : ChessPiece(playerId, PieceType::ROOK) {
     }
 
     bool canMove(int sourceX, int sourceY, int destX, int destY);
+    void afterPieceMoved();
 };
 
 
