@@ -36,7 +36,6 @@ public:
     static bool isBoardIndexOccupied(int targetX, int targetY);
     static int getCurrentTurn();
     static int getMovedTwoSpacesTurn(int targetX, int targetY);
-    static void setBoardSpaceAtIndex(ChessPiece* chessPiece, int targetX, int targetY);
 };
 
 
