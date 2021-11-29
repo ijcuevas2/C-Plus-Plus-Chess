@@ -26,15 +26,17 @@ private:
     static void moveChessPiece();
     static const bool canMove(BoardSpace* firstBoardSpace, BoardSpace* secondBoardSpace);
     static void clearBoardSpaceList();
+    static void handleEnPassantCapture(BoardSpace* firstBoardSpace, BoardSpace* secondBoardSpace);
     static ChessPiece* getChessPieceAtIndex(int targetX, int targetY);
 public:
+    static void setChessPieceAtIndex(ChessPiece* chessPiece, int targetX, int targetY);
     static void addBoardSpace(BoardSpace* boardSpace);
     static void setLabelPtr(QLabel* qLabel);
     static void setGamePtr(Game* gamePtr);
     static bool isBoardIndexOccupied(int targetX, int targetY);
     static int getCurrentTurn();
     static int getMovedTwoSpacesTurn(int targetX, int targetY);
-    static void setChessPieceAtIndex(ChessPiece* chessPiece, int targetX, int targetY);
+    static void setBoardSpaceAtIndex(ChessPiece* chessPiece, int targetX, int targetY);
 };
 
 

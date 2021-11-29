@@ -21,20 +21,20 @@ PlayerID ChessPiece::getPlayerId() {
     return playerId;
 }
 
-bool ChessPiece::canMove(int sourceX, int sourceY, int destX, int destY) {
-    if (sourceX < 0 || sourceX > 7) {
+bool ChessPiece::canMove(Coordinates coordinates) {
+    if (coordinates.sourceX < 0 || coordinates.sourceX > 7) {
         return false;
     }
 
-    if (sourceY < 0 || sourceY > 7) {
+    if (coordinates.sourceY < 0 || coordinates.sourceY > 7) {
         return false;
     }
 
-    if (destX < 0 || destX > 7) {
+    if (coordinates.destX < 0 || coordinates.destX > 7) {
         return false;
     }
 
-    if (destY < 0 || destY > 7) {
+    if (coordinates.destY < 0 || coordinates.destY > 7) {
         return false;
     }
 

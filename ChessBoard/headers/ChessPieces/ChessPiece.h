@@ -49,7 +49,7 @@ public:
     int absoluteDistance(int source, int dest);
     PlayerID getPlayerId();
     PieceType getPieceType();
-    virtual bool canMove(int sourceX, int sourceY, int destX, int destY) = 0;
+    virtual bool canMove(Coordinates coordinates) = 0;
 protected:
     PieceType pieceType;
     PlayerID playerId;

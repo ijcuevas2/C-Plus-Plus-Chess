@@ -89,14 +89,21 @@ void ChessMovementMediator::moveChessPiece() {
     secondBoardSpace->setChessPiece(firstChessPiece);
 
     if (secondChessPiece->getPieceType() == PieceType::NULL_PIECE && firstChessPiece->getPieceType() == PieceType::PAWN) {
-        int targetPieceX = secondBoardSpace->getXIndex();
-        int targetPieceY = firstBoardSpace->getYIndex();
-        NullPiece* targetPieceNullPiece = new NullPiece();
-        setChessPieceAtIndex(targetPieceNullPiece, targetPieceX, targetPieceY);
+        handleEnPassantCapture(firstBoardSpace, secondBoardSpace);
     }
 
     clearBoardSpaceList();
     incrementTurn();
+}
+
+void ChessMovementMediator::handleEnPassantCapture(BoardSpace* firstBoardSpace, BoardSpace* secondBoardSpace) {
+    int targetPieceX = secondBoardSpace->getXIndex();
+    int targetPieceY = firstBoardSpace->getYIndex();
+    int enPassantTurn = ChessMovementMediator::getMovedTwoSpacesTurn(targetPieceX, targetPieceY) + 1;
+    if (enPassantTurn == ChessMovementMediator::getCurrentTurn()) {
+        NullPiece* targetPieceNullPiece = new NullPiece();
+        setChessPieceAtIndex(targetPieceNullPiece, targetPieceX, targetPieceY);
+    }
 }
 
 void ChessMovementMediator::clearBoardSpaceList() {
@@ -159,7 +166,7 @@ void ChessMovementMediator::setGamePtr(Game* game) {
 
 bool ChessMovementMediator::isBoardIndexOccupied(int targetX, int targetY) {
     if (gamePtr != NULL) {
-        ChessPiece* chessPiecePtr = gamePtr->getChessPieceBoardIndex(targetX, targetY);
+        ChessPiece* chessPiecePtr = gamePtr->getChessPieceAtBoardIndex(targetX, targetY);
         if (chessPiecePtr != NULL) {
             PieceType pieceType = chessPiecePtr->getPieceType();
             return pieceType != PieceType::NULL_PIECE;
@@ -172,7 +179,7 @@ bool ChessMovementMediator::isBoardIndexOccupied(int targetX, int targetY) {
 int ChessMovementMediator::getMovedTwoSpacesTurn(int targetX, int targetY) {
     ChessPiece* chessPiece = getChessPieceAtIndex(targetX, targetY);
     if (chessPiece != NULL && chessPiece->getPieceType() == PieceType::PAWN) {
-        Pawn* pawn = static_cast<Pawn*>(chessPiece);
+        Pawn* pawn = dynamic_cast<Pawn*>(chessPiece);
         int turn = pawn->getMovedTwoSpacesTurn();
         return turn;
     }
@@ -182,7 +189,7 @@ int ChessMovementMediator::getMovedTwoSpacesTurn(int targetX, int targetY) {
 
 ChessPiece* ChessMovementMediator::getChessPieceAtIndex(int targetX, int targetY) {
     if (gamePtr != NULL) {
-        ChessPiece* chessPiecePtr = gamePtr->getChessPieceBoardIndex(targetX, targetY);
+        ChessPiece* chessPiecePtr = gamePtr->getChessPieceAtBoardIndex(targetX, targetY);
         return chessPiecePtr;
     }
 
@@ -191,7 +198,7 @@ ChessPiece* ChessMovementMediator::getChessPieceAtIndex(int targetX, int targetY
 
 void ChessMovementMediator::setChessPieceAtIndex(ChessPiece* chessPiece, int targetX, int targetY) {
     if (gamePtr != NULL) {
-        gamePtr->setChessPieceBoardIndex(chessPiece, targetX, targetY);
+        gamePtr->setChessPieceAtBoardIndex(chessPiece, targetX, targetY);
     }
 }
 

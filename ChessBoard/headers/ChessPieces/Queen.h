@@ -12,9 +12,9 @@ public:
             : ChessPiece(playerId, PieceType::QUEEN) {
     }
 
-    bool canMove(int sourceX, int sourceY, int destX, int destY);
-    bool canMoveDiagonal(int sourceX, int sourceY, int destX, int destY);
-    bool canMoveHorizontal(int sourceX, int sourceY, int destX, int destY);
+    bool canMove(Coordinates coordinates);
+    bool canMoveDiagonal(Coordinates coordinates);
+    bool canMoveHorizontal(Coordinates coordinates);
 };
 
 

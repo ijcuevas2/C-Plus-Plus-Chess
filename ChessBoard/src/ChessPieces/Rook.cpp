@@ -3,16 +3,15 @@
 //
 
 #include "../../headers/ChessPieces/Rook.h"
-bool Rook::canMove(int sourceX, int sourceY, int destX, int destY) {
-    bool baseCanMove = ChessPiece::canMove(sourceX, sourceY, destX, destY);
+bool Rook::canMove(Coordinates coordinates) {
+    bool baseCanMove = ChessPiece::canMove(coordinates);
     if (!baseCanMove) {
         return false;
     }
 
-    int xAbsDiff = absoluteDistance(sourceX, destX);
-    int yAbsDiff = absoluteDistance(sourceY, destY);
+    int xAbsDiff = absoluteDistance(coordinates.sourceX, coordinates.destX);
+    int yAbsDiff = absoluteDistance(coordinates.sourceY, coordinates.destY);
 
-    // TODO: IMPLEMENT CASTLING
     bool canMove = (xAbsDiff != 0 && yAbsDiff == 0) || (xAbsDiff == 0 && yAbsDiff != 0);
     return canMove;
 }

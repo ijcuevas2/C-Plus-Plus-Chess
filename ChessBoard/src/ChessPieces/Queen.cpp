@@ -3,26 +3,26 @@
 //
 
 #include "../../headers/ChessPieces/Queen.h"
-bool Queen::canMove(int sourceX, int sourceY, int destX, int destY) {
-    bool baseCanMove = ChessPiece::canMove(sourceX, sourceY, destX, destY);
+bool Queen::canMove(Coordinates coordinates) {
+    bool baseCanMove = ChessPiece::canMove(coordinates);
     if (!baseCanMove) {
         return false;
     }
 
-    bool isHorizontalMovable = canMoveHorizontal(sourceX, sourceX, destX, destY);
-    bool isDiagonalMovable = canMoveDiagonal(sourceX, sourceX, destX, destY);
+    bool isHorizontalMovable = canMoveHorizontal(coordinates);
+    bool isDiagonalMovable = canMoveDiagonal(coordinates);
     return isHorizontalMovable || isDiagonalMovable;
 }
 
-bool Queen::canMoveDiagonal(int sourceX, int sourceY, int destX, int destY) {
-    const int xAbsDistance = absoluteDistance(sourceX, destX);
-    const int yAbsDistance = absoluteDistance(sourceY, destY);
+bool Queen::canMoveDiagonal(Coordinates coordinates) {
+    const int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.destX);
+    const int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.destY);
     return xAbsDistance == yAbsDistance;
 }
 
-bool Queen::canMoveHorizontal(int sourceX, int sourceY, int destX, int destY) {
-    int xAbsDiff = absoluteDistance(sourceX, destX);
-    int yAbsDiff = absoluteDistance(sourceY, destY);
+bool Queen::canMoveHorizontal(Coordinates coordinates) {
+    int xAbsDiff = absoluteDistance(coordinates.sourceX, coordinates.destX);
+    int yAbsDiff = absoluteDistance(coordinates.sourceY, coordinates.destY);
 
     bool canMove = (xAbsDiff != 0 && yAbsDiff == 0) or (xAbsDiff == 0 && yAbsDiff != 0);
     return canMove;

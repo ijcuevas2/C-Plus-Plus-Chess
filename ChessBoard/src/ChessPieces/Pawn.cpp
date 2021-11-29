@@ -4,43 +4,43 @@
 
 #include "../../headers/ChessPieces/Pawn.h"
 
-bool Pawn::canMove(int sourceX, int sourceY, int destX, int destY) {
-    bool baseCanMove = ChessPiece::canMove(sourceX, sourceY, destX, destY);
+bool Pawn::canMove(Coordinates coordinates) {
+    bool baseCanMove = ChessPiece::canMove(coordinates);
     if (!baseCanMove) {
         return false;
     }
 
-    bool isCorrectDirectionValue = isCorrectDirection(sourceY, destY);
+    bool isCorrectDirectionValue = isCorrectDirection(coordinates);
     if (!isCorrectDirectionValue) {
         return false;
     }
 
     // TODO: IMPLEMENT EN PASSANT
     if (isFirstMove) {
-        bool canMove = canMoveFirstTurn(sourceX, sourceY, destX, destY);
+        bool canMove = canMoveFirstTurn(coordinates);
 
         if (canMove) {
             setUsedFirstMove();
-            setMovedTwoSpacesTurn(sourceY, destY);
+            setMovedTwoSpacesTurn(coordinates);
         }
 
         return canMove;
     } else {
-        bool canCaptureValue = canCapture(sourceX, sourceY, destX, destY);
-        bool canMoveSingleSpaceValue = canMoveSingleSpaceForward(sourceX, sourceY, destX, destY);
+        bool canCaptureValue = canCapture(coordinates);
+        bool canMoveSingleSpaceValue = canMoveSingleSpaceForward(coordinates);
         return canCaptureValue || canMoveSingleSpaceValue;
     }
 }
 
-bool Pawn::canCapture(int sourceX, int sourceY, int destX, int destY) {
-    bool isDiagonalMoveValue = isDiagonalMove(sourceX, sourceY, destX, destY);
+bool Pawn::canCapture(Coordinates coordinates) {
+    bool isDiagonalMoveValue = isDiagonalMove(coordinates);
     if (isDiagonalMoveValue) {
-        bool canDiagonalCaptureValue = canDiagonalCapture(destX, destY);
+        bool canDiagonalCaptureValue = canDiagonalCapture(coordinates);
         if (canDiagonalCaptureValue) {
             return true;
         }
 
-        bool canEnPassantCaptureValue = canEnPassantCapture(sourceX, sourceY, destX, destY);
+        bool canEnPassantCaptureValue = canEnPassantCapture(coordinates);
         if (canEnPassantCaptureValue) {
             return true;
         }
@@ -49,11 +49,11 @@ bool Pawn::canCapture(int sourceX, int sourceY, int destX, int destY) {
     return false;
 }
 
-bool Pawn::canEnPassantCapture(int sourceX, int sourceY, int destX, int destY) {
-    bool isIndexOccupiedValue = ChessMovementMediator::isBoardIndexOccupied(destX, destY);
+bool Pawn::canEnPassantCapture(Coordinates coordinates) {
+    bool isIndexOccupiedValue = ChessMovementMediator::isBoardIndexOccupied(coordinates.destX, coordinates.destY);
     if (!isIndexOccupiedValue) {
-        int targetPieceX = destX;
-        int targetPieceY = sourceY;
+        int targetPieceX = coordinates.destX;
+        int targetPieceY = coordinates.sourceY;
         int enPassantTurn = ChessMovementMediator::getMovedTwoSpacesTurn(targetPieceX, targetPieceY) + 1;
         bool canEnPassantCaptureResult = enPassantTurn == ChessMovementMediator::getCurrentTurn();
         return canEnPassantCaptureResult;
@@ -62,32 +62,32 @@ bool Pawn::canEnPassantCapture(int sourceX, int sourceY, int destX, int destY) {
     return false;
 }
 
-bool Pawn::canDiagonalCapture(int destX, int destY) {
-    bool isIndexOccupiedResult = ChessMovementMediator::isBoardIndexOccupied(destX, destY);
+bool Pawn::canDiagonalCapture(Coordinates coordinates) {
+    bool isIndexOccupiedResult = ChessMovementMediator::isBoardIndexOccupied(coordinates.destX, coordinates.destY);
     return isIndexOccupiedResult;
 }
 
-bool Pawn::isDiagonalMove(int sourceX, int sourceY, int destX, int destY) {
-    int xAbsDistance = absoluteDistance(sourceX, destX);
-    int yAbsDistance = absoluteDistance(sourceY, destY);
+bool Pawn::isDiagonalMove(Coordinates coordinates) {
+    int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.destX);
+    int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.destY);
     bool isDiagonalMoveResult = xAbsDistance == 1 && yAbsDistance == 1;
     return isDiagonalMoveResult;
 }
 
 // TODO: Check if space is not occupied
-bool Pawn::canMoveSingleSpaceForward(int sourceX, int sourceY, int destX, int destY) {
-    int xAbsDistance = absoluteDistance(sourceX, destX);
-    int yAbsDistance = absoluteDistance(sourceY, destY);
+bool Pawn::canMoveSingleSpaceForward(Coordinates coordinates) {
+    int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.destX);
+    int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.destY);
 
-    bool isTargetOccupiedValue = ChessMovementMediator::isBoardIndexOccupied(destX, destY);
+    bool isTargetOccupiedValue = ChessMovementMediator::isBoardIndexOccupied(coordinates.destX, coordinates.destY);
 
     bool canMove = xAbsDistance == 0 && yAbsDistance < 2 && !isTargetOccupiedValue;
     return canMove;
 }
 
-bool Pawn::canMoveFirstTurn(int sourceX, int sourceY, int destX, int destY) {
-    int xAbsDistance = absoluteDistance(sourceX, destX);
-    int yAbsDistance = absoluteDistance(sourceY, destY);
+bool Pawn::canMoveFirstTurn(Coordinates coordinates) {
+    int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.destX);
+    int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.destY);
 
     bool canMove = xAbsDistance == 0 && yAbsDistance <= 2;
     return canMove;
@@ -97,8 +97,8 @@ void Pawn::setUsedFirstMove() {
     this->isFirstMove = false;
 }
 
-void Pawn::setMovedTwoSpacesTurn(int sourceY, int destY) {
-    int absoluteDistanceValue = absoluteDistance(sourceY, destY);
+void Pawn::setMovedTwoSpacesTurn(Coordinates coordinates) {
+    int absoluteDistanceValue = absoluteDistance(coordinates.sourceY, coordinates.destY);
     bool movedTwoSpacesResult = absoluteDistanceValue == 2;
     if (movedTwoSpacesResult) {
         this->movedTwoSpacesTurn = ChessMovementMediator::getCurrentTurn();
@@ -109,8 +109,8 @@ int Pawn::getMovedTwoSpacesTurn() {
     return this->movedTwoSpacesTurn;
 }
 
-bool Pawn::isCorrectDirection(int sourceY, int destY) {
-    int yDistance = destY - sourceY;
+bool Pawn::isCorrectDirection(Coordinates coordinates) {
+    int yDistance = coordinates.destY - coordinates.sourceY;
     if (playerId == PlayerID::PLAYER_LIGHT) {
         return yDistance < 0;
     } else if (playerId == PlayerID::PLAYER_DARK) {

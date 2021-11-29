@@ -54,7 +54,8 @@ public:
     }
 
     bool canMove(int destX, int destY) {
-        return chessPiece->canMove(xIndex, yIndex, destX, destY);
+        Coordinates coordinates(xIndex, yIndex, destX, destY);
+        return chessPiece->canMove(coordinates);
     }
 };
 

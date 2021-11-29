@@ -11,7 +11,7 @@ class NullPiece : public virtual ChessPiece {
 public:
     NullPiece()
             : ChessPiece(PlayerID::NONE, PieceType::NULL_PIECE) { }
-    bool canMove(int sourceX, int sourceY, int destX, int destY);
+    bool canMove(Coordinates coordinates);
 };
 
 

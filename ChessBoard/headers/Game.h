@@ -16,7 +16,6 @@
 class Game {
 private:
     std::vector<std::vector<BoardSpace*>> board;
-    int turn = 0;
 public:
     const int firstIndex = 0;
     const int lastIndex = 7;
@@ -42,8 +41,9 @@ public:
         this->board.clear();
     }
 
-    ChessPiece* getChessPieceBoardIndex(int xIndex, int yIndex);
-    void setChessPieceBoardIndex(ChessPiece* chessPiece, int xIndex, int yIndex);
+    ChessPiece* getChessPieceAtBoardIndex(int xIndex, int yIndex);
+    void setBoardSpaceAtIndex(ChessPiece* chessPiece, int xIndex, int yIndex);
+    void setChessPieceAtBoardIndex(ChessPiece* chessPiece, int xIndex, int yIndex);
     std::vector<std::vector<BoardSpace*>> getBoard();
     void initializeBoard();
     void initializeRooks();

@@ -3,14 +3,14 @@
 //
 
 #include "../../headers/ChessPieces/Knight.h"
-bool Knight::canMove(int sourceX, int sourceY, int destX, int destY) {
-    bool baseCanMove = ChessPiece::canMove(sourceX, sourceY, destX, destY);
+bool Knight::canMove(Coordinates coordinates) {
+    bool baseCanMove = ChessPiece::canMove(coordinates);
     if (!baseCanMove) {
         return false;
     }
 
-    int xAbsDistance = absoluteDistance(sourceX, destX);
-    int yAbsDistance = absoluteDistance(sourceY, destY);
+    int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.destX);
+    int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.destY);
 
     bool isAbleToMove = (xAbsDistance == 2 && yAbsDistance == 1) || (yAbsDistance == 2 && xAbsDistance == 1);
     return isAbleToMove;

@@ -15,7 +15,7 @@ public:
             : ChessPiece(playerId, PieceType::KING) {
     }
 
-    bool canMove(int sourceX, int sourceY, int destX, int destY);
+    bool canMove(Coordinates coordinates);
     void afterPieceMoved();
 };
 

@@ -12,7 +12,7 @@ public:
         : ChessPiece(playerId, PieceType::KNIGHT) {
     }
 
-    bool canMove(int sourceX, int sourceY, int destX, int destY);
+    bool canMove(Coordinates coordinates);
 };
 
 

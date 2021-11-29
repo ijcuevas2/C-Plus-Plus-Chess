@@ -12,22 +12,24 @@ class Pawn : public ChessPiece {
 private:
     bool isFirstMove = true;
     int movedTwoSpacesTurn = -1;
+    bool isEnPassantEligible = false;
 public:
     Pawn(PlayerID playerId, QGraphicsItem *parent = nullptr)
         : ChessPiece(playerId, PieceType::PAWN) {
     }
 
-    bool canMove(int sourceX, int sourceY, int destX, int destY);
-    bool canMoveFirstTurn(int sourceX, int sourceY, int destX, int destY);
-    bool isCorrectDirection(int sourceY, int destY);
-    bool canDiagonalCapture(int destX, int destY);
-    bool canMoveSingleSpaceForward(int sourceX, int sourceY, int destX, int destY);
-    bool isDiagonalMove(int sourceX, int sourceY, int destX, int destY);
-    bool canCapture(int sourceX, int sourceY, int destX, int destY);
-    bool canEnPassantCapture(int sourceX, int sourceY, int destX, int destY);
+    bool canMove(Coordinates coordinates);
+    bool isCorrectDirection(Coordinates coordinates);
+    bool canMoveFirstTurn(Coordinates coordinates);
+    bool canDiagonalCapture(Coordinates coordinates);
+    bool canMoveSingleSpaceForward(Coordinates coordinates);
+    bool isDiagonalMove(Coordinates coordinates);
+    bool canCapture(Coordinates coordinates);
+    bool canEnPassantCapture(Coordinates coordinates);
     bool getHasMovedTwoSpaces();
+    bool getEnPassantEligible();
     void setUsedFirstMove();
-    void setMovedTwoSpacesTurn(int sourceY, int destY);
+    void setMovedTwoSpacesTurn(Coordinates coordinates);
     int getMovedTwoSpacesTurn();
 };
 
