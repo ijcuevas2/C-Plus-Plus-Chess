@@ -16,6 +16,7 @@ bool King::canMove(Coordinates coordinates) {
     return canMove;
 }
 
+// TODO: IMPLEMENT CASTLING
 void King::afterPieceMoved() {
     this->hasMoved = true;
 }

@@ -17,6 +17,7 @@ class Game {
 private:
     std::vector<std::vector<BoardSpace*>> board;
 public:
+    // TODO: MAKE THESE FIELDS PRIVATE
     const int firstIndex = 0;
     const int lastIndex = 7;
     const int boardSize = 8;
@@ -42,9 +43,11 @@ public:
     }
 
     ChessPiece* getChessPieceAtBoardIndex(int xIndex, int yIndex);
+    BoardSpace* getBoardSpaceAtIndex(int xIndex, int yIndex);
     void setBoardSpaceAtIndex(ChessPiece* chessPiece, int xIndex, int yIndex);
     void setChessPieceAtBoardIndex(ChessPiece* chessPiece, int xIndex, int yIndex);
     std::vector<std::vector<BoardSpace*>> getBoard();
+    int getBoardSize();
     void initializeBoard();
     void initializeRooks();
     void initializeKnights();

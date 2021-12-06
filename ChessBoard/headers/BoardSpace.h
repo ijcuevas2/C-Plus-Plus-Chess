@@ -53,7 +53,7 @@ public:
         return chessPiece;
     }
 
-    bool canMove(int destX, int destY) {
+    bool canMovePieceToIndex(int destX, int destY) {
         Coordinates coordinates(xIndex, yIndex, destX, destY);
         return chessPiece->canMove(coordinates);
     }

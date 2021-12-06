@@ -76,6 +76,10 @@ std::vector<std::vector<BoardSpace*>> Game::getBoard() {
     return this->board;
 }
 
+int Game::getBoardSize() {
+    return this->boardSize;
+}
+
 // TODO: ADD NULL CHECKS FOR INDICES
 void Game::setChessPieceAtBoardIndex(ChessPiece* chessPiece, int xIndex, int yIndex) {
     if (xIndex < 0 || xIndex > 7 || yIndex < 0 || yIndex > 7) {
@@ -91,6 +95,10 @@ void Game::setChessPieceAtBoardIndex(ChessPiece* chessPiece, int xIndex, int yIn
 
         boardSpace->setChessPiece(chessPiece);
     }
+}
+
+BoardSpace* Game::getBoardSpaceAtIndex(int xIndex, int yIndex) {
+    return NULL;
 }
 
 void Game::setBoardSpaceAtIndex(ChessPiece* chessPiece, int xIndex, int yIndex) {

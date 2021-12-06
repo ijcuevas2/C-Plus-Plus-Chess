@@ -43,7 +43,13 @@ void ChessView::setupScene() {
     }
 }
 
-
+void ChessView::keyPressEvent(QKeyEvent* k) {
+    switch (k->key()) {
+        case Qt::Key_Escape:
+            ChessMovementMediator::clearBoardSpaceList();
+            break;
+    }
+}
 
 ChessView::~ChessView() {
     delete ui;

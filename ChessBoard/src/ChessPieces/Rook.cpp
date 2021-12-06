@@ -16,6 +16,7 @@ bool Rook::canMove(Coordinates coordinates) {
     return canMove;
 }
 
+// TODO: IMPLEMENT CASTLING
 void Rook::afterPieceMoved() {
     this->hasMoved = true;
 }

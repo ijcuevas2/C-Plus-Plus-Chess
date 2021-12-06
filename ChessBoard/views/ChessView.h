@@ -7,6 +7,7 @@
 
 #include <QMainWindow>
 #include <QGraphicsView>
+#include <QKeyEvent>
 
 
 QT_BEGIN_NAMESPACE
@@ -20,7 +21,7 @@ public:
     explicit ChessView(QWidget *parent = nullptr);
     void setupScene();
     ~ChessView() override;
-
+    void keyPressEvent(QKeyEvent* k);
 private:
     Ui::ChessView *ui;
 };

@@ -21,6 +21,7 @@ public:
         this->playerId = playerId;
         this->pieceType = pieceType;
         this->setChessPieceImagePath();
+        this->setPos(4.0, 4.0);
     }
 
     virtual ~ChessPiece() {};

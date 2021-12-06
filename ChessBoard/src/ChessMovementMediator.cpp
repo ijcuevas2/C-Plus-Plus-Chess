@@ -6,7 +6,6 @@
 #include "../headers/ChessPieces/Pawn.h"
 #include <QGraphicsView>
 
-
 void ChessMovementMediator::addBoardSpace(BoardSpace* boardSpace) {
     if (boardSpaceList.empty()
         && boardSpace != NULL
@@ -17,8 +16,8 @@ void ChessMovementMediator::addBoardSpace(BoardSpace* boardSpace) {
     ChessPiece* currPiece = boardSpace->getChessPiece();
 
     if (boardSpaceList.empty()) {
-        bool canMovePiece = isTurnPlayerPiece(currPiece);
-        if (!canMovePiece) {
+        bool isTurnPlayerPieceValue = isTurnPlayerPiece(currPiece);
+        if (!isTurnPlayerPieceValue) {
             return;
         }
     }
@@ -35,6 +34,28 @@ void ChessMovementMediator::addBoardSpace(BoardSpace* boardSpace) {
     }
 
     ChessMovementMediator::setBoardSpaceBackground(firstBoardSpace);
+}
+
+void ChessMovementMediator::showHints(BoardSpace* boardSpace) {
+    if (boardSpace != NULL) {
+        int boardSize = gamePtr->getBoardSize();
+        for (int y = 0; y < boardSize; y++) {
+            for (int x = 0; x < boardSize; x++) {
+                bool canMoveToIndex = boardSpace->canMovePieceToIndex(x, y);
+                if (canMoveToIndex) {
+                }
+            }
+        }
+
+    }
+}
+
+BoardSpace* ChessMovementMediator::getBoardSpaceAtIndex(int xIndex, int yIndex) {
+    if (gamePtr != NULL) {
+        return gamePtr->getBoardSpaceAtIndex(xIndex, yIndex);
+    }
+
+    return NULL;
 }
 
 void ChessMovementMediator::setBoardSpaceBackground(BoardSpace* boardSpace) {
@@ -61,7 +82,7 @@ void ChessMovementMediator::tryMovingChessPiece() {
         destY = secondBoardSpace->getYIndex();
     }
 
-    const bool selectedPieceCanMove = firstBoardSpace->canMove(destX, destY);
+    const bool selectedPieceCanMove = firstBoardSpace->canMovePieceToIndex(destX, destY);
 
     if (selectedPieceCanMove) {
         // TODO: Check if increment turn can be moved
@@ -107,7 +128,15 @@ void ChessMovementMediator::handleEnPassantCapture(BoardSpace* firstBoardSpace, 
 }
 
 void ChessMovementMediator::clearBoardSpaceList() {
+    BoardSpace* firstBoardSpace = NULL;
+    if (!boardSpaceList.empty()) {
+        firstBoardSpace = boardSpaceList[0];
+    }
     boardSpaceList.clear();
+
+    if (firstBoardSpace != NULL) {
+        setBoardSpaceBackground(firstBoardSpace);
+    }
 }
 
 void ChessMovementMediator::incrementTurn() {
@@ -153,7 +182,7 @@ const bool ChessMovementMediator::canMove(BoardSpace* firstBoardSpace, BoardSpac
     const int destX = secondBoardSpace->getXIndex();
     const int destY = secondBoardSpace->getXIndex();
 
-    return firstBoardSpace->canMove(destX, destY);
+    return firstBoardSpace->canMovePieceToIndex(destX, destY);
 }
 
 void ChessMovementMediator::setLabelPtr(QLabel* qLabel) {
