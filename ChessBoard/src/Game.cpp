@@ -98,6 +98,11 @@ void Game::setChessPieceAtBoardIndex(ChessPiece* chessPiece, int xIndex, int yIn
 }
 
 BoardSpace* Game::getBoardSpaceAtIndex(int xIndex, int yIndex) {
+    int boardSize = getBoardSize();
+    if (xIndex < boardSize && yIndex < boardSize) {
+        return board[yIndex][xIndex];
+    }
+
     return NULL;
 }
 

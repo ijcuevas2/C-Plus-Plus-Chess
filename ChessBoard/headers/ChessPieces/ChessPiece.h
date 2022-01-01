@@ -17,13 +17,8 @@
 class ChessPiece: public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:
-    ChessPiece(PlayerID playerId, PieceType pieceType) : QObject(), QGraphicsPixmapItem() {
-        this->playerId = playerId;
-        this->pieceType = pieceType;
-        this->setChessPieceImagePath();
-        this->setPos(4.0, 4.0);
-    }
 
+    ChessPiece(PlayerID playerId, PieceType pieceType);
     virtual ~ChessPiece() {};
     void setChessPieceImagePath() {
         if (pieceType == PieceType::NULL_PIECE) {
@@ -36,8 +31,11 @@ public:
         setPixmap(QPixmap(filePath));
     }
 
-    int pieceMovement(int source, int dest);
+    int actualDistance(int source, int dest);
     int absoluteDistance(int source, int dest);
+    int stepTowardSourceSpaceHelper(int value);
+    void stepTowardSourceSpace(int & xDistance, int & yDistance);
+    bool isPieceBlockingPath(Coordinates coordinates);
     PlayerID getPlayerId();
     PieceType getPieceType();
     virtual bool canMove(Coordinates coordinates) = 0;

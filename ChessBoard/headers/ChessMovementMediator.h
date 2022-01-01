@@ -31,7 +31,9 @@ private:
 public:
     static void setChessPieceAtIndex(ChessPiece* chessPiece, int targetX, int targetY);
     static BoardSpace* getBoardSpaceAtIndex(int xIndex, int yIndex);
-    void showHints(BoardSpace* boardSpace);
+    static bool haveSamePlayerId(Coordinates coordinates);
+    static void showHints(BoardSpace* boardSpace);
+    static void hideHints();
     static void addBoardSpace(BoardSpace* boardSpace);
     static void setLabelPtr(QLabel* qLabel);
     static void setGamePtr(Game* gamePtr);

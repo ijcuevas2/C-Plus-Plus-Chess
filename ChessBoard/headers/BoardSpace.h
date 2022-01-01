@@ -9,11 +9,13 @@
 #include "ChessPieces/ChessPiece.h"
 #include "Point.h"
 #include "ChessPieces/Resources.h"
+#include "HintMarker.h"
 
 class BoardSpace: public QObject, public QGraphicsRectItem {
     Q_OBJECT
 private:
     ChessPiece* chessPiece;
+    HintMarker* hintMarkerPtr;
     bool darkBackground;
     int xIndex;
     int yIndex;
@@ -21,42 +23,24 @@ public:
     int getXIndex() const;
     int getYIndex() const;
 public:
-    BoardSpace(ChessPiece *chessPiece, int xIndex, int yIndex)
-            : QGraphicsRectItem(), chessPiece(chessPiece), xIndex(xIndex), yIndex(yIndex) {
-        const int pointX = xIndex * Resources::SQUARE_SIZE;
-        const int pointY = yIndex * Resources::SQUARE_SIZE;
-        setRect(0, 0, Resources::SQUARE_SIZE, Resources::SQUARE_SIZE);
-        setPos(pointX, pointY);
-        this->chessPiece->setParentItem(this);
-        // TODO: ADD ASSERTS
-        this->darkBackground = ((xIndex + yIndex) % 2) == 1;
-        if (this->darkBackground) {
-            QBrush brush(Qt::gray);
-            setBrush(brush);
-        }
-    }
 
+    BoardSpace(ChessPiece* chessPiece, int xIndex, int yIndex);
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void setSelectedBackground();
     void setUnselectedBackground();
+    ChessPiece* getChessPiece();
+    PlayerID getPlayerId();
+    void setChessPiece(ChessPiece* chessPiece);
+    void initMarker();
+    bool canMovePieceToIndex(int destX, int destY);
+    void showHint();
+    void hideHint();
 
     virtual ~BoardSpace() {
         delete chessPiece;
+        delete hintMarkerPtr;
     }
 
-   void setChessPiece(ChessPiece* chessPiece) {
-        this->chessPiece = chessPiece;
-        this->chessPiece->setParentItem(this);
-    }
-
-    ChessPiece* getChessPiece() {
-        return chessPiece;
-    }
-
-    bool canMovePieceToIndex(int destX, int destY) {
-        Coordinates coordinates(xIndex, yIndex, destX, destY);
-        return chessPiece->canMove(coordinates);
-    }
 };
 
 
