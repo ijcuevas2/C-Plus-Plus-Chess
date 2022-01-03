@@ -33,6 +33,7 @@ public:
     }
 
     static const int SQUARE_SIZE = 70;
+    static const int MARKER_SIZE = 27;
 };
 
 

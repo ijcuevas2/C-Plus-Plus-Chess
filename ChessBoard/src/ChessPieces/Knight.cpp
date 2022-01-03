@@ -12,6 +12,9 @@ bool Knight::canMove(Coordinates coordinates) {
     int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.destX);
     int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.destY);
 
-    bool isAbleToMove = (xAbsDistance == 2 && yAbsDistance == 1) || (yAbsDistance == 2 && xAbsDistance == 1);
-    return isAbleToMove;
+    bool isValidPath = (xAbsDistance == 2 && yAbsDistance == 1) || (yAbsDistance == 2 && xAbsDistance == 1);
+    return isValidPath;
+}
+
+void Knight::afterPieceMoved() {
 }

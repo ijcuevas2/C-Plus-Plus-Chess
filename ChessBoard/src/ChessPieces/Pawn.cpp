@@ -119,3 +119,6 @@ bool Pawn::isCorrectDirection(Coordinates coordinates) {
 
     return false;
 }
+
+void Pawn::afterPieceMoved() {
+}

@@ -12,10 +12,16 @@ bool Rook::canMove(Coordinates coordinates) {
     int xAbsDiff = absoluteDistance(coordinates.sourceX, coordinates.destX);
     int yAbsDiff = absoluteDistance(coordinates.sourceY, coordinates.destY);
 
-    bool canMove = (xAbsDiff != 0 && yAbsDiff == 0) || (xAbsDiff == 0 && yAbsDiff != 0);
-    return canMove;
+    bool isValidPath = (xAbsDiff != 0 && yAbsDiff == 0) || (xAbsDiff == 0 && yAbsDiff != 0);
+    if (isValidPath) {
+        bool isPieceBlockingPathValue = isPieceBlockingPath(coordinates);
+        return !isPieceBlockingPathValue;
+    }
+
+    return false;
 }
 
+// TODO: IMPLEMENT CASTLING
 void Rook::afterPieceMoved() {
     this->hasMoved = true;
 }
