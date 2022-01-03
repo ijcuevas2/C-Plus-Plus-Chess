@@ -13,6 +13,7 @@ public:
     }
 
     bool canMove(Coordinates coordinates);
+    void afterPieceMoved() override;
 };
 
 

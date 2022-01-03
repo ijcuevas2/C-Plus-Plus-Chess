@@ -35,7 +35,7 @@ int ChessPiece::stepTowardSourceSpaceHelper(int value) {
         return 0;
     }
 
-    if (value < 0) {
+    if (value > 0) {
         return -1;
     }
 
@@ -56,16 +56,18 @@ bool ChessPiece::isPieceBlockingPath(Coordinates coordinates) {
         int yDistance = actualDistance(coordinates.sourceY, coordinates.destY);
         stepTowardSourceSpace(xDistance, yDistance);
         while (xDistance != 0 || yDistance != 0) {
-            int xStepIndex = coordinates.sourceX + xDistance;
-            int yStepIndex = coordinates.sourceY + yDistance;
+            int xStepIndex = coordinates.destX + xDistance;
+            int yStepIndex = coordinates.destY + yDistance;
             bool isBoardIndexOccupiedValue = ChessMovementMediator::isBoardIndexOccupied(xStepIndex, yStepIndex);
             if (isBoardIndexOccupiedValue) {
-                return false;
+                return true;
             }
 
             stepTowardSourceSpace(xDistance, yDistance);
         }
     }
+
+    return false;
 }
 
 bool ChessPiece::canMove(Coordinates coordinates) {

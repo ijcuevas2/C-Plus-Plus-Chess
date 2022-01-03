@@ -12,6 +12,7 @@ public:
     NullPiece()
             : ChessPiece(PlayerID::NONE, PieceType::NULL_PIECE) { }
     bool canMove(Coordinates coordinates);
+    void afterPieceMoved() override;
 };
 
 

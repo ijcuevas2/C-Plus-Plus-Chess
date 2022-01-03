@@ -6,3 +6,7 @@
 bool NullPiece::canMove(Coordinates coordinates) {
     return false;
 }
+
+void NullPiece::afterPieceMoved() {
+
+}

@@ -26,10 +26,9 @@ public:
     bool isDiagonalMove(Coordinates coordinates);
     bool canCapture(Coordinates coordinates);
     bool canEnPassantCapture(Coordinates coordinates);
-    bool getHasMovedTwoSpaces();
-    bool getEnPassantEligible();
     void setUsedFirstMove();
     void setMovedTwoSpacesTurn(Coordinates coordinates);
+    void afterPieceMoved() override;
     int getMovedTwoSpacesTurn();
 };
 
