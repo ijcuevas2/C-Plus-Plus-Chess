@@ -20,6 +20,6 @@ bool Bishop::canMove(Coordinates coordinates) {
     return false;
 }
 
-void Bishop::afterPieceMoved() {
+void Bishop::afterPieceMoved(Coordinates coordinates) {
 
 }

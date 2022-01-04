@@ -42,6 +42,8 @@ public:
     static int getMovedTwoSpacesTurn(int targetX, int targetY);
 
     static void clearBoardSpaceList();
+
+    static PlayerID getCurrentTurnPlayerId();
 };
 
 

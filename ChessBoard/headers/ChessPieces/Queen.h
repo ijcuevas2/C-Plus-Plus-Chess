@@ -16,7 +16,7 @@ public:
     bool canMoveDiagonal(Coordinates coordinates);
     bool canMoveHorizontal(Coordinates coordinates);
 
-    void afterPieceMoved() override;
+    void afterPieceMoved(Coordinates coordinates) override;
 };
 
 
