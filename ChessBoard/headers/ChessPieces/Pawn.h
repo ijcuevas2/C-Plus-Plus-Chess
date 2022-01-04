@@ -28,7 +28,7 @@ public:
     bool canEnPassantCapture(Coordinates coordinates);
     void setUsedFirstMove();
     void setMovedTwoSpacesTurn(Coordinates coordinates);
-    void afterPieceMoved() override;
+    void afterPieceMoved(Coordinates coordinates) override;
     int getMovedTwoSpacesTurn();
 };
 

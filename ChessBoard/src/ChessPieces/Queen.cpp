@@ -34,6 +34,6 @@ bool Queen::canMoveHorizontal(Coordinates coordinates) {
     return canMove;
 }
 
-void Queen::afterPieceMoved() {
+void Queen::afterPieceMoved(Coordinates coordinates) {
 
 }

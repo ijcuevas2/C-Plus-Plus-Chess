@@ -16,5 +16,5 @@ bool Knight::canMove(Coordinates coordinates) {
     return isValidPath;
 }
 
-void Knight::afterPieceMoved() {
+void Knight::afterPieceMoved(Coordinates coordinates) {
 }

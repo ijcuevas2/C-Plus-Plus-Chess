@@ -22,6 +22,6 @@ bool Rook::canMove(Coordinates coordinates) {
 }
 
 // TODO: IMPLEMENT CASTLING
-void Rook::afterPieceMoved() {
+void Rook::afterPieceMoved(Coordinates coordinates) {
     this->hasMoved = true;
 }

@@ -6,6 +6,7 @@
 #define CHESS_KING_H
 
 #include "ChessPiece.h"
+#include "Rook.h"
 
 class King : public virtual ChessPiece {
 private:
@@ -16,7 +17,8 @@ public:
     }
 
     bool canMove(Coordinates coordinates);
-    void afterPieceMoved() override;
+    void afterPieceMoved(Coordinates coordinates) override;
+    std::vector<Rook*> rooksEligibleForCastling();
 };
 
 

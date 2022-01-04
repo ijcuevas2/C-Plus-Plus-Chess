@@ -39,7 +39,7 @@ public:
     PlayerID getPlayerId();
     PieceType getPieceType();
     virtual bool canMove(Coordinates coordinates) = 0;
-    virtual void afterPieceMoved() = 0;
+    virtual void afterPieceMoved(Coordinates coordinates) = 0;
 protected:
     PieceType pieceType;
     PlayerID playerId;

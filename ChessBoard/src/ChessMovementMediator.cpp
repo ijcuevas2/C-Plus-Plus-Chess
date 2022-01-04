@@ -139,6 +139,9 @@ void ChessMovementMediator::moveChessPiece() {
         handleEnPassantCapture(firstBoardSpace, secondBoardSpace);
     }
 
+    Coordinates coordinates(firstBoardSpace->getXIndex(), firstBoardSpace->getYIndex(),
+                            secondBoardSpace->getXIndex(), secondBoardSpace->getYIndex());
+    firstChessPiece->afterPieceMoved(coordinates);
     clearBoardSpaceList();
     incrementTurn();
 }
@@ -236,6 +239,7 @@ bool ChessMovementMediator::isBoardIndexOccupied(int targetX, int targetY) {
 int ChessMovementMediator::getMovedTwoSpacesTurn(int targetX, int targetY) {
     ChessPiece *chessPiece = getChessPieceAtIndex(targetX, targetY);
     if (chessPiece != NULL && chessPiece->getPieceType() == PieceType::PAWN) {
+        // TODO: INVESTIGATE DYNAMIC CAST
         Pawn *pawn = dynamic_cast<Pawn *>(chessPiece);
         int turn = pawn->getMovedTwoSpacesTurn();
         return turn;
@@ -262,3 +266,14 @@ void ChessMovementMediator::setChessPieceAtIndex(ChessPiece *chessPiece, int tar
 int ChessMovementMediator::getCurrentTurn() {
     return currentTurn;
 }
+
+PlayerID ChessMovementMediator::getCurrentTurnPlayerId() {
+    std::map<PlayerID, int> playerIdMap = {{PlayerID::PLAYER_LIGHT, 0},
+                                           {PlayerID::PLAYER_DARK,  1}};
+    if (getCurrentTurn() % 2 == 0) {
+        return PlayerID::PLAYER_LIGHT;
+    } else {
+        return PlayerID::PLAYER_DARK;
+    }
+}
+

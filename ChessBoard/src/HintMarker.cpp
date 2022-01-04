@@ -11,8 +11,8 @@ HintMarker::HintMarker() {
     QBrush brush(limeGreen);
     setBrush(brush);
     this->setPos(21.5, 21.5);
-    this->setOpacity(0.5);
     QPen pen(Qt::NoPen);
     this->setPen(pen);
     this->hide();
+    this->setZValue(10);
 }

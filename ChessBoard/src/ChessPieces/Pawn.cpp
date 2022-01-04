@@ -18,12 +18,6 @@ bool Pawn::canMove(Coordinates coordinates) {
     // TODO: IMPLEMENT EN PASSANT
     if (isFirstMove) {
         bool canMove = canMoveFirstTurn(coordinates);
-
-        if (canMove) {
-            setUsedFirstMove();
-            setMovedTwoSpacesTurn(coordinates);
-        }
-
         return canMove;
     } else {
         bool canCaptureValue = canCapture(coordinates);
@@ -120,5 +114,9 @@ bool Pawn::isCorrectDirection(Coordinates coordinates) {
     return false;
 }
 
-void Pawn::afterPieceMoved() {
+void Pawn::afterPieceMoved(Coordinates coordinates) {
+    if (isFirstMove) {
+        setUsedFirstMove();
+        setMovedTwoSpacesTurn(coordinates);
+    }
 }
