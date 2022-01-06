@@ -248,9 +248,9 @@ int ChessMovementMediator::getMovedTwoSpacesTurn(int targetX, int targetY) {
     return -1;
 }
 
-ChessPiece *ChessMovementMediator::getChessPieceAtIndex(int targetX, int targetY) {
+ChessPiece* ChessMovementMediator::getChessPieceAtIndex(int xIndex, int yIndex) {
     if (gamePtr != NULL) {
-        ChessPiece *chessPiecePtr = gamePtr->getChessPieceAtBoardIndex(targetX, targetY);
+        ChessPiece *chessPiecePtr = gamePtr->getChessPieceAtBoardIndex(xIndex, yIndex);
         return chessPiecePtr;
     }
 
@@ -271,9 +271,9 @@ PlayerID ChessMovementMediator::getCurrentTurnPlayerId() {
     std::map<PlayerID, int> playerIdMap = {{PlayerID::PLAYER_LIGHT, 0},
                                            {PlayerID::PLAYER_DARK,  1}};
     if (getCurrentTurn() % 2 == 0) {
-        return PlayerID::PLAYER_LIGHT;
-    } else {
         return PlayerID::PLAYER_DARK;
+    } else {
+        return PlayerID::PLAYER_LIGHT;
     }
 }
 

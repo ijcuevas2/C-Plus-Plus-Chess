@@ -25,3 +25,7 @@ bool Rook::canMove(Coordinates coordinates) {
 void Rook::afterPieceMoved(Coordinates coordinates) {
     this->hasMoved = true;
 }
+
+bool Rook::HasMoved() const {
+    return hasMoved;
+}

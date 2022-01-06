@@ -27,9 +27,9 @@ private:
     static const bool canMove(BoardSpace* firstBoardSpace, BoardSpace* secondBoardSpace);
 
     static void handleEnPassantCapture(BoardSpace* firstBoardSpace, BoardSpace* secondBoardSpace);
-    static ChessPiece* getChessPieceAtIndex(int targetX, int targetY);
 public:
     static void setChessPieceAtIndex(ChessPiece* chessPiece, int targetX, int targetY);
+    static ChessPiece* getChessPieceAtIndex(int xIndex, int yIndex);
     static BoardSpace* getBoardSpaceAtIndex(int xIndex, int yIndex);
     static bool haveSamePlayerId(Coordinates coordinates);
     static void showHints(BoardSpace* boardSpace);

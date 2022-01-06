@@ -11,6 +11,9 @@ class Rook : public virtual ChessPiece {
 private:
     bool hasMoved;
 public:
+    bool HasMoved() const;
+
+public:
     Rook(PlayerID playerId, QGraphicsItem *parent = nullptr)
         : ChessPiece(playerId, PieceType::ROOK) {
     }

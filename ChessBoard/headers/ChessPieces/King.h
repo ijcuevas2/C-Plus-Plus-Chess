@@ -17,8 +17,11 @@ public:
     }
 
     bool canMove(Coordinates coordinates);
+    bool HasMoved() const;
     void afterPieceMoved(Coordinates coordinates) override;
     std::vector<Rook*> rooksEligibleForCastling();
+    void addRookEligibleForCastling(std::vector<Rook*> & rookPtrList, int xIndex, int yIndex);
+    void addRookEligibleForCastlingHelper(Rook* rookPtr, std::vector<Rook*> & rookPtrList, int xIndex, int yIndex);
 };
 
 
