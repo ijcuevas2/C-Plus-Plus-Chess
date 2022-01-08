@@ -21,7 +21,7 @@ public:
     ChessPiece(PlayerID playerId, PieceType pieceType);
     virtual ~ChessPiece() {};
     void setChessPieceImagePath() {
-        if (pieceType == PieceType::NULL_PIECE) {
+        if (pieceType == PieceType::EMPTY_PIECE) {
             return;
         }
 

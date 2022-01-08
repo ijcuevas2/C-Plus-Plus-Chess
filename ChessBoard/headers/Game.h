@@ -22,25 +22,8 @@ public:
     const int lastIndex = 7;
     const int boardSize = 8;
 
-    Game() {
-        for (int i = 0; i < boardSize; ++i) {
-            this->board.push_back(std::vector<BoardSpace*>(8));
-        }
-
-        initializeBoard();
-    }
-
-    ~Game() {
-        for (std::vector<BoardSpace*> vec : this->board) {
-            for (BoardSpace* pBoardSpace : vec) {
-                delete pBoardSpace;
-            }
-
-            vec.clear();
-        }
-
-        this->board.clear();
-    }
+    Game();
+    ~Game();
 
     ChessPiece* getChessPieceAtBoardIndex(int xIndex, int yIndex);
     BoardSpace* getBoardSpaceAtIndex(int xIndex, int yIndex);
@@ -49,13 +32,11 @@ public:
     std::vector<std::vector<BoardSpace*>> getBoard();
     int getBoardSize();
     void initializeBoard();
-    void initializeRooks();
-    void initializeKnights();
-    void initializeBishops();
-    void initializeQueens();
-    void initializeKings();
-    void initializePawns();
-    void initializeNullPieces();
+    bool isValidEncoding(std::vector<std::vector<std::string>> chessBoard);
+    void parseChessBoard(std::vector<std::vector<std::string>> chessBoard);
+    PlayerID parsePlayerId(std::string pieceEncoding);
+    PieceType parsePieceType(std::string pieceEncoding);
+    ChessPiece* initChessPiece(std::string pieceEncoding);
 };
 
 

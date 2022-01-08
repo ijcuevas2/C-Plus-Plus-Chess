@@ -7,7 +7,7 @@
 
 #include <vector>
 #include "BoardSpace.h"
-#include "./ChessPieces/NullPiece.h"
+#include "./ChessPieces/EmptyPiece.h"
 #include "Game.h"
 #include <QLabel>
 

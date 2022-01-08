@@ -12,13 +12,13 @@
 class Resources {
 public:
     static std::string getImagePath(PlayerID playerID, PieceType pieceType) {
-        std::map<PieceType, std::string> imageResourceMap = {{PieceType::ROOK, "rook"},
-                                                             {PieceType::KNIGHT, "knight"},
-                                                             {PieceType::BISHOP, "bishop"},
-                                                             {PieceType::QUEEN, "queen"},
-                                                             {PieceType::KING, "king"},
-                                                             {PieceType::PAWN, "pawn"},
-                                                             {PieceType::NULL_PIECE, ""}};
+        std::map<PieceType, std::string> imageResourceMap = {{PieceType::ROOK,        "rook"},
+                                                             {PieceType::KNIGHT,      "knight"},
+                                                             {PieceType::BISHOP,      "bishop"},
+                                                             {PieceType::QUEEN,       "queen"},
+                                                             {PieceType::KING,        "king"},
+                                                             {PieceType::PAWN,        "pawn"},
+                                                             {PieceType::EMPTY_PIECE, ""}};
         if(imageResourceMap.count(pieceType) < 1) {
             return "";
         }
