@@ -9,55 +9,26 @@
 #include "../headers/ChessPieces/Queen.h"
 #include "../headers/ChessPieces/King.h"
 #include "../headers/ChessPieces/Pawn.h"
-#include "../headers/ChessPieces/NullPiece.h"
+#include "../headers/ChessPieces/EmptyPiece.h"
 
-void Game::initializeRooks() {
-    setBoardSpaceAtIndex(new Rook(PlayerID::PLAYER_DARK), firstIndex, firstIndex);
-    setBoardSpaceAtIndex(new Rook(PlayerID::PLAYER_DARK), lastIndex, firstIndex);
-    setBoardSpaceAtIndex(new Rook(PlayerID::PLAYER_LIGHT), firstIndex, lastIndex);
-    setBoardSpaceAtIndex(new Rook(PlayerID::PLAYER_LIGHT), lastIndex, lastIndex);
-}
-
-void Game::initializeKnights() {
-    int offset = 1;
-    setBoardSpaceAtIndex(new Knight(PlayerID::PLAYER_DARK), firstIndex + offset, firstIndex);
-    setBoardSpaceAtIndex(new Knight(PlayerID::PLAYER_DARK), lastIndex - offset, firstIndex);
-    setBoardSpaceAtIndex(new Knight(PlayerID::PLAYER_LIGHT), firstIndex + offset, lastIndex);
-    setBoardSpaceAtIndex(new Knight(PlayerID::PLAYER_LIGHT), lastIndex - offset, lastIndex);
-}
-
-void Game::initializeBishops() {
-    int offset = 2;
-    setBoardSpaceAtIndex(new Bishop(PlayerID::PLAYER_DARK), firstIndex + offset, firstIndex);
-    setBoardSpaceAtIndex(new Bishop(PlayerID::PLAYER_DARK), lastIndex - offset, firstIndex);
-    setBoardSpaceAtIndex(new Bishop(PlayerID::PLAYER_LIGHT), firstIndex + offset, lastIndex);
-    setBoardSpaceAtIndex(new Bishop(PlayerID::PLAYER_LIGHT), lastIndex - offset, lastIndex);
-}
-
-void Game::initializeQueens() {
-    int offset = 3;
-    setBoardSpaceAtIndex(new Queen(PlayerID::PLAYER_DARK), firstIndex + offset, firstIndex);
-    setBoardSpaceAtIndex(new Queen(PlayerID::PLAYER_LIGHT), firstIndex + offset, lastIndex);
-}
-
-void Game::initializeKings() {
-    int offset = 4;
-    setBoardSpaceAtIndex(new King(PlayerID::PLAYER_DARK), firstIndex + offset, firstIndex);
-    setBoardSpaceAtIndex(new King(PlayerID::PLAYER_LIGHT), firstIndex + offset, lastIndex);
-}
-
-void Game::initializePawns() {
-    for (int i = 0; i < Game::boardSize; ++i) {
-        setBoardSpaceAtIndex(new Pawn(PlayerID::PLAYER_DARK), i, firstIndex + 1);
-        setBoardSpaceAtIndex(new Pawn(PlayerID::PLAYER_LIGHT), i, lastIndex - 1);
+Game::Game() {
+    for (int i = 0; i < boardSize; ++i) {
+        this->board.push_back(std::vector<BoardSpace*>(8));
     }
+
+    initializeBoard();
 }
 
-void Game::initializeNullPieces() { for (int y = firstIndex + 2; y < Game::boardSize - 2; ++y) {
-        for (int x = firstIndex; x < Game::boardSize; ++x) {
-            setBoardSpaceAtIndex(new NullPiece(), x, y);
+Game::~Game() {
+    for (std::vector<BoardSpace*> vec : this->board) {
+        for (BoardSpace* pBoardSpace : vec) {
+            delete pBoardSpace;
         }
+
+        vec.clear();
     }
+
+    this->board.clear();
 }
 
 ChessPiece* Game::getChessPieceAtBoardIndex(int xIndex, int yIndex) {
@@ -111,13 +82,132 @@ void Game::setBoardSpaceAtIndex(ChessPiece* chessPiece, int xIndex, int yIndex) 
     this->board[yIndex][xIndex] = boardSpace;
 }
 
+bool Game::isValidEncoding(std::vector<std::vector<std::string>> chessBoard) {
+    const int EXPECTED_NUM_ROWS = 8;
+    const int EXPECTED_NUM_SPACES = 8;
+
+    if (chessBoard.size() != EXPECTED_NUM_ROWS) {
+        return false;
+    }
+
+    for (std::vector<std::string> & row : chessBoard) {
+        if (row.size() != EXPECTED_NUM_SPACES) {
+            return false;
+        }
+
+        for (std::string & pieceEncoding : row) {
+            if (pieceEncoding.size() != 2) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+PlayerID Game::parsePlayerId(std::string pieceEncoding) {
+    // TODO: IMPLEMENT TRY CATCH
+    const char firstChar = pieceEncoding[0];
+    switch (firstChar) {
+        case 'D':
+            return PlayerID::PLAYER_DARK;
+            break;
+        case 'L':
+            return PlayerID::PLAYER_LIGHT;
+            break;
+        case 'E':
+            return PlayerID::NONE;
+            break;
+        default:
+            return PlayerID::NONE;
+            break;
+    }
+}
+
+PieceType Game::parsePieceType(std::string pieceEncoding) {
+    const char secondChar = pieceEncoding[1];
+    switch (secondChar) {
+        case 'R':
+            return PieceType::ROOK;
+            break;
+        case 'N':
+            return PieceType::KNIGHT;
+            break;
+        case 'B':
+            return PieceType::BISHOP;
+            break;
+        case 'K':
+            return PieceType::KING;
+            break;
+        case 'Q':
+            return PieceType::QUEEN;
+            break;
+        case 'P':
+            return PieceType::PAWN;
+            break;
+        case 'E':
+            return PieceType::EMPTY_PIECE;
+            break;
+        default:
+            return PieceType::EMPTY_PIECE;
+            break;
+    }
+}
+
+ChessPiece* Game::initChessPiece(std::string pieceEncoding) {
+    PieceType pieceType = parsePieceType(pieceEncoding);
+    PlayerID playerId = parsePlayerId(pieceEncoding);
+    ChessPiece* piece = NULL;
+
+    switch (pieceType) {
+        case PieceType::ROOK:
+            piece = new Rook(playerId);
+            break;
+        case PieceType::KNIGHT:
+            piece = new Knight(playerId);
+            break;
+        case PieceType::BISHOP:
+            piece = new Bishop(playerId);
+            break;
+        case PieceType::QUEEN:
+            piece = new Queen(playerId);
+            break;
+        case PieceType::KING:
+            piece = new King(playerId);
+            break;
+        case PieceType::PAWN:
+            piece = new Pawn(playerId);
+            break;
+        case PieceType::EMPTY_PIECE:
+            piece = new EmptyPiece();
+            break;
+    }
+
+    return piece;
+}
+
+void Game::parseChessBoard(std::vector<std::vector<std::string>> chessBoard) {
+    if (!isValidEncoding(chessBoard)) {
+        return;
+    }
+
+    for (size_t y = 0; y < chessBoard.size(); ++y) {
+        for (size_t x = 0; x < chessBoard[y].size(); ++x) {
+            ChessPiece* chessPiece = initChessPiece(chessBoard[y][x]);
+            setBoardSpaceAtIndex(chessPiece, x, y);
+        }
+    }
+}
+
 
 void Game::initializeBoard() {
-    this->initializeRooks();
-    this->initializeKnights();
-    this->initializeBishops();
-    this->initializeQueens();
-    this->initializeKings();
-    this->initializePawns();
-    this->initializeNullPieces();
+    std::vector<std::vector<std::string>> chessBoard = {{"DR", "DN", "DB", "DK", "DQ", "DB", "DN", "DR"},
+                                                        {"DP", "DP", "DP", "DP", "DP", "DP", "DP", "DP"},
+                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
+                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
+                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
+                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
+                                                        {"LP", "LP", "LP", "LP", "LP", "LP", "LP", "LP"},
+                                                        {"LR", "LN", "LB", "LK", "LQ", "LB", "LN", "LR"}};
+    this->parseChessBoard(chessBoard);
 }

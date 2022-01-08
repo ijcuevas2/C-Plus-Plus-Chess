@@ -9,7 +9,7 @@
 void ChessMovementMediator::addBoardSpace(BoardSpace *boardSpace) {
     if (boardSpaceList.empty()
         && boardSpace != NULL
-        && boardSpace->getChessPiece()->getPieceType() == PieceType::NULL_PIECE) {
+        && boardSpace->getChessPiece()->getPieceType() == PieceType::EMPTY_PIECE) {
         return;
     }
 
@@ -124,17 +124,17 @@ void ChessMovementMediator::moveChessPiece() {
     ChessPiece *firstChessPiece = firstBoardSpace->getChessPiece();
     ChessPiece *secondChessPiece = secondBoardSpace->getChessPiece();
 
-    if (firstChessPiece->getPieceType() == PieceType::NULL_PIECE) {
+    if (firstChessPiece->getPieceType() == PieceType::EMPTY_PIECE) {
         return;
     }
 
     delete secondChessPiece;
-    NullPiece *nullPiece = new NullPiece();
+    EmptyPiece *nullPiece = new EmptyPiece();
 
     firstBoardSpace->setChessPiece(nullPiece);
     secondBoardSpace->setChessPiece(firstChessPiece);
 
-    if (secondChessPiece->getPieceType() == PieceType::NULL_PIECE &&
+    if (secondChessPiece->getPieceType() == PieceType::EMPTY_PIECE &&
         firstChessPiece->getPieceType() == PieceType::PAWN) {
         handleEnPassantCapture(firstBoardSpace, secondBoardSpace);
     }
@@ -151,7 +151,7 @@ void ChessMovementMediator::handleEnPassantCapture(BoardSpace *firstBoardSpace, 
     int targetPieceY = firstBoardSpace->getYIndex();
     int enPassantTurn = ChessMovementMediator::getMovedTwoSpacesTurn(targetPieceX, targetPieceY) + 1;
     if (enPassantTurn == ChessMovementMediator::getCurrentTurn()) {
-        NullPiece *targetPieceNullPiece = new NullPiece();
+        EmptyPiece *targetPieceNullPiece = new EmptyPiece();
         setChessPieceAtIndex(targetPieceNullPiece, targetPieceX, targetPieceY);
     }
 }
@@ -229,7 +229,7 @@ bool ChessMovementMediator::isBoardIndexOccupied(int targetX, int targetY) {
         ChessPiece *chessPiecePtr = gamePtr->getChessPieceAtBoardIndex(targetX, targetY);
         if (chessPiecePtr != NULL) {
             PieceType pieceType = chessPiecePtr->getPieceType();
-            return pieceType != PieceType::NULL_PIECE;
+            return pieceType != PieceType::EMPTY_PIECE;
         }
     }
 
