@@ -7,7 +7,7 @@
 #include "ChessView.h"
 #include "ui_ChessView.h"
 #include "../headers/Game.h"
-#include "../headers/ChessMovementMediator.h"
+#include "../headers/ChessMovementUtils.h"
 #include <QFile>
 
 ChessView::ChessView(QWidget *parent) :
@@ -34,19 +34,19 @@ void ChessView::setupScene() {
 
     QLabel* qLabel = findChild<QLabel*>("turnLabel");
     if (qLabel != NULL) {
-        ChessMovementMediator::setLabelPtr(qLabel);
+        ChessMovementUtils::setLabelPtr(qLabel);
         qLabel->setText("Current Turn (Light Turn): 1");
     }
 
     if (game != NULL) {
-        ChessMovementMediator::setGamePtr(game);
+        ChessMovementUtils::setGamePtr(game);
     }
 }
 
 void ChessView::keyPressEvent(QKeyEvent* k) {
     switch (k->key()) {
         case Qt::Key_Escape:
-            ChessMovementMediator::clearBoardSpaceList();
+            ChessMovementUtils::clearBoardSpaceList();
             break;
     }
 }

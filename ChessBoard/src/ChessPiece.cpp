@@ -3,7 +3,7 @@
 //
 
 #include "../headers/ChessPieces/ChessPiece.h"
-#include "../headers/ChessMovementMediator.h"
+#include "../headers/ChessMovementUtils.h"
 #include <cmath>
 
 ChessPiece::ChessPiece(PlayerID playerId, PieceType pieceType) : QObject(), QGraphicsPixmapItem() {
@@ -58,7 +58,7 @@ bool ChessPiece::isPieceBlockingPath(Coordinates coordinates) {
         while (xDistance != 0 || yDistance != 0) {
             int xStepIndex = coordinates.destX + xDistance;
             int yStepIndex = coordinates.destY + yDistance;
-            bool isBoardIndexOccupiedValue = ChessMovementMediator::isBoardIndexOccupied(xStepIndex, yStepIndex);
+            bool isBoardIndexOccupiedValue = ChessMovementUtils::isBoardIndexOccupied(xStepIndex, yStepIndex);
             if (isBoardIndexOccupiedValue) {
                 return true;
             }

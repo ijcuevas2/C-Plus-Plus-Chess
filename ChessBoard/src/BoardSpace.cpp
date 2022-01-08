@@ -3,7 +3,7 @@
 //
 
 #include "../headers/BoardSpace.h"
-#include "../headers/ChessMovementMediator.h"
+#include "../headers/ChessMovementUtils.h"
 #include <QGraphicsItemGroup>
 #include <QGraphicsView>
 
@@ -42,7 +42,7 @@ void BoardSpace::initMarker() {
 }
 
 void BoardSpace::mousePressEvent(QGraphicsSceneMouseEvent *event) {
-    ChessMovementMediator::addBoardSpace(this);
+    ChessMovementUtils::addBoardSpace(this);
 }
 
 void BoardSpace::setSelectedBackground() {
@@ -87,7 +87,7 @@ void BoardSpace::setChessPiece(ChessPiece *chessPiece) {
 
 bool BoardSpace::canMovePieceToIndex(int destX, int destY) {
     Coordinates coordinates(xIndex, yIndex, destX, destY);
-    bool haveSamePlayerIdValue = ChessMovementMediator::haveSamePlayerId(coordinates);
+    bool haveSamePlayerIdValue = ChessMovementUtils::haveSamePlayerId(coordinates);
     if (haveSamePlayerIdValue) {
         return false;
     }

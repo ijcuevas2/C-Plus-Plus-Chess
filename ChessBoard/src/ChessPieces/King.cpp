@@ -3,7 +3,7 @@
 //
 
 #include "../../headers/ChessPieces/King.h"
-#include "../../headers/ChessMovementMediator.h"
+#include "../../headers/ChessMovementUtils.h"
 
 bool King::canMove(Coordinates coordinates) {
     bool baseCanMove = ChessPiece::canMove(coordinates);
@@ -29,7 +29,7 @@ std::vector<Rook*> King::rooksEligibleForCastling() {
     std::vector<Rook*> rookPtrList{};
     if (!hasMoved) {
         // REFACTOR INDICES TO USE CONSTANTS
-        int yIndex = ChessMovementMediator::getCurrentTurnPlayerId() == PlayerID::PLAYER_LIGHT ? 7 : 0;
+        int yIndex = ChessMovementUtils::getCurrentTurnPlayerId() == PlayerID::PLAYER_LIGHT ? 7 : 0;
         int xFirstIndex = 0;
         int xLastIndex = 7;
         addRookEligibleForCastling(rookPtrList, xFirstIndex, yIndex);
@@ -40,7 +40,7 @@ std::vector<Rook*> King::rooksEligibleForCastling() {
 }
 
 void King::addRookEligibleForCastling(std::vector<Rook*> & rookPtrList, int xIndex, int yIndex) {
-    ChessPiece* chessPiece = ChessMovementMediator::getChessPieceAtIndex(xIndex, yIndex);
+    ChessPiece* chessPiece = ChessMovementUtils::getChessPieceAtIndex(xIndex, yIndex);
     if (chessPiece->getPieceType() == PieceType::ROOK) {
         Rook* rookPtr = dynamic_cast<Rook*>(chessPiece);
         if (!rookPtr->HasMoved()) {
@@ -55,7 +55,7 @@ void King::addRookEligibleForCastlingHelper(Rook* rookPtr, std::vector<Rook*> & 
     currIndex += direction;
     const int KING_INDEX = 4;
     while (currIndex != KING_INDEX) {
-        bool isOccupied = ChessMovementMediator::isBoardIndexOccupied(currIndex, yIndex);
+        bool isOccupied = ChessMovementUtils::isBoardIndexOccupied(currIndex, yIndex);
         if (isOccupied) {
             return;
         }

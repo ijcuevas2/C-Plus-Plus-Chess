@@ -2,8 +2,8 @@
 // Created by ismael on 11/7/21.
 //
 
-#ifndef CHESS_CHESSMOVEMENTMEDIATOR_H
-#define CHESS_CHESSMOVEMENTMEDIATOR_H
+#ifndef CHESS_CHESSMOVEMENTUTILS_H
+#define CHESS_CHESSMOVEMENTUTILS_H
 
 #include <vector>
 #include "BoardSpace.h"
@@ -47,4 +47,4 @@ public:
 };
 
 
-#endif //CHESS_CHESSMOVEMENTMEDIATOR_H
+#endif //CHESS_CHESSMOVEMENTUTILS_H

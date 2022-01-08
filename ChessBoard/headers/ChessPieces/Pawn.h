@@ -6,7 +6,7 @@
 #define CHESS_PAWN_H
 
 #include "ChessPiece.h"
-#include "../ChessMovementMediator.h"
+#include "../ChessMovementUtils.h"
 
 class Pawn : public ChessPiece {
 private:

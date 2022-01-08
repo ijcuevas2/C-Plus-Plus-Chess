@@ -44,12 +44,12 @@ bool Pawn::canCapture(Coordinates coordinates) {
 }
 
 bool Pawn::canEnPassantCapture(Coordinates coordinates) {
-    bool isIndexOccupiedValue = ChessMovementMediator::isBoardIndexOccupied(coordinates.destX, coordinates.destY);
+    bool isIndexOccupiedValue = ChessMovementUtils::isBoardIndexOccupied(coordinates.destX, coordinates.destY);
     if (!isIndexOccupiedValue) {
         int targetPieceX = coordinates.destX;
         int targetPieceY = coordinates.sourceY;
-        int enPassantTurn = ChessMovementMediator::getMovedTwoSpacesTurn(targetPieceX, targetPieceY) + 1;
-        bool canEnPassantCaptureResult = enPassantTurn == ChessMovementMediator::getCurrentTurn();
+        int enPassantTurn = ChessMovementUtils::getMovedTwoSpacesTurn(targetPieceX, targetPieceY) + 1;
+        bool canEnPassantCaptureResult = enPassantTurn == ChessMovementUtils::getCurrentTurn();
         return canEnPassantCaptureResult;
     }
 
@@ -57,7 +57,7 @@ bool Pawn::canEnPassantCapture(Coordinates coordinates) {
 }
 
 bool Pawn::canDiagonalCapture(Coordinates coordinates) {
-    bool isIndexOccupiedResult = ChessMovementMediator::isBoardIndexOccupied(coordinates.destX, coordinates.destY);
+    bool isIndexOccupiedResult = ChessMovementUtils::isBoardIndexOccupied(coordinates.destX, coordinates.destY);
     return isIndexOccupiedResult;
 }
 
@@ -73,7 +73,7 @@ bool Pawn::canMoveSingleSpaceForward(Coordinates coordinates) {
     int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.destX);
     int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.destY);
 
-    bool isTargetOccupiedValue = ChessMovementMediator::isBoardIndexOccupied(coordinates.destX, coordinates.destY);
+    bool isTargetOccupiedValue = ChessMovementUtils::isBoardIndexOccupied(coordinates.destX, coordinates.destY);
 
     bool canMove = xAbsDistance == 0 && yAbsDistance < 2 && !isTargetOccupiedValue;
     return canMove;
@@ -95,7 +95,7 @@ void Pawn::setMovedTwoSpacesTurn(Coordinates coordinates) {
     int absoluteDistanceValue = absoluteDistance(coordinates.sourceY, coordinates.destY);
     bool movedTwoSpacesResult = absoluteDistanceValue == 2;
     if (movedTwoSpacesResult) {
-        this->movedTwoSpacesTurn = ChessMovementMediator::getCurrentTurn();
+        this->movedTwoSpacesTurn = ChessMovementUtils::getCurrentTurn();
     }
 }
 

@@ -2,11 +2,11 @@
 // Created by ismael on 11/7/21.
 //
 
-#include "../headers/ChessMovementMediator.h"
+#include "../headers/ChessMovementUtils.h"
 #include "../headers/ChessPieces/Pawn.h"
 #include <QGraphicsView>
 
-void ChessMovementMediator::addBoardSpace(BoardSpace *boardSpace) {
+void ChessMovementUtils::addBoardSpace(BoardSpace *boardSpace) {
     if (boardSpaceList.empty()
         && boardSpace != NULL
         && boardSpace->getChessPiece()->getPieceType() == PieceType::EMPTY_PIECE) {
@@ -31,13 +31,13 @@ void ChessMovementMediator::addBoardSpace(BoardSpace *boardSpace) {
     BoardSpace *firstBoardSpace = boardSpaceSize > 0 ? boardSpaceList[0] : NULL;
 
     if (boardSpaceList.size() == 2 && boardSpaceList[0] != NULL && boardSpaceList[1] != NULL) {
-        ChessMovementMediator::tryMovingChessPiece();
+        ChessMovementUtils::tryMovingChessPiece();
     }
 
-    ChessMovementMediator::setBoardSpaceBackground(firstBoardSpace);
+    ChessMovementUtils::setBoardSpaceBackground(firstBoardSpace);
 }
 
-void ChessMovementMediator::showHints(BoardSpace *boardSpace) {
+void ChessMovementUtils::showHints(BoardSpace *boardSpace) {
     if (boardSpace != NULL) {
         int boardSize = gamePtr->getBoardSize();
         for (int y = 0; y < boardSize; y++) {
@@ -54,7 +54,7 @@ void ChessMovementMediator::showHints(BoardSpace *boardSpace) {
     }
 }
 
-void ChessMovementMediator::hideHints() {
+void ChessMovementUtils::hideHints() {
     int boardSize = gamePtr->getBoardSize();
     for (int y = 0; y < boardSize; y++) {
         for (int x = 0; x < boardSize; x++) {
@@ -64,7 +64,7 @@ void ChessMovementMediator::hideHints() {
     }
 }
 
-BoardSpace* ChessMovementMediator::getBoardSpaceAtIndex(int xIndex, int yIndex) {
+BoardSpace* ChessMovementUtils::getBoardSpaceAtIndex(int xIndex, int yIndex) {
     if (gamePtr != NULL) {
         return gamePtr->getBoardSpaceAtIndex(xIndex, yIndex);
     }
@@ -72,7 +72,7 @@ BoardSpace* ChessMovementMediator::getBoardSpaceAtIndex(int xIndex, int yIndex) 
     return NULL;
 }
 
-void ChessMovementMediator::setBoardSpaceBackground(BoardSpace *boardSpace) {
+void ChessMovementUtils::setBoardSpaceBackground(BoardSpace *boardSpace) {
     if (boardSpace == NULL) {
         return;
     }
@@ -84,7 +84,7 @@ void ChessMovementMediator::setBoardSpaceBackground(BoardSpace *boardSpace) {
     }
 }
 
-bool ChessMovementMediator::haveSamePlayerId(Coordinates coordinates) {
+bool ChessMovementUtils::haveSamePlayerId(Coordinates coordinates) {
     BoardSpace* firstBoardSpace = getBoardSpaceAtIndex(coordinates.sourceX, coordinates.sourceY);
     BoardSpace* secondBoardSpace = getBoardSpaceAtIndex(coordinates.destX, coordinates.destY);
 
@@ -95,7 +95,7 @@ bool ChessMovementMediator::haveSamePlayerId(Coordinates coordinates) {
     return firstBoardSpace->getPlayerId() == secondBoardSpace->getPlayerId();
 }
 
-void ChessMovementMediator::tryMovingChessPiece() {
+void ChessMovementUtils::tryMovingChessPiece() {
     BoardSpace *firstBoardSpace = boardSpaceList[0];
     BoardSpace *secondBoardSpace = boardSpaceList[1];
 
@@ -117,7 +117,7 @@ void ChessMovementMediator::tryMovingChessPiece() {
     }
 }
 
-void ChessMovementMediator::moveChessPiece() {
+void ChessMovementUtils::moveChessPiece() {
     BoardSpace *firstBoardSpace = boardSpaceList[0];
     BoardSpace *secondBoardSpace = boardSpaceList[1];
 
@@ -146,17 +146,17 @@ void ChessMovementMediator::moveChessPiece() {
     incrementTurn();
 }
 
-void ChessMovementMediator::handleEnPassantCapture(BoardSpace *firstBoardSpace, BoardSpace *secondBoardSpace) {
+void ChessMovementUtils::handleEnPassantCapture(BoardSpace *firstBoardSpace, BoardSpace *secondBoardSpace) {
     int targetPieceX = secondBoardSpace->getXIndex();
     int targetPieceY = firstBoardSpace->getYIndex();
-    int enPassantTurn = ChessMovementMediator::getMovedTwoSpacesTurn(targetPieceX, targetPieceY) + 1;
-    if (enPassantTurn == ChessMovementMediator::getCurrentTurn()) {
+    int enPassantTurn = ChessMovementUtils::getMovedTwoSpacesTurn(targetPieceX, targetPieceY) + 1;
+    if (enPassantTurn == ChessMovementUtils::getCurrentTurn()) {
         EmptyPiece *targetPieceNullPiece = new EmptyPiece();
         setChessPieceAtIndex(targetPieceNullPiece, targetPieceX, targetPieceY);
     }
 }
 
-void ChessMovementMediator::clearBoardSpaceList() {
+void ChessMovementUtils::clearBoardSpaceList() {
     BoardSpace *firstBoardSpace = NULL;
     if (!boardSpaceList.empty()) {
         firstBoardSpace = boardSpaceList[0];
@@ -170,7 +170,7 @@ void ChessMovementMediator::clearBoardSpaceList() {
     hideHints();
 }
 
-void ChessMovementMediator::incrementTurn() {
+void ChessMovementUtils::incrementTurn() {
     // TODO: Check for overflow
     currentTurn++;
 
@@ -191,7 +191,7 @@ void ChessMovementMediator::incrementTurn() {
     }
 }
 
-bool ChessMovementMediator::isTurnPlayerPiece(ChessPiece *chessPiece) {
+bool ChessMovementUtils::isTurnPlayerPiece(ChessPiece *chessPiece) {
     PlayerID playerId = chessPiece->getPlayerId();
     std::map<PlayerID, int> playerIdMap = {{PlayerID::PLAYER_LIGHT, 0},
                                            {PlayerID::PLAYER_DARK,  1}};
@@ -205,7 +205,7 @@ bool ChessMovementMediator::isTurnPlayerPiece(ChessPiece *chessPiece) {
     return isTurnPlayer;
 }
 
-const bool ChessMovementMediator::canMove(BoardSpace *firstBoardSpace, BoardSpace *secondBoardSpace) {
+const bool ChessMovementUtils::canMove(BoardSpace *firstBoardSpace, BoardSpace *secondBoardSpace) {
     if (firstBoardSpace == secondBoardSpace) {
         return false;
     }
@@ -216,15 +216,15 @@ const bool ChessMovementMediator::canMove(BoardSpace *firstBoardSpace, BoardSpac
     return firstBoardSpace->canMovePieceToIndex(destX, destY);
 }
 
-void ChessMovementMediator::setLabelPtr(QLabel *qLabel) {
+void ChessMovementUtils::setLabelPtr(QLabel *qLabel) {
     turnLabelPtr = qLabel;
 }
 
-void ChessMovementMediator::setGamePtr(Game *game) {
+void ChessMovementUtils::setGamePtr(Game *game) {
     gamePtr = game;
 }
 
-bool ChessMovementMediator::isBoardIndexOccupied(int targetX, int targetY) {
+bool ChessMovementUtils::isBoardIndexOccupied(int targetX, int targetY) {
     if (gamePtr != NULL) {
         ChessPiece *chessPiecePtr = gamePtr->getChessPieceAtBoardIndex(targetX, targetY);
         if (chessPiecePtr != NULL) {
@@ -236,11 +236,11 @@ bool ChessMovementMediator::isBoardIndexOccupied(int targetX, int targetY) {
     return false;
 }
 
-int ChessMovementMediator::getMovedTwoSpacesTurn(int targetX, int targetY) {
+int ChessMovementUtils::getMovedTwoSpacesTurn(int targetX, int targetY) {
     ChessPiece *chessPiece = getChessPieceAtIndex(targetX, targetY);
     if (chessPiece != NULL && chessPiece->getPieceType() == PieceType::PAWN) {
         // TODO: INVESTIGATE DYNAMIC CAST
-        Pawn *pawn = dynamic_cast<Pawn *>(chessPiece);
+        Pawn *pawn = dynamic_cast<Pawn*>(chessPiece);
         int turn = pawn->getMovedTwoSpacesTurn();
         return turn;
     }
@@ -248,7 +248,7 @@ int ChessMovementMediator::getMovedTwoSpacesTurn(int targetX, int targetY) {
     return -1;
 }
 
-ChessPiece* ChessMovementMediator::getChessPieceAtIndex(int xIndex, int yIndex) {
+ChessPiece* ChessMovementUtils::getChessPieceAtIndex(int xIndex, int yIndex) {
     if (gamePtr != NULL) {
         ChessPiece *chessPiecePtr = gamePtr->getChessPieceAtBoardIndex(xIndex, yIndex);
         return chessPiecePtr;
@@ -257,17 +257,17 @@ ChessPiece* ChessMovementMediator::getChessPieceAtIndex(int xIndex, int yIndex) 
     return NULL;
 }
 
-void ChessMovementMediator::setChessPieceAtIndex(ChessPiece *chessPiece, int targetX, int targetY) {
+void ChessMovementUtils::setChessPieceAtIndex(ChessPiece *chessPiece, int targetX, int targetY) {
     if (gamePtr != NULL) {
         gamePtr->setChessPieceAtBoardIndex(chessPiece, targetX, targetY);
     }
 }
 
-int ChessMovementMediator::getCurrentTurn() {
+int ChessMovementUtils::getCurrentTurn() {
     return currentTurn;
 }
 
-PlayerID ChessMovementMediator::getCurrentTurnPlayerId() {
+PlayerID ChessMovementUtils::getCurrentTurnPlayerId() {
     std::map<PlayerID, int> playerIdMap = {{PlayerID::PLAYER_LIGHT, 0},
                                            {PlayerID::PLAYER_DARK,  1}};
     if (getCurrentTurn() % 2 == 0) {
