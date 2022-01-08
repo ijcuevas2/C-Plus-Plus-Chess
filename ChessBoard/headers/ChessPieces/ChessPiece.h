@@ -20,16 +20,7 @@ public:
 
     ChessPiece(PlayerID playerId, PieceType pieceType);
     virtual ~ChessPiece() {};
-    void setChessPieceImagePath() {
-        if (pieceType == PieceType::EMPTY_PIECE) {
-            return;
-        }
-
-        std::string imagePath = Resources::getImagePath(playerId, pieceType);
-        char filePath[imagePath.length() + 1];
-        strcpy(filePath, imagePath.c_str());
-        setPixmap(QPixmap(filePath));
-    }
+    void setChessPieceImagePath();
 
     int actualDistance(int source, int dest);
     int absoluteDistance(int source, int dest);

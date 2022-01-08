@@ -7,7 +7,6 @@
 #include <QGraphicsRectItem>
 #include <QBrush>
 #include "ChessPieces/ChessPiece.h"
-#include "Point.h"
 #include "ChessPieces/Resources.h"
 #include "HintMarker.h"
 

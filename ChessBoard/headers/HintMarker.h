@@ -7,7 +7,6 @@
 #include <QGraphicsEllipseItem>
 #include <QBrush>
 #include <QPen>
-#include "Point.h"
 #include "ChessPieces/Resources.h"
 
 class HintMarker: public QObject, public QGraphicsEllipseItem {

@@ -89,3 +89,13 @@ bool ChessPiece::canMove(Coordinates coordinates) {
 
     return true;
 }
+void ChessPiece::setChessPieceImagePath() {
+    if (pieceType == PieceType::EMPTY_PIECE) {
+        return;
+    }
+
+    std::string imagePath = Resources::getImagePath(playerId, pieceType);
+    char filePath[imagePath.length() + 1];
+    strcpy(filePath, imagePath.c_str());
+    setPixmap(QPixmap(filePath));
+}

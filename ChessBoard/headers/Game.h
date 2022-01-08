@@ -10,7 +10,6 @@
 #include <iostream>
 #include <memory>
 #include "./BoardSpace.h"
-#include "./Point.h"
 #include <QGraphicsItemGroup>
 
 class Game {

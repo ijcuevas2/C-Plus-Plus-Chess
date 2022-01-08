@@ -219,4 +219,5 @@ void Game::initializeBoard() {
 //                                                        {"LP", "LP", "LP", "LP", "LP", "LP", "LP", "LP"},
 //                                                        {"LR", "EE", "EE", "EE", "LK", "EE", "EE", "LR"}};
     this->parseChessBoard(chessBoard);
+    chessBoard.clear();
 }
