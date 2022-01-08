@@ -12,7 +12,7 @@
 #include <QLabel>
 
 // TODO: Check if name could be changed
-class ChessMovementMediator {
+class ChessMovementUtils {
 private:
     inline static int currentTurn = 1;
     inline static std::vector<BoardSpace*> boardSpaceList;
