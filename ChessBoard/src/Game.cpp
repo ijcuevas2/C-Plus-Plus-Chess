@@ -194,6 +194,7 @@ void Game::parseChessBoard(std::vector<std::vector<std::string>> chessBoard) {
     for (size_t y = 0; y < chessBoard.size(); ++y) {
         for (size_t x = 0; x < chessBoard[y].size(); ++x) {
             ChessPiece* chessPiece = initChessPiece(chessBoard[y][x]);
+            // TODO: LOOK UP POTENTIAL BUGS WITH MIXING SIZE_T AND INT
             setBoardSpaceAtIndex(chessPiece, x, y);
         }
     }
@@ -201,13 +202,21 @@ void Game::parseChessBoard(std::vector<std::vector<std::string>> chessBoard) {
 
 
 void Game::initializeBoard() {
-    std::vector<std::vector<std::string>> chessBoard = {{"DR", "DN", "DB", "DK", "DQ", "DB", "DN", "DR"},
+    std::vector<std::vector<std::string>> chessBoard = {{"DR", "DN", "DB", "DQ", "DK", "DB", "DN", "DR"},
                                                         {"DP", "DP", "DP", "DP", "DP", "DP", "DP", "DP"},
                                                         {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
                                                         {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
                                                         {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
                                                         {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
                                                         {"LP", "LP", "LP", "LP", "LP", "LP", "LP", "LP"},
-                                                        {"LR", "LN", "LB", "LK", "LQ", "LB", "LN", "LR"}};
+                                                        {"LR", "LN", "LB", "LQ", "LK", "LB", "LN", "LR"}};
+//    std::vector<std::vector<std::string>> chessBoard = {{"DR", "DN", "DB", "DQ", "DK", "DB", "DN", "DR"},
+//                                                        {"DP", "DP", "DP", "DP", "DP", "DP", "DP", "DP"},
+//                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
+//                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
+//                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
+//                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
+//                                                        {"LP", "LP", "LP", "LP", "LP", "LP", "LP", "LP"},
+//                                                        {"LR", "EE", "EE", "EE", "LK", "EE", "EE", "LR"}};
     this->parseChessBoard(chessBoard);
 }
