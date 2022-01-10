@@ -8,7 +8,7 @@
 #include "../../enums/PieceType.h"
 #include "../../enums/Player.h"
 #include "Resources.h"
-#include "Coordinates.h"
+#include "../Coordinates.h"
 #include <QGraphicsPixmapItem>
 #include <QGraphicsItem>
 #include <QObject>
@@ -22,8 +22,10 @@ public:
     virtual ~ChessPiece() {};
     void setChessPieceImagePath();
 
+    // TODO: REFACTOR THESE USAGES
     int actualDistance(int source, int dest);
     int absoluteDistance(int source, int dest);
+
     int stepTowardSourceSpaceHelper(int value);
     void stepTowardSourceSpace(int & xDistance, int & yDistance);
     bool isPieceBlockingPath(Coordinates coordinates);
