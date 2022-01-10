@@ -129,9 +129,9 @@ void ChessMovementUtils::moveChessPiece() {
     }
 
     delete secondChessPiece;
-    EmptyPiece *nullPiece = new EmptyPiece();
+    EmptyPiece* emptyPiece = new EmptyPiece();
 
-    firstBoardSpace->setChessPiece(nullPiece);
+    firstBoardSpace->setChessPiece(emptyPiece);
     secondBoardSpace->setChessPiece(firstChessPiece);
 
     if (secondChessPiece->getPieceType() == PieceType::EMPTY_PIECE &&
@@ -139,11 +139,49 @@ void ChessMovementUtils::moveChessPiece() {
         handleEnPassantCapture(firstBoardSpace, secondBoardSpace);
     }
 
+
     Coordinates coordinates(firstBoardSpace->getXIndex(), firstBoardSpace->getYIndex(),
                             secondBoardSpace->getXIndex(), secondBoardSpace->getYIndex());
+
+    if (firstChessPiece->getPieceType() == PieceType::KING) {
+        handleCastling(coordinates);
+    }
+
+
     firstChessPiece->afterPieceMoved(coordinates);
     clearBoardSpaceList();
     incrementTurn();
+}
+
+// TODO: FIX MEMORY LEAK
+void ChessMovementUtils::handleCastling(Coordinates coordinates) {
+    if (coordinates.xAbsoluteDistance() == 2 && coordinates.yAbsoluteDistance() == 0) {
+        // TODO: REFACTOR THESE VALUES
+        BoardSpace* rookBoardSpace = NULL;
+        BoardSpace* targetBoardSpace = NULL;
+        int yIndex = coordinates.sourceY;
+
+        if (coordinates.destX == FIRST_INDEX + 2) {
+            rookBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(FIRST_INDEX, yIndex);
+            targetBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(FIRST_INDEX + 3, yIndex);
+        }
+
+        if (coordinates.destX == LAST_INDEX - 1) {
+            rookBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(LAST_INDEX, yIndex);
+            targetBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(LAST_INDEX - 2, yIndex);
+        }
+
+        if (rookBoardSpace != NULL && targetBoardSpace != NULL) {
+            EmptyPiece* emptyPiece = new EmptyPiece();
+            ChessPiece* rookPtr = rookBoardSpace->getChessPiece();
+
+            ChessPiece* currChessPiecePtr = targetBoardSpace->getChessPiece();
+            delete currChessPiecePtr;
+
+            rookBoardSpace->setChessPiece(emptyPiece);
+            targetBoardSpace->setChessPiece(rookPtr);
+        }
+    }
 }
 
 void ChessMovementUtils::handleEnPassantCapture(BoardSpace *firstBoardSpace, BoardSpace *secondBoardSpace) {
@@ -151,8 +189,8 @@ void ChessMovementUtils::handleEnPassantCapture(BoardSpace *firstBoardSpace, Boa
     int targetPieceY = firstBoardSpace->getYIndex();
     int enPassantTurn = ChessMovementUtils::getMovedTwoSpacesTurn(targetPieceX, targetPieceY) + 1;
     if (enPassantTurn == ChessMovementUtils::getCurrentTurn()) {
-        EmptyPiece *targetPieceNullPiece = new EmptyPiece();
-        setChessPieceAtIndex(targetPieceNullPiece, targetPieceX, targetPieceY);
+        EmptyPiece *targetEmptyPiece = new EmptyPiece();
+        setChessPieceAtIndex(targetEmptyPiece, targetPieceX, targetPieceY);
     }
 }
 

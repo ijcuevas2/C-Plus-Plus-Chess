@@ -210,7 +210,7 @@ void Game::initializeBoard() {
                                                         {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
                                                         {"LP", "LP", "LP", "LP", "LP", "LP", "LP", "LP"},
                                                         {"LR", "LN", "LB", "LQ", "LK", "LB", "LN", "LR"}};
-//    std::vector<std::vector<std::string>> chessBoard = {{"DR", "DN", "DB", "DQ", "DK", "DB", "DN", "DR"},
+//    std::vector<std::vector<std::string>> chessBoard = {{"DR", "EE", "EE", "EE", "DK", "EE", "EE", "DR"},
 //                                                        {"DP", "DP", "DP", "DP", "DP", "DP", "DP", "DP"},
 //                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
 //                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},

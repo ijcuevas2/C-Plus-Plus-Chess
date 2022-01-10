@@ -26,8 +26,11 @@ private:
     static void moveChessPiece();
     static const bool canMove(BoardSpace* firstBoardSpace, BoardSpace* secondBoardSpace);
 
+    static void handleCastling(Coordinates coordinates);
     static void handleEnPassantCapture(BoardSpace* firstBoardSpace, BoardSpace* secondBoardSpace);
 public:
+    static const int FIRST_INDEX = 0;
+    static const int LAST_INDEX = 7;
     static void setChessPieceAtIndex(ChessPiece* chessPiece, int targetX, int targetY);
     static ChessPiece* getChessPieceAtIndex(int xIndex, int yIndex);
     static BoardSpace* getBoardSpaceAtIndex(int xIndex, int yIndex);
@@ -35,6 +38,7 @@ public:
     static void showHints(BoardSpace* boardSpace);
     static void hideHints();
     static void addBoardSpace(BoardSpace* boardSpace);
+    static void swapChessPieces(BoardSpace* sourceBoardSpace, BoardSpace* targetBoardSpace);
     static void setLabelPtr(QLabel* qLabel);
     static void setGamePtr(Game* gamePtr);
     static bool isBoardIndexOccupied(int targetX, int targetY);

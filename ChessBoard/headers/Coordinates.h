@@ -5,6 +5,8 @@
 #ifndef CHESS_COORDINATES_H
 #define CHESS_COORDINATES_H
 
+#include <complex>
+
 class Coordinates {
 public:
     int sourceX;
@@ -14,6 +16,11 @@ public:
 
     Coordinates(int sourceX, int sourceY, int destX, int destY): sourceX(sourceX), sourceY(sourceY), destX(destX), destY(destY) {
     }
+
+    int actualDistance(int source, int dest);
+    int absoluteDistance(int source, int dest);
+    int xAbsoluteDistance();
+    int yAbsoluteDistance();
 };
 
 #endif //CHESS_COORDINATES_H
