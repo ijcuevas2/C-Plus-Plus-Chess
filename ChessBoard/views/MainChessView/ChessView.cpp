@@ -25,7 +25,7 @@ void ChessView::setupScene() {
 
     for (std::vector<BoardSpace*> boardSpaceList : board) {
         for (BoardSpace* boardSpace : boardSpaceList) {
-            auto children = boardSpace->children();
+            QList<QObject*> children = boardSpace->children();
             scene->addItem(boardSpace);
         }
     }
