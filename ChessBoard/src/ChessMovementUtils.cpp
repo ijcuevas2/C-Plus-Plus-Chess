@@ -145,7 +145,7 @@ void ChessMovementUtils::moveChessPiece() {
 }
 
 void ChessMovementUtils::handleEnPassantCapture(BoardSpace *firstBoardSpace, BoardSpace *secondBoardSpace) {
-    int targetPiqitem qteceX = secondBoardSpace->getXIndex();
+    int targetPieceX = secondBoardSpace->getXIndex();
     int targetPieceY = firstBoardSpace->getYIndex();
     int enPassantTurn = ChessMovementUtils::getMovedTwoSpacesTurn(targetPieceX, targetPieceY) + 1;
     if (enPassantTurn == ChessMovementUtils::getCurrentTurn()) {
