@@ -3,8 +3,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
 #include <QGraphicsView>
-#include "ChessBoard/headers/Game.h"
-#include "ChessBoard/views/ChessView.h"
+#include "ChessBoard/views/MainChessView/ChessView.h"
 
 
 int main(int argc, char *argv[]) {

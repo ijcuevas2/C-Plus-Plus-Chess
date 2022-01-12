@@ -11,8 +11,8 @@ bool King::canMove(Coordinates coordinates) {
         return false;
     }
 
-    int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.destX);
-    int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.destY);
+    int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.targetX);
+    int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.targetY);
     int maxDistance = std::max(xAbsDistance, yAbsDistance);
     bool canCastle = false;
 

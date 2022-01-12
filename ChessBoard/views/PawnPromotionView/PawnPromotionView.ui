@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <author/>
+    <comment/>
+    <exportmacro/>
+    <class>PawnPromotionView</class>
+    <widget class="QDialog" name="PawnPromotionView">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>400</width>
+                <height>300</height>
+            </rect>
+        </property>
+        <property name="windowTitle">
+            <string>Pawn Promotion</string>
+        </property>
+        <widget class="QWidget" name="verticalLayoutWidget">
+            <property name="geometry">
+                <rect>
+                    <x>30</x>
+                    <y>40</y>
+                    <width>341</width>
+                    <height>211</height>
+                </rect>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                    <widget class="QPushButton" name="Queen">
+                        <property name="text">
+                            <string>Queen</string>
+                        </property>
+                    </widget>
+                </item>
+                <item>
+                    <widget class="QPushButton" name="Rook">
+                        <property name="text">
+                            <string>Rook</string>
+                        </property>
+                    </widget>
+                </item>
+                <item>
+                    <widget class="QPushButton" name="Bishop">
+                        <property name="text">
+                            <string>Bishop</string>
+                        </property>
+                    </widget>
+                </item>
+                <item>
+                    <widget class="QPushButton" name="Knight">
+                        <property name="text">
+                            <string>Knight</string>
+                        </property>
+                    </widget>
+                </item>
+            </layout>
+        </widget>
+        <widget class="QLabel" name="label">
+            <property name="geometry">
+                <rect>
+                    <x>30</x>
+                    <y>10</y>
+                    <width>341</width>
+                    <height>21</height>
+                </rect>
+            </property>
+            <property name="text">
+                <string>Promote pawn to:</string>
+            </property>
+        </widget>
+    </widget>
+    <pixmapfunction/>
+    <connections/>
+</ui>

@@ -52,12 +52,12 @@ void ChessPiece::stepTowardSourceSpace(int & xDistance, int & yDistance) {
 
 bool ChessPiece::isPieceBlockingPath(Coordinates coordinates) {
     if (pieceType != PieceType::KNIGHT) {
-        int xDistance = actualDistance(coordinates.sourceX, coordinates.destX);
-        int yDistance = actualDistance(coordinates.sourceY, coordinates.destY);
+        int xDistance = actualDistance(coordinates.sourceX, coordinates.targetX);
+        int yDistance = actualDistance(coordinates.sourceY, coordinates.targetY);
         stepTowardSourceSpace(xDistance, yDistance);
         while (xDistance != 0 || yDistance != 0) {
-            int xStepIndex = coordinates.destX + xDistance;
-            int yStepIndex = coordinates.destY + yDistance;
+            int xStepIndex = coordinates.targetX + xDistance;
+            int yStepIndex = coordinates.targetY + yDistance;
             bool isBoardIndexOccupiedValue = ChessMovementUtils::isBoardIndexOccupied(xStepIndex, yStepIndex);
             if (isBoardIndexOccupiedValue) {
                 return true;
@@ -79,11 +79,11 @@ bool ChessPiece::canMove(Coordinates coordinates) {
         return false;
     }
 
-    if (coordinates.destX < 0 || coordinates.destX > 7) {
+    if (coordinates.targetX < 0 || coordinates.targetX > 7) {
         return false;
     }
 
-    if (coordinates.destY < 0 || coordinates.destY > 7) {
+    if (coordinates.targetY < 0 || coordinates.targetY > 7) {
         return false;
     }
 

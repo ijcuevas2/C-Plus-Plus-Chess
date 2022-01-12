@@ -9,8 +9,8 @@ bool Bishop::canMove(Coordinates coordinates) {
         return false;
     }
 
-    const int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.destX);
-    const int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.destY);
+    const int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.targetX);
+    const int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.targetY);
     bool isValidPath = xAbsDistance == yAbsDistance;
     if (isValidPath) {
         bool isPieceBlockingPathValue = isPieceBlockingPath(coordinates);

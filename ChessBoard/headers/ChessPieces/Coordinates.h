@@ -9,10 +9,10 @@ class Coordinates {
 public:
     int sourceX;
     int sourceY;
-    int destX;
-    int destY;
+    int targetX;
+    int targetY;
 
-    Coordinates(int sourceX, int sourceY, int destX, int destY): sourceX(sourceX), sourceY(sourceY), destX(destX), destY(destY) {
+    Coordinates(int sourceX, int sourceY, int destX, int destY): sourceX(sourceX), sourceY(sourceY), targetX(destX), targetY(destY) {
     }
 };
 

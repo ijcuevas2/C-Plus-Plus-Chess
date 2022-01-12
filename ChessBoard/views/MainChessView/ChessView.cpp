@@ -6,8 +6,8 @@
 
 #include "ChessView.h"
 #include "ui_ChessView.h"
-#include "../headers/Game.h"
-#include "../headers/ChessMovementUtils.h"
+#include "../../headers/Game.h"
+#include "../../headers/ChessMovementUtils.h"
 #include <QFile>
 
 ChessView::ChessView(QWidget *parent) :

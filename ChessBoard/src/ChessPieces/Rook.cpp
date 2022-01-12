@@ -9,8 +9,8 @@ bool Rook::canMove(Coordinates coordinates) {
         return false;
     }
 
-    int xAbsDiff = absoluteDistance(coordinates.sourceX, coordinates.destX);
-    int yAbsDiff = absoluteDistance(coordinates.sourceY, coordinates.destY);
+    int xAbsDiff = absoluteDistance(coordinates.sourceX, coordinates.targetX);
+    int yAbsDiff = absoluteDistance(coordinates.sourceY, coordinates.targetY);
 
     bool isValidPath = (xAbsDiff != 0 && yAbsDiff == 0) || (xAbsDiff == 0 && yAbsDiff != 0);
     if (isValidPath) {

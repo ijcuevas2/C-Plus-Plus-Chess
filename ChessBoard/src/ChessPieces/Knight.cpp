@@ -9,8 +9,8 @@ bool Knight::canMove(Coordinates coordinates) {
         return false;
     }
 
-    int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.destX);
-    int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.destY);
+    int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.targetX);
+    int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.targetY);
 
     bool isValidPath = (xAbsDistance == 2 && yAbsDistance == 1) || (yAbsDistance == 2 && xAbsDistance == 1);
     return isValidPath;

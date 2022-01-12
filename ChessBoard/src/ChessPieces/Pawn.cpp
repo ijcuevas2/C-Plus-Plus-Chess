@@ -44,9 +44,9 @@ bool Pawn::canCapture(Coordinates coordinates) {
 }
 
 bool Pawn::canEnPassantCapture(Coordinates coordinates) {
-    bool isIndexOccupiedValue = ChessMovementUtils::isBoardIndexOccupied(coordinates.destX, coordinates.destY);
+    bool isIndexOccupiedValue = ChessMovementUtils::isBoardIndexOccupied(coordinates.targetX, coordinates.targetY);
     if (!isIndexOccupiedValue) {
-        int targetPieceX = coordinates.destX;
+        int targetPieceX = coordinates.targetX;
         int targetPieceY = coordinates.sourceY;
         int enPassantTurn = ChessMovementUtils::getMovedTwoSpacesTurn(targetPieceX, targetPieceY) + 1;
         bool canEnPassantCaptureResult = enPassantTurn == ChessMovementUtils::getCurrentTurn();
@@ -57,31 +57,31 @@ bool Pawn::canEnPassantCapture(Coordinates coordinates) {
 }
 
 bool Pawn::canDiagonalCapture(Coordinates coordinates) {
-    bool isIndexOccupiedResult = ChessMovementUtils::isBoardIndexOccupied(coordinates.destX, coordinates.destY);
+    bool isIndexOccupiedResult = ChessMovementUtils::isBoardIndexOccupied(coordinates.targetX, coordinates.targetY);
     return isIndexOccupiedResult;
 }
 
 bool Pawn::isDiagonalMove(Coordinates coordinates) {
-    int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.destX);
-    int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.destY);
+    int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.targetX);
+    int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.targetY);
     bool isDiagonalMoveResult = xAbsDistance == 1 && yAbsDistance == 1;
     return isDiagonalMoveResult;
 }
 
 // TODO: Check if space is not occupied
 bool Pawn::canMoveSingleSpaceForward(Coordinates coordinates) {
-    int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.destX);
-    int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.destY);
+    int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.targetX);
+    int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.targetY);
 
-    bool isTargetOccupiedValue = ChessMovementUtils::isBoardIndexOccupied(coordinates.destX, coordinates.destY);
+    bool isTargetOccupiedValue = ChessMovementUtils::isBoardIndexOccupied(coordinates.targetX, coordinates.targetY);
 
     bool canMove = xAbsDistance == 0 && yAbsDistance < 2 && !isTargetOccupiedValue;
     return canMove;
 }
 
 bool Pawn::canMoveFirstTurn(Coordinates coordinates) {
-    int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.destX);
-    int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.destY);
+    int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.targetX);
+    int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.targetY);
 
     bool canMove = xAbsDistance == 0 && yAbsDistance <= 2;
     return canMove;
@@ -92,7 +92,7 @@ void Pawn::setUsedFirstMove() {
 }
 
 void Pawn::setMovedTwoSpacesTurn(Coordinates coordinates) {
-    int absoluteDistanceValue = absoluteDistance(coordinates.sourceY, coordinates.destY);
+    int absoluteDistanceValue = absoluteDistance(coordinates.sourceY, coordinates.targetY);
     bool movedTwoSpacesResult = absoluteDistanceValue == 2;
     if (movedTwoSpacesResult) {
         this->movedTwoSpacesTurn = ChessMovementUtils::getCurrentTurn();
@@ -104,7 +104,7 @@ int Pawn::getMovedTwoSpacesTurn() {
 }
 
 bool Pawn::isCorrectDirection(Coordinates coordinates) {
-    int yDistance = coordinates.destY - coordinates.sourceY;
+    int yDistance = coordinates.targetY - coordinates.sourceY;
     if (playerId == PlayerID::PLAYER_LIGHT) {
         return yDistance < 0;
     } else if (playerId == PlayerID::PLAYER_DARK) {
@@ -119,4 +119,6 @@ void Pawn::afterPieceMoved(Coordinates coordinates) {
         setUsedFirstMove();
         setMovedTwoSpacesTurn(coordinates);
     }
+
+    ChessMovementUtils::handlePawnPromotion(coordinates);
 }
