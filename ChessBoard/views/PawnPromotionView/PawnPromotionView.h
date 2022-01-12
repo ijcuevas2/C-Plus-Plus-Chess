@@ -17,9 +17,9 @@ Q_OBJECT
 
 public:
     explicit PawnPromotionView(QWidget *parent = nullptr);
-    void setupListeners();
     ~PawnPromotionView() override;
-
+    void mousePressEvent(QMouseEvent* event);
+    void closeEvent(QCloseEvent* e);
 private:
     Ui::PawnPromotionView *ui;
 };
