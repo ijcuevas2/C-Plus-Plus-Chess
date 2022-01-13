@@ -12,7 +12,14 @@ public:
     int targetX;
     int targetY;
 
-    Coordinates(int sourceX, int sourceY, int destX, int destY): sourceX(sourceX), sourceY(sourceY), targetX(destX), targetY(destY) {
+    Coordinates(int sourceX, int sourceY, int targetX, int targetY): sourceX(sourceX), sourceY(sourceY), targetX(targetX), targetY(targetY) {
+    }
+
+    Coordinates(const Coordinates & coordinates) {
+        sourceX = coordinates.sourceX;
+        sourceY = coordinates.sourceY;
+        targetX = coordinates.targetX;
+        targetY = coordinates.targetY;
     }
 };
 

@@ -34,6 +34,7 @@ private:
     static const int lastIndex = 7;
     static const int boardSize = 8;
 public:
+    // TODO: Consider refactoring the Set and Get APIs
     static void setChessPieceAtIndex(ChessPiece* chessPiece, int targetX, int targetY);
     static ChessPiece* getChessPieceAtIndex(int xIndex, int yIndex);
     static BoardSpace* getBoardSpaceAtIndex(int xIndex, int yIndex);

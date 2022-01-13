@@ -107,6 +107,7 @@ bool Game::isValidEncoding(std::vector<std::vector<std::string>> chessBoard) {
 
 PlayerID Game::parsePlayerId(std::string pieceEncoding) {
     // TODO: IMPLEMENT TRY CATCH
+    // TODO: CONSIDER BUGS WITH TYPE COERCION
     const char firstChar = pieceEncoding[0];
     switch (firstChar) {
         case 'D':

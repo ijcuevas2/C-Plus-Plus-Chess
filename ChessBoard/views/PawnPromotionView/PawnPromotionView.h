@@ -6,7 +6,13 @@
 #define CHESS_PAWNPROMOTIONVIEW_H
 
 #include <QDialog>
-
+#include "../../headers/ChessPieces/Coordinates.h"
+#include "../../headers/ChessPieces/ChessPiece.h"
+#include "../../headers/ChessMovementUtils.h"
+#include "../../headers/ChessPieces/Queen.h"
+#include "../../headers/ChessPieces/Rook.h"
+#include "../../headers/ChessPieces/Bishop.h"
+#include "../../headers/ChessPieces/Knight.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class PawnPromotionView; }
@@ -16,12 +22,21 @@ class PawnPromotionView : public QDialog {
 Q_OBJECT
 
 public:
-    explicit PawnPromotionView(QWidget *parent = nullptr);
+    explicit PawnPromotionView(QWidget *parent = nullptr, Coordinates coordinates = Coordinates(0, 0, 0, 0));
     ~PawnPromotionView() override;
-    void mousePressEvent(QMouseEvent* event);
     void closeEvent(QCloseEvent* e);
+public slots:
+    void ButtonOnClick();
+    void promotePawn(ChessPiece* chessPiecePtr);
+    PlayerID getPawnPlayerId();
+    ChessPiece* QueenOnClick(PlayerID playerId);
+    ChessPiece* RookOnClick(PlayerID playerId);
+    ChessPiece* BishopOnClick(PlayerID playerId);
+    ChessPiece* KnightOnClick(PlayerID playerId);
+
 private:
     Ui::PawnPromotionView *ui;
+    Coordinates coordinates;
 };
 
 

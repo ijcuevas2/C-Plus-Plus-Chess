@@ -158,7 +158,7 @@ void ChessMovementUtils::handlePawnPromotion(Coordinates coordinates) {
     ChessPiece* chessPiece = getChessPieceAtIndex(coordinates.targetX, coordinates.targetY);
     bool isEligibleForPromotion = isPawnEligibleForPromotion(chessPiece, coordinates);
     if (isEligibleForPromotion) {
-        PawnPromotionView* pawnPromotionView = new PawnPromotionView();
+        PawnPromotionView* pawnPromotionView = new PawnPromotionView(nullptr, coordinates=coordinates);
         pawnPromotionView->show();
     }
 }

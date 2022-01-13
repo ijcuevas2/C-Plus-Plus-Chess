@@ -71,5 +71,70 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>QueenButton</sender>
+   <signal>pressed()</signal>
+   <receiver>PawnPromotionView</receiver>
+   <slot>ButtonOnClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>71</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>RookButton</sender>
+   <signal>pressed()</signal>
+   <receiver>PawnPromotionView</receiver>
+   <slot>ButtonOnClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>120</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BishopButton</sender>
+   <signal>pressed()</signal>
+   <receiver>PawnPromotionView</receiver>
+   <slot>ButtonOnClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>KnightButton</sender>
+   <signal>pressed()</signal>
+   <receiver>PawnPromotionView</receiver>
+   <slot>ButtonOnClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>218</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
