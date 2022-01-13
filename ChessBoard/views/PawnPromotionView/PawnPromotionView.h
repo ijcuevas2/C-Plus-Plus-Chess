@@ -6,7 +6,7 @@
 #define CHESS_PAWNPROMOTIONVIEW_H
 
 #include <QDialog>
-#include "../../headers/ChessPieces/Coordinates.h"
+#include "../../headers/Coordinates.h"
 #include "../../headers/ChessPieces/ChessPiece.h"
 #include "../../headers/ChessMovementUtils.h"
 #include "../../headers/ChessPieces/Queen.h"
@@ -26,6 +26,7 @@ public:
     ~PawnPromotionView() override;
     void closeEvent(QCloseEvent* e);
 public slots:
+    // TODO: Check why a double click is required for moving the pawn
     void ButtonOnClick();
     void promotePawn(ChessPiece* chessPiecePtr);
     PlayerID getPawnPlayerId();

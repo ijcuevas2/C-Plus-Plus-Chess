@@ -1,5 +1,5 @@
 //
-// Created by ismael on 1/8/22.
+// Created by ismael on 1/13/22.
 //
 
 #include "../headers/Coordinates.h"
@@ -13,9 +13,9 @@ int Coordinates::absoluteDistance(int source, int dest) {
 }
 
 int Coordinates::xAbsoluteDistance() {
-    return absoluteDistance(sourceX, destX);
+    return absoluteDistance(sourceX, targetX);
 }
 
 int Coordinates::yAbsoluteDistance() {
-    return absoluteDistance(sourceY, destY);
+    return absoluteDistance(sourceY, targetY);
 }

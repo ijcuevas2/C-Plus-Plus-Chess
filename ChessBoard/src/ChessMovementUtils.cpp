@@ -159,14 +159,14 @@ void ChessMovementUtils::handleCastling(Coordinates coordinates) {
         BoardSpace* targetBoardSpace = NULL;
         int yIndex = coordinates.sourceY;
 
-        if (coordinates.destX == FIRST_INDEX + 2) {
-            rookBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(FIRST_INDEX, yIndex);
-            targetBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(FIRST_INDEX + 3, yIndex);
+        if (coordinates.targetX == getFirstIndex() + 2) {
+            rookBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(getFirstIndex(), yIndex);
+            targetBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(getFirstIndex() + 3, yIndex);
         }
 
-        if (coordinates.destX == LAST_INDEX - 1) {
-            rookBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(LAST_INDEX, yIndex);
-            targetBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(LAST_INDEX - 2, yIndex);
+        if (coordinates.targetY == getLastIndex() - 1) {
+            rookBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(getLastIndex(), yIndex);
+            targetBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(getLastIndex() - 2, yIndex);
         }
 
         if (rookBoardSpace != NULL && targetBoardSpace != NULL) {
