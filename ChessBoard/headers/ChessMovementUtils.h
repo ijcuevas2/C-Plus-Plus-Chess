@@ -29,6 +29,7 @@ private:
     static void moveChessPiece();
     static const bool canMove(BoardSpace* firstBoardSpace, BoardSpace* secondBoardSpace);
 
+    static void handleCastling(Coordinates coordinates);
     static void handleEnPassantCapture(BoardSpace* firstBoardSpace, BoardSpace* secondBoardSpace);
     static const int firstIndex = 0;
     static const int lastIndex = 7;
@@ -47,7 +48,9 @@ public:
     static bool isBoardIndexOccupied(int targetX, int targetY);
     static int getCurrentTurn();
     static int getMovedTwoSpacesTurn(int targetX, int targetY);
+
     static void clearBoardSpaceList();
+
     static PlayerID getCurrentTurnPlayerId();
     static void afterPawnMoved();
     static void handlePawnPromotion(Coordinates coordinates);
