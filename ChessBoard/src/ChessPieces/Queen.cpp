@@ -21,14 +21,14 @@ bool Queen::canMove(Coordinates coordinates) {
 }
 
 bool Queen::canMoveDiagonal(Coordinates coordinates) {
-    const int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.destX);
-    const int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.destY);
+    const int xAbsDistance = absoluteDistance(coordinates.sourceX, coordinates.targetX);
+    const int yAbsDistance = absoluteDistance(coordinates.sourceY, coordinates.targetY);
     return xAbsDistance == yAbsDistance;
 }
 
 bool Queen::canMoveHorizontal(Coordinates coordinates) {
-    int xAbsDiff = absoluteDistance(coordinates.sourceX, coordinates.destX);
-    int yAbsDiff = absoluteDistance(coordinates.sourceY, coordinates.destY);
+    int xAbsDiff = absoluteDistance(coordinates.sourceX, coordinates.targetX);
+    int yAbsDiff = absoluteDistance(coordinates.sourceY, coordinates.targetY);
 
     bool canMove = (xAbsDiff != 0 && yAbsDiff == 0) or (xAbsDiff == 0 && yAbsDiff != 0);
     return canMove;

@@ -16,7 +16,7 @@ class Game {
 private:
     std::vector<std::vector<BoardSpace*>> board;
 public:
-    // TODO: MAKE THESE FIELDS PRIVATE
+    // TODO: MAKE THESE FIELDS PRIVATE or REFACTOR THEM
     const int firstIndex = 0;
     const int lastIndex = 7;
     const int boardSize = 8;

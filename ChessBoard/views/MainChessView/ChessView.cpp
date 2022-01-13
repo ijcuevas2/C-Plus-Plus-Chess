@@ -6,8 +6,8 @@
 
 #include "ChessView.h"
 #include "ui_ChessView.h"
-#include "../headers/Game.h"
-#include "../headers/ChessMovementUtils.h"
+#include "../../headers/Game.h"
+#include "../../headers/ChessMovementUtils.h"
 #include <QFile>
 
 ChessView::ChessView(QWidget *parent) :
@@ -25,7 +25,7 @@ void ChessView::setupScene() {
 
     for (std::vector<BoardSpace*> boardSpaceList : board) {
         for (BoardSpace* boardSpace : boardSpaceList) {
-            auto children = boardSpace->children();
+            QList<QObject*> children = boardSpace->children();
             scene->addItem(boardSpace);
         }
     }

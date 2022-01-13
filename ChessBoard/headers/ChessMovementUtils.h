@@ -9,7 +9,10 @@
 #include "BoardSpace.h"
 #include "./ChessPieces/EmptyPiece.h"
 #include "Game.h"
+#include "ChessPieces/Pawn.h"
 #include <QLabel>
+#include <QGraphicsView>
+#include "../views/PawnPromotionView/PawnPromotionView.h"
 
 // TODO: Check if name could be changed
 class ChessMovementUtils {
@@ -28,9 +31,11 @@ private:
 
     static void handleCastling(Coordinates coordinates);
     static void handleEnPassantCapture(BoardSpace* firstBoardSpace, BoardSpace* secondBoardSpace);
+    static const int firstIndex = 0;
+    static const int lastIndex = 7;
+    static const int boardSize = 8;
 public:
-    static const int FIRST_INDEX = 0;
-    static const int LAST_INDEX = 7;
+    // TODO: Consider refactoring the Set and Get APIs
     static void setChessPieceAtIndex(ChessPiece* chessPiece, int targetX, int targetY);
     static ChessPiece* getChessPieceAtIndex(int xIndex, int yIndex);
     static BoardSpace* getBoardSpaceAtIndex(int xIndex, int yIndex);
@@ -38,7 +43,6 @@ public:
     static void showHints(BoardSpace* boardSpace);
     static void hideHints();
     static void addBoardSpace(BoardSpace* boardSpace);
-    static void swapChessPieces(BoardSpace* sourceBoardSpace, BoardSpace* targetBoardSpace);
     static void setLabelPtr(QLabel* qLabel);
     static void setGamePtr(Game* gamePtr);
     static bool isBoardIndexOccupied(int targetX, int targetY);
@@ -48,6 +52,12 @@ public:
     static void clearBoardSpaceList();
 
     static PlayerID getCurrentTurnPlayerId();
+    static void afterPawnMoved();
+    static void handlePawnPromotion(Coordinates coordinates);
+    static bool isPawnEligibleForPromotion(ChessPiece *chessPiece, Coordinates coordinates);
+    static int getFirstIndex();
+    static int getLastIndex();
+    static int getBoardSize();
 };
 
 

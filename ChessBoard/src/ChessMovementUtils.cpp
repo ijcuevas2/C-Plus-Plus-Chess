@@ -3,8 +3,6 @@
 //
 
 #include "../headers/ChessMovementUtils.h"
-#include "../headers/ChessPieces/Pawn.h"
-#include <QGraphicsView>
 
 void ChessMovementUtils::addBoardSpace(BoardSpace *boardSpace) {
     if (boardSpaceList.empty()
@@ -86,7 +84,7 @@ void ChessMovementUtils::setBoardSpaceBackground(BoardSpace *boardSpace) {
 
 bool ChessMovementUtils::haveSamePlayerId(Coordinates coordinates) {
     BoardSpace* firstBoardSpace = getBoardSpaceAtIndex(coordinates.sourceX, coordinates.sourceY);
-    BoardSpace* secondBoardSpace = getBoardSpaceAtIndex(coordinates.destX, coordinates.destY);
+    BoardSpace* secondBoardSpace = getBoardSpaceAtIndex(coordinates.targetX, coordinates.targetY);
 
     if (firstBoardSpace == NULL || secondBoardSpace == NULL) {
         return false;
@@ -161,14 +159,14 @@ void ChessMovementUtils::handleCastling(Coordinates coordinates) {
         BoardSpace* targetBoardSpace = NULL;
         int yIndex = coordinates.sourceY;
 
-        if (coordinates.destX == FIRST_INDEX + 2) {
-            rookBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(FIRST_INDEX, yIndex);
-            targetBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(FIRST_INDEX + 3, yIndex);
+        if (coordinates.targetX == getFirstIndex() + 2) {
+            rookBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(getFirstIndex(), yIndex);
+            targetBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(getFirstIndex() + 3, yIndex);
         }
 
-        if (coordinates.destX == LAST_INDEX - 1) {
-            rookBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(LAST_INDEX, yIndex);
-            targetBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(LAST_INDEX - 2, yIndex);
+        if (coordinates.targetY == getLastIndex() - 1) {
+            rookBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(getLastIndex(), yIndex);
+            targetBoardSpace = ChessMovementUtils::getBoardSpaceAtIndex(getLastIndex() - 2, yIndex);
         }
 
         if (rookBoardSpace != NULL && targetBoardSpace != NULL) {
@@ -192,6 +190,35 @@ void ChessMovementUtils::handleEnPassantCapture(BoardSpace *firstBoardSpace, Boa
         EmptyPiece *targetEmptyPiece = new EmptyPiece();
         setChessPieceAtIndex(targetEmptyPiece, targetPieceX, targetPieceY);
     }
+}
+
+void ChessMovementUtils::handlePawnPromotion(Coordinates coordinates) {
+    ChessPiece* chessPiece = getChessPieceAtIndex(coordinates.targetX, coordinates.targetY);
+    bool isEligibleForPromotion = isPawnEligibleForPromotion(chessPiece, coordinates);
+    if (isEligibleForPromotion) {
+        PawnPromotionView* pawnPromotionView = new PawnPromotionView(nullptr, coordinates=coordinates);
+        pawnPromotionView->show();
+    }
+}
+
+bool ChessMovementUtils::isPawnEligibleForPromotion(ChessPiece *chessPiece, Coordinates coordinates) {
+    bool isEligibleForPromotion =  (chessPiece->getPlayerId() == PlayerID::PLAYER_LIGHT
+                                   && coordinates.targetY == getFirstIndex())
+                                   || (chessPiece->getPlayerId() == PlayerID::PLAYER_DARK
+                                   && coordinates.targetY == getLastIndex());
+    return isEligibleForPromotion;
+}
+
+int ChessMovementUtils::getFirstIndex() {
+    return firstIndex;
+}
+
+int ChessMovementUtils::getLastIndex() {
+    return lastIndex;
+}
+
+int ChessMovementUtils::getBoardSize() {
+    return boardSize;
 }
 
 void ChessMovementUtils::clearBoardSpaceList() {
@@ -306,12 +333,14 @@ int ChessMovementUtils::getCurrentTurn() {
 }
 
 PlayerID ChessMovementUtils::getCurrentTurnPlayerId() {
-    std::map<PlayerID, int> playerIdMap = {{PlayerID::PLAYER_LIGHT, 0},
-                                           {PlayerID::PLAYER_DARK,  1}};
     if (getCurrentTurn() % 2 == 0) {
         return PlayerID::PLAYER_DARK;
     } else {
         return PlayerID::PLAYER_LIGHT;
     }
+}
+
+void ChessMovementUtils::afterPawnMoved() {
+
 }
 
