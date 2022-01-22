@@ -4,13 +4,13 @@
 
 This project implements the standard variant of Chess, and allows for local 2-player games.
 
-## Technologies Used
+### Technologies Used
 * Qt
 * Qt Designer
 * CLion
 * C++
 
-## Current State of the Project
+### Current State of the Project
 
 TODOs: 
 * Check / Checkmate
