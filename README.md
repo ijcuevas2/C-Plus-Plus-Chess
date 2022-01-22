@@ -1,4 +1,4 @@
-# Chess in C++ (In Progress)
+# Chess in C++ 
 
 ## Purpose
 
