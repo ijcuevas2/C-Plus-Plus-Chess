@@ -11,6 +11,7 @@
 class King : public virtual ChessPiece {
 private:
     bool hasMoved;
+    bool isInCheck;
 public:
     King(PlayerID playerId, QGraphicsItem *parent = nullptr)
             : ChessPiece(playerId, PieceType::KING) {
@@ -18,6 +19,7 @@ public:
 
     bool canMove(Coordinates coordinates);
     bool HasMoved() const;
+    bool IsInCheck() const;
     void afterPieceMoved(Coordinates coordinates) override;
     std::vector<Rook*> rooksEligibleForCastling();
     void addRookEligibleForCastling(std::vector<Rook*> & rookPtrList, int xIndex, int yIndex);
