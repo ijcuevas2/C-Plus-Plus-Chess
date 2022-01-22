@@ -1,6 +1,6 @@
 # Chess in C++ 
 
-## Purpose
+### Purpose
 
 This project implements the standard variant of Chess, and allows for local 2-player games.
 
