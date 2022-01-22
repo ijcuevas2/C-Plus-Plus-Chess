@@ -17,3 +17,4 @@ TODOs:
 * Stalemate
 * Undo
 * Memory Management
+* Code Quality Refactoring

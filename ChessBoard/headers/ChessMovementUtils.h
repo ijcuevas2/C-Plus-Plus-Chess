@@ -13,6 +13,7 @@
 #include <QLabel>
 #include <QGraphicsView>
 #include "../views/PawnPromotionView/PawnPromotionView.h"
+#include "../views/MainChessView/ChessView.h"
 
 // TODO: Check if name could be changed
 class ChessMovementUtils {
@@ -21,6 +22,7 @@ private:
     inline static std::vector<BoardSpace*> boardSpaceList;
     inline static QLabel* turnLabelPtr;
     inline static Game* gamePtr;
+    inline static ChessView* chessViewPtr;
     static void setBoardSpaceBackground(BoardSpace* boardSpace);
     static void incrementTurn();
 
@@ -45,6 +47,8 @@ public:
     static void addBoardSpace(BoardSpace* boardSpace);
     static void setLabelPtr(QLabel* qLabel);
     static void setGamePtr(Game* gamePtr);
+    static void setChessViewPtr(ChessView* chessViewPtr);
+    static ChessView* getChessViewPtr();
     static bool isBoardIndexOccupied(int targetX, int targetY);
     static int getCurrentTurn();
     static int getMovedTwoSpacesTurn(int targetX, int targetY);
