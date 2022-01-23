@@ -17,3 +17,4 @@ TODOs:
 * Stalemate
 * Undo
 * Tests for Memory Management
+* Remove Roll Up Window Behavior
