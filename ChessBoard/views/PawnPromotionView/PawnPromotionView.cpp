@@ -11,7 +11,7 @@ PawnPromotionView::PawnPromotionView(QWidget *parent, Coordinates coordinates) :
         QDialog(parent), ui(new Ui::PawnPromotionView), coordinates(coordinates) {
     ui->setupUi(this);
     // TODO: INVESTIGATE SETTING THE PROPER ACTION BUTTONS
-    this->setWindowFlags(Qt::Dialog );
+    this->setWindowFlags(Qt::Dialog);
 }
 
 void PawnPromotionView::closeEvent(QCloseEvent *e) {
