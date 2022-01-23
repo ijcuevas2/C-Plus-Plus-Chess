@@ -198,7 +198,8 @@ void ChessMovementUtils::handlePawnPromotion(Coordinates coordinates) {
     ChessPiece* chessPiece = getChessPieceAtIndex(coordinates.targetX, coordinates.targetY);
     bool isEligibleForPromotion = isPawnEligibleForPromotion(chessPiece, coordinates);
     if (isEligibleForPromotion) {
-        PawnPromotionView* pawnPromotionView = new PawnPromotionView(nullptr, coordinates=coordinates);
+        ChessView* chessViewPtr = ChessMovementUtils::getChessViewPtr();
+        PawnPromotionView* pawnPromotionView = new PawnPromotionView(chessViewPtr, coordinates=coordinates);
         pawnPromotionView->show();
     }
 }
@@ -289,6 +290,14 @@ void ChessMovementUtils::setLabelPtr(QLabel *qLabel) {
 
 void ChessMovementUtils::setGamePtr(Game *game) {
     gamePtr = game;
+}
+
+void ChessMovementUtils::setChessViewPtr(ChessView* chessView) {
+    chessViewPtr = chessView;
+}
+
+ChessView* ChessMovementUtils::getChessViewPtr() {
+    return chessViewPtr;
 }
 
 bool ChessMovementUtils::isBoardIndexOccupied(int targetX, int targetY) {

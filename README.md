@@ -16,4 +16,7 @@ TODOs:
 * Check / Checkmate
 * Stalemate
 * Undo
-* Tests for Memory Management
+* Memory Management
+* Code Quality Refactoring
+* Remove Window Rolling
+* Fix Window Focus after Pawn Promotion
