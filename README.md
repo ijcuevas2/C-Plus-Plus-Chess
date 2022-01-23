@@ -18,3 +18,5 @@ TODOs:
 * Undo
 * Memory Management
 * Code Quality Refactoring
+* Remove Window Rolling
+* Fix Window Focus after Pawn Promotion
