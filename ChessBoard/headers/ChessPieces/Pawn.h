@@ -24,7 +24,7 @@ public:
     bool canDiagonalCapture(Coordinates coordinates);
     bool canMoveSingleSpaceForward(Coordinates coordinates);
     bool isDiagonalMove(Coordinates coordinates);
-    bool canCapture(Coordinates coordinates);
+    bool canCapture(Coordinates coordinates) override;
     bool canEnPassantCapture(Coordinates coordinates);
     void setUsedFirstMove();
     void setMovedTwoSpacesTurn(Coordinates coordinates);
