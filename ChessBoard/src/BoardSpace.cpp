@@ -87,11 +87,22 @@ void BoardSpace::setChessPiece(ChessPiece *chessPiece) {
 
 bool BoardSpace::canMovePieceToIndex(int destX, int destY) {
     Coordinates coordinates(xIndex, yIndex, destX, destY);
-    bool haveSamePlayerIdValue = ChessMovementUtils::haveSamePlayerId(coordinates);
-    if (haveSamePlayerIdValue) {
+    bool hasSamePlayerIdValue = ChessMovementUtils::hasSamePlayerId(coordinates);
+    if (hasSamePlayerIdValue) {
         return false;
     }
 
     bool canMoveValue = chessPiece->canMove(coordinates);
     return canMoveValue;
+}
+
+bool BoardSpace::canCapturePieceAtIndex(int destX, int destY) {
+    Coordinates coordinates(xIndex, yIndex, destX, destY);
+    bool hasSamePlayerIdValue = ChessMovementUtils::hasSamePlayerId(coordinates);
+    if (hasSamePlayerIdValue) {
+        return false;
+    }
+
+    bool canCaptureValue = chessPiece->canCapture(coordinates);
+    return canCaptureValue;
 }

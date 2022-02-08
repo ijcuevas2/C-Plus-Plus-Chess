@@ -202,23 +202,26 @@ void Game::parseChessBoard(std::vector<std::vector<std::string>> chessBoard) {
 }
 
 
+// TODO: CONSIDER CASES WHERE PIECES ARE NOT IN THEIR DEFAULT POSITION
+// TODO: IMPLEMENT FEN NOTATION TO SAVE THE STATE OF THE BOARD
+// TODO: EVALUATE WHETHER KING IS IN CHECK
 void Game::initializeBoard() {
-//    std::vector<std::vector<std::string>> chessBoard = {{"DR", "DN", "DB", "DQ", "DK", "DB", "DN", "DR"},
-//                                                        {"DP", "DP", "DP", "DP", "DP", "DP", "DP", "DP"},
-//                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
-//                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
-//                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
-//                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
-//                                                        {"LP", "LP", "LP", "LP", "LP", "LP", "LP", "LP"},
-//                                                        {"LR", "LN", "LB", "LQ", "LK", "LB", "LN", "LR"}};
-    std::vector<std::vector<std::string>> chessBoard = {{"EE", "DN", "DB", "DQ", "DK", "DB", "DN", "DR"},
-                                                        {"LP", "DP", "DP", "DP", "DP", "DP", "DP", "DP"},
+    std::vector<std::vector<std::string>> chessBoard = {{"DR", "DN", "DB", "DQ", "DK", "DB", "DN", "DR"},
+                                                        {"DP", "DP", "DP", "DP", "DP", "DP", "DP", "DP"},
                                                         {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
                                                         {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
                                                         {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
                                                         {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
-                                                        {"DP", "LP", "LP", "LP", "LP", "LP", "LP", "LP"},
-                                                        {"EE", "EE", "EE", "EE", "LK", "EE", "EE", "LR"}};
+                                                        {"LP", "LP", "LP", "LP", "LP", "LP", "LP", "LP"},
+                                                        {"LR", "LN", "LB", "LQ", "LK", "LB", "LN", "LR"}};
+//    std::vector<std::vector<std::string>> chessBoard = {{"EE", "DN", "DB", "DQ", "DK", "DB", "DN", "DR"},
+//                                                        {"LP", "DP", "DP", "DP", "DP", "DP", "DP", "DP"},
+//                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
+//                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
+//                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
+//                                                        {"EE", "EE", "EE", "EE", "EE", "EE", "EE", "EE"},
+//                                                        {"DP", "LP", "LP", "LP", "LP", "LP", "LP", "LP"},
+//                                                        {"EE", "EE", "EE", "EE", "LK", "EE", "EE", "LR"}};
     this->parseChessBoard(chessBoard);
     chessBoard.clear();
 }

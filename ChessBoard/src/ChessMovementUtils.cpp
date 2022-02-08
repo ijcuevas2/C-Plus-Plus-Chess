@@ -52,6 +52,7 @@ void ChessMovementUtils::showHints(BoardSpace *boardSpace) {
     }
 }
 
+
 void ChessMovementUtils::hideHints() {
     int boardSize = gamePtr->getBoardSize();
     for (int y = 0; y < boardSize; y++) {
@@ -60,6 +61,69 @@ void ChessMovementUtils::hideHints() {
             boardSpace->hideHint();
         }
     }
+}
+
+std::vector<ChessPiece*> ChessMovementUtils::canCaptureList(BoardSpace* boardSpace) {
+    std::vector<ChessPiece*> captureList;
+    if (boardSpace != NULL) {
+        int boardSize = gamePtr->getBoardSize();
+        for (int y = 0; y < boardSize; y++) {
+            for (int x = 0; x < boardSize; x++) {
+                bool canCaptureAtIndex = boardSpace->canCapturePieceAtIndex(x, y);
+                if (canCaptureAtIndex) {
+                    ChessPiece* targetChessPiece = getChessPieceAtIndex(x, y);
+                    if (targetChessPiece->getPieceType() != PieceType::EMPTY_PIECE) {
+                        captureList.push_back(targetChessPiece);
+                    }
+                }
+            }
+        }
+    }
+
+    return captureList;
+}
+
+bool ChessMovementUtils::calculateIsKingInCheck() {
+
+    std::vector<ChessPiece*> captureList;
+
+    BoardSpace* boardSpace = NULL;
+
+    for (int y = 0; y < boardSize; y++) {
+        for (int x = 0; x < boardSize; x++) {
+            boardSpace = getBoardSpaceAtIndex(x, y);
+            captureList = canCaptureList(boardSpace);
+            bool containsKingValue = containsKing(captureList);
+            if (containsKingValue) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+void ChessMovementUtils::setIsKingInCheck() {
+    isKingInCheck = true;
+    setIsKingInCheckUI();
+}
+
+void ChessMovementUtils::setIsKingInCheckUI() {
+    if (isKingInCheckLabelPtr != NULL) {
+        std::string title = "The current player's King Is In Check";
+        QString qTitle = QString::fromStdString(title);
+        isKingInCheckLabelPtr->setText(qTitle);
+    }
+}
+
+bool ChessMovementUtils::containsKing(std::vector<ChessPiece*> chessPieceList) {
+    for (ChessPiece* chessPiecePtr : chessPieceList) {
+        if (chessPiecePtr->getPieceType() == PieceType::KING) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 BoardSpace* ChessMovementUtils::getBoardSpaceAtIndex(int xIndex, int yIndex) {
@@ -82,7 +146,7 @@ void ChessMovementUtils::setBoardSpaceBackground(BoardSpace *boardSpace) {
     }
 }
 
-bool ChessMovementUtils::haveSamePlayerId(Coordinates coordinates) {
+bool ChessMovementUtils::hasSamePlayerId(Coordinates coordinates) {
     BoardSpace* firstBoardSpace = getBoardSpaceAtIndex(coordinates.sourceX, coordinates.sourceY);
     BoardSpace* secondBoardSpace = getBoardSpaceAtIndex(coordinates.targetX, coordinates.targetY);
 
@@ -148,6 +212,11 @@ void ChessMovementUtils::moveChessPiece() {
 
     firstChessPiece->afterPieceMoved(coordinates);
     clearBoardSpaceList();
+    bool isKingInCheckValue = calculateIsKingInCheck();
+    if (isKingInCheckValue) {
+        setIsKingInCheck();
+    }
+
     incrementTurn();
 }
 
@@ -259,6 +328,7 @@ void ChessMovementUtils::incrementTurn() {
     }
 }
 
+
 bool ChessMovementUtils::isTurnPlayerPiece(ChessPiece *chessPiece) {
     PlayerID playerId = chessPiece->getPlayerId();
     std::map<PlayerID, int> playerIdMap = {{PlayerID::PLAYER_LIGHT, 0},
@@ -286,6 +356,10 @@ const bool ChessMovementUtils::canMove(BoardSpace *firstBoardSpace, BoardSpace *
 
 void ChessMovementUtils::setLabelPtr(QLabel *qLabel) {
     turnLabelPtr = qLabel;
+}
+
+void ChessMovementUtils::setIsKingInCheckLabelPtr(QLabel *qLabel) {
+    isKingInCheck = qLabel;
 }
 
 void ChessMovementUtils::setGamePtr(Game *game) {
@@ -351,6 +425,7 @@ PlayerID ChessMovementUtils::getCurrentTurnPlayerId() {
     }
 }
 
+// TODO: EVALUATE IF FUNCTION IS NEEDED
 void ChessMovementUtils::afterPawnMoved() {
 
 }

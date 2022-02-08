@@ -29,6 +29,10 @@ PlayerID ChessPiece::getPlayerId() {
     return playerId;
 }
 
+bool ChessPiece::canCapture(Coordinates coordinates) {
+    return this->canMove(coordinates);
+}
+
 // REFACTOR THIS FUNCTION
 int ChessPiece::stepTowardSourceSpaceHelper(int value) {
     if (value == 0) {

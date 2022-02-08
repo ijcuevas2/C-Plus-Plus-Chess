@@ -31,6 +31,7 @@ public:
     bool isPieceBlockingPath(Coordinates coordinates);
     PlayerID getPlayerId();
     PieceType getPieceType();
+    virtual bool canCapture(Coordinates coordinates);
     virtual bool canMove(Coordinates coordinates) = 0;
     virtual void afterPieceMoved(Coordinates coordinates) = 0;
 protected:

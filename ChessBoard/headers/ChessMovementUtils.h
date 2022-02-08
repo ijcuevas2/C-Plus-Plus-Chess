@@ -21,15 +21,23 @@ private:
     inline static int currentTurn = 1;
     inline static std::vector<BoardSpace*> boardSpaceList;
     inline static QLabel* turnLabelPtr;
+    inline static QLabel* isKingInCheckLabelPtr;
     inline static Game* gamePtr;
     inline static ChessView* chessViewPtr;
+    inline static bool isKingInCheck;
     static void setBoardSpaceBackground(BoardSpace* boardSpace);
     static void incrementTurn();
 
+    // TODO: REFACTOR FUNCTIONS
     static bool isTurnPlayerPiece(ChessPiece* chessPiece);
     static void tryMovingChessPiece();
     static void moveChessPiece();
     static const bool canMove(BoardSpace* firstBoardSpace, BoardSpace* secondBoardSpace);
+    static bool calculateIsKingInCheck();
+    static void setIsKingInCheck();
+    static void setIsKingInCheckUI();
+    static bool containsKing(std::vector<ChessPiece*> chessPieceList);
+    static std::vector<ChessPiece*> canCaptureList(BoardSpace* boardSpace);
 
     static void handleCastling(Coordinates coordinates);
     static void handleEnPassantCapture(BoardSpace* firstBoardSpace, BoardSpace* secondBoardSpace);
@@ -41,11 +49,12 @@ public:
     static void setChessPieceAtIndex(ChessPiece* chessPiece, int targetX, int targetY);
     static ChessPiece* getChessPieceAtIndex(int xIndex, int yIndex);
     static BoardSpace* getBoardSpaceAtIndex(int xIndex, int yIndex);
-    static bool haveSamePlayerId(Coordinates coordinates);
+    static bool hasSamePlayerId(Coordinates coordinates);
     static void showHints(BoardSpace* boardSpace);
     static void hideHints();
     static void addBoardSpace(BoardSpace* boardSpace);
     static void setLabelPtr(QLabel* qLabel);
+    static void setIsKingInCheckLabelPtr(QLabel* qLabel);
     static void setGamePtr(Game* gamePtr);
     static void setChessViewPtr(ChessView* chessViewPtr);
     static ChessView* getChessViewPtr();

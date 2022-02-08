@@ -74,3 +74,7 @@ void King::afterPieceMoved(Coordinates coordinates) {
 bool King::HasMoved() const {
     return hasMoved;
 }
+
+bool King::IsInCheck() const {
+    return isInCheck;
+}

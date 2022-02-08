@@ -32,6 +32,7 @@ public:
     void setChessPiece(ChessPiece* chessPiece);
     void initMarker();
     bool canMovePieceToIndex(int destX, int destY);
+    bool canCapturePieceAtIndex(int destX, int destY);
     void showHint();
     void hideHint();
 

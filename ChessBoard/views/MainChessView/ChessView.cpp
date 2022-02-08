@@ -32,10 +32,16 @@ void ChessView::setupScene() {
 
     graphicsView->setScene(scene);
 
-    QLabel* qLabel = findChild<QLabel*>("turnLabel");
-    if (qLabel != NULL) {
-        ChessMovementUtils::setLabelPtr(qLabel);
-        qLabel->setText("Current Turn (Light Turn): 1");
+    QLabel* turnLabel = findChild<QLabel*>("turnLabel");
+    if (turnLabel != NULL) {
+        ChessMovementUtils::setLabelPtr(turnLabel);
+        turnLabel->setText("Current Turn (Light Turn): 1");
+    }
+
+    QLabel* kingInCheckLabel = findChild<QLabel*>("KingInCheckLabel");
+    if (kingInCheckLabel != NULL) {
+        ChessMovementUtils::setLabelPtr(kingInCheckLabel);
+        kingInCheckLabel->setText("");
     }
 
     if (game != NULL) {

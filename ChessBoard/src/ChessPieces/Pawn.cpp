@@ -43,6 +43,7 @@ bool Pawn::canCapture(Coordinates coordinates) {
     return false;
 }
 
+// TODO: Add logic for Checking Pawn for En Passant
 bool Pawn::canEnPassantCapture(Coordinates coordinates) {
     bool isIndexOccupiedValue = ChessMovementUtils::isBoardIndexOccupied(coordinates.targetX, coordinates.targetY);
     if (!isIndexOccupiedValue) {
